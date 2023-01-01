@@ -1,16 +1,23 @@
 import styled, {keyframes} from "styled-components";
+import {Mobile, Desktop, Tablet} from "@/components/MediaQuery/MediaQuery.jsx";
+
+const ResponsiveBox = () => {
+    return (
+        <Box>
+            <Front className="card">Front</Front>
+            <Back className="card">Back</Back>
+            <Left className="card">Left</Left>
+            <Right className="card">Right</Right>
+            <Top className="card">Top</Top>
+            <Bottom className="card">Bottom</Bottom>
+        </Box>
+    )
+}
 
 const Cube = () => {
     return (
         <Container>
-            <Box>
-                <Front className="card">Front</Front>
-                <Back className="card">Back</Back>
-                <Left className="card">Left</Left>
-                <Right className="card">Right</Right>
-                <Top className="card">Top</Top>
-                <Bottom className="card">Bottom</Bottom>
-            </Box>
+            <ResponsiveBox />
         </Container>
     )
 }
