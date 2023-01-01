@@ -1,11 +1,10 @@
-import { useState } from 'react'
+import Main from "@/screen/Main.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      hello world
+    <div>
+      <Main />
     </div>
   )
 }
