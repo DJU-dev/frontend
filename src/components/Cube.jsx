@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 
 const Cube = () => {
     return (
@@ -16,12 +16,29 @@ const Cube = () => {
 }
 
 const Container = styled.div`
-    height: 100vh;
     width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
     perspective: 1000px;
+`
+
+const animate = keyframes`
+    0% {
+        transform: rotateX(45deg) rotateY(-45deg);
+    }
+    25% {
+        transform: rotateX(-45deg) rotateY(-45deg);
+    }
+    50% {
+        transform: rotateX(45deg) rotateY(45deg);
+    }
+    75% {
+        transform: rotateX(-45deg) rotateY(45deg);
+    }
+    100% {
+        transform: rotateX(45deg) rotateY(-45deg);
+    }
 `
 
 const Box = styled.div`
@@ -29,7 +46,7 @@ const Box = styled.div`
     height: 16vw;
     width: 16vw;
     transform-style: preserve-3d;
-    transform: rotateY(30deg) rotateX(30deg);
+    animation: ${animate} 30s infinite;
     .card {
         height: 16vw;
         width: 16vw;
