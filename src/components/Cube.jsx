@@ -9,12 +9,24 @@ const MOBILE_CUBE_SIZE = ['40vw', '20vw']
 const ResponsiveBox = ({size}) => {
     return (
         <Box size={size[0]}>
-            <Front className="card" size={size[1]}>Front</Front>
-            <Back className="card" size={size[1]}>Back</Back>
-            <Left className="card" size={size[1]}>Left</Left>
-            <Right className="card" size={size[1]}>Right</Right>
-            <Top className="card" size={size[1]}>Top</Top>
-            <Bottom className="card" size={size[1]}>Bottom</Bottom>
+            <Front className="card" size={size[1]}>
+                <CubeImage src={"https://images.unsplash.com/photo-1672699067334-00ec47152b50?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"} />
+            </Front>
+            <Back className="card" size={size[1]}>
+                <CubeImage src={"https://images.unsplash.com/photo-1672741511537-4ccaa5096b4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1Mnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"} />
+            </Back>
+            <Left className="card" size={size[1]}>
+                <CubeImage src={"https://images.unsplash.com/photo-1672745093214-3fb65f2be5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2Mnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"} />
+            </Left>
+            <Right className="card" size={size[1]}>
+                <CubeImage src={"https://images.unsplash.com/photo-1672655134101-25d8277f7901?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2MHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"} />
+            </Right>
+            <Top className="card" size={size[1]}>
+                <CubeImage src={"https://plus.unsplash.com/premium_photo-1669658981960-ad1ef6d51571?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2N3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"} />
+            </Top>
+            <Bottom className="card" size={size[1]}>
+                <CubeImage src={"https://images.unsplash.com/photo-1672679434929-3518f74d4a6b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1N3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"} />
+            </Bottom>
         </Box>
     )
 }
@@ -41,6 +53,8 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     perspective: 1000px;
+  
+    background: black;
 `
 
 const animate = keyframes`
@@ -62,27 +76,35 @@ const animate = keyframes`
 `
 
 const Box = styled.div`
-    margin-top: 200px;
+  margin-top: 200px;
+  height: ${props => props.size || '14vw'};
+  width: ${props => props.size || '14vw'};
+  transform-style: preserve-3d;
+  animation: ${animate} 30s infinite;
+  .card {
     height: ${props => props.size || '14vw'};
     width: ${props => props.size || '14vw'};
-    transform-style: preserve-3d;
-    animation: ${animate} 30s infinite;
-    .card {
-        height: ${props => props.size || '14vw'};
-        width: ${props => props.size || '14vw'};
-        text-align: center;
-        padding: 5vw;
-        color: yellow;
-        background: black;
-        border: 2px solid yellow;
-        font-size: 32px;
-        box-sizing: border-box;
-        position: absolute;
-        transition: all 1s;
-    }
-  
+    border: 5px solid white;
+    box-sizing: border-box;
+    position: absolute;
+  }
+  .card::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(315deg, #ffbc00, #ff0058);
+    filter: blur(10px);
+    z-index: -1;
+  }
 `
 
+const CubeImage = styled.img`
+  width: 100%;
+  height: 100%;
+`
 const Front = styled.div`
     transform: translateZ(${props => props.size || '7vw'});
 `
