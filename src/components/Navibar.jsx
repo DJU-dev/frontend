@@ -56,8 +56,8 @@ function Navibar() {
             <NavLogo href=''>Squid</NavLogo>
           </NavLi>       
           <NavLi> 
-          <nav>
-            <NavTab href=''>Home</NavTab>
+          <nav>          
+            <NavTab href=''>Home</NavTab>          
             <NavLoginBox>
               <NavTab href=''>Login</NavTab>
             </NavLoginBox>            
