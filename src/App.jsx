@@ -1,10 +1,12 @@
 import Main from "@/screen/Main.jsx";
 import styled from "styled-components";
+import Navibar from "./components/Navibar.jsx";
 function App() {
 
   return (
     <Container>
-      <Main />
+      <Navibar/>
+      <Main />      
     </Container>
   )
 }
