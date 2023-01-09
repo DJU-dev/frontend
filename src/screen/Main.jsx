@@ -7,7 +7,7 @@ function Main() {
         <div>
             <Navibar />
             <Grid />
-            <Cube />
+            
         
         </div>
     )
