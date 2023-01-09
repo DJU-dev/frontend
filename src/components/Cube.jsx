@@ -27,11 +27,11 @@ const ResponsiveBox = ({size}) => {
     }, []);
 
     return (
-        <div>
+        
             <BoxContainer size={windowSize.innerWidth / size}>
                 <PackageCube size={windowSize.innerWidth / size} index="front" />
             </BoxContainer>
-        </div>
+        
     )
 }
 
@@ -52,18 +52,20 @@ const Cube = () => {
 }
 
 const Container = styled.div`
+    position: absolute;
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     perspective: 1000px;
-  
-    background: black;
 `
 
 const BoxContainer = styled.div`
+  position: relative;
   width: ${props => props.size}px;
   height: ${props => props.size}px;
   margin-top: 200px;
+  z-index: 3;  
 `
+
 export default Cube;

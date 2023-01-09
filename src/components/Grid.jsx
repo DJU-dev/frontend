@@ -2,11 +2,11 @@ import styled, {keyframes} from 'styled-components';
 
 const animate = keyframes`    
     0%{
-        transform: translateY(-100%);
+        transform: translateY(-100%) translateX(-150%);
     }
     100%{
-        transform: translateY(100%);
-    }    
+        transform: translateY(100%) translateX(100%); 
+    }            
 `;
 
 const GridBox = styled.section`
@@ -19,32 +19,34 @@ const GridBox = styled.section`
   gap: 2px;
   flex-wrap: wrap;
   overflow: hidden;
-
   
     &::before{
-            content:'';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(#FF9898,#8054FF);
-            animation: ${animate} 6s linear infinite;
+        position: absolute;
+        content:'';
+        width: 70%;
+        height: 70%;
+        background: linear-gradient(#FF9898,#8054FF);
+        filter: blur(1000px);
+        animation: ${animate} 8s linear infinite;
+        z-index: -2;
     }
-    
-    
   
-    &>span {
-        &:hover {
-            background: #FF9898;
-            transition: 0s;
-        }
-        
-
-        position: relative;    
+    &>span {          
         width: 2rem;
         height: 2rem;
         background: #181818;
-        z-index: 1;
         transition: 1.5s;
+        z-index: 0;
+        
+
+        
+        /*  큐브 객체 우선순위 문제로 삭제...
+        &:hover {            
+            background: #FF9898;
+            filter: blur(3px);
+            transition: 0s;
+        }
+        */
 
         /* 화면 비율별 사각형 크기 */
         @media screen and (min-width:900px){                        
@@ -108,9 +110,9 @@ const infinity_span = () =>{
 
 function Grid(){
     return (        
-            <GridBox>               
-            {infinity_span()}
-            </GridBox>        
+        <GridBox>               
+        {infinity_span()}
+        </GridBox>        
     )
 }
 

@@ -6,9 +6,8 @@ function Main() {
     return (
         <div>
             <Navibar />
-            <Grid />
-            
-        
+            <Grid /> 
+            <Cube />                         
         </div>
     )
 }
