@@ -1,4 +1,3 @@
-import { func } from 'prop-types';
 import styled, {keyframes} from 'styled-components';
 
 const animate = keyframes`    
@@ -7,9 +6,7 @@ const animate = keyframes`
     }
     100%{
         transform: translateY(100%);
-    }
-    
-    
+    }    
 `;
 
 const GridBox = styled.section`
