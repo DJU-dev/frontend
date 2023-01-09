@@ -1,12 +1,11 @@
-import { func } from 'prop-types';
 import styled, {keyframes} from 'styled-components';
 
 const animate = keyframes`    
     0%{
-        transform: translateY(-100%);
+        transform: translateY(-100%) translateX(-150%);
     }
     100%{
-        transform: translateY(100%);
+        transform: translateY(100%) translateX(100%);
     }
     
     
@@ -27,10 +26,11 @@ const GridBox = styled.section`
     &::before{
             content:'';
             position: absolute;
-            width: 100%;
-            height: 100%;
+            width: 70%;
+            height: 70%;
             background: linear-gradient(#FF9898,#8054FF);
-            animation: ${animate} 6s linear infinite;
+            filter: blur(1000px);
+            animation: ${animate} 8s linear infinite;
     }
     
     
