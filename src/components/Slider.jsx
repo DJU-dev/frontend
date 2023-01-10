@@ -50,6 +50,24 @@ const Header = styled.p`
 
 `;
 
+const Phrase1 = styled.p`
+  position: relative;
+  color: #a0dbff;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  font-weight: 900;
+  margin-top: 14rem;
+  margin-left: 1rem;
+`;
+
+const Phrase2 = styled.p`
+  position: relative;
+  color: white;
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: 900;
+  margin-left: 1rem;
+`;
 
 /* 현재 윈도우 사이즈 적용  */
 const getWindowSize = () => {
@@ -92,14 +110,32 @@ const SliderBox = () => {
 
     return (
       <Container>
-        <Header>지역의 명소</Header>
+        <Header>Embark on an interactive and sensory experiment</Header>
         <Slider {...settings}>
-          <Box url={'../../src/assets/img/sample01.jpg'} />          
-          <Box url={'../../src/assets/img/sample02.jpg'} />
-          <Box url={'../../src/assets/img/sample03.jpg'} />
-          <Box url={'../../src/assets/img/sample04.jpg'} />
-          <Box url={'../../src/assets/img/sample05.jpg'} />
-          <Box url={'../../src/assets/img/sample06.jpg'} />
+          <Box url={'../../src/assets/img/sample01.jpg'}>
+            <Phrase1>Around the world</Phrase1>
+            <Phrase2>Vineyards from the skies</Phrase2>
+          </Box>          
+          <Box url={'../../src/assets/img/sample02.jpg'}>
+            <Phrase1>Around the world</Phrase1>
+            <Phrase2>Wine Planets</Phrase2>
+          </Box>
+          <Box url={'../../src/assets/img/sample03.jpg'}>
+            <Phrase1>Through the ages</Phrase1>
+            <Phrase2>Winegrowers and terroirs</Phrase2>
+          </Box>
+          <Box url={'../../src/assets/img/sample04.jpg'}>
+            <Phrase1>Through the ages</Phrase1>
+            <Phrase2>The Gallery of Civilisations</Phrase2>
+          </Box>
+          <Box url={'../../src/assets/img/sample05.jpg'}>
+            <Phrase1>Lifestyle</Phrase1>
+            <Phrase2>The Buffet of the Five Senses</Phrase2>
+          </Box>
+          <Box url={'../../src/assets/img/sample06.jpg'}>
+            <Phrase1>Lifestyle</Phrase1>
+            <Phrase2>A Matter of Taste</Phrase2>
+          </Box>
         </Slider>
       </Container>
     );
