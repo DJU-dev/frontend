@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import React, { Component } from "react";
 import Slider from "react-slick";
 import {useState, useEffect} from "react";
@@ -6,7 +6,6 @@ import {useState, useEffect} from "react";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
-import sample01 from "../../src/assets/img/sample01.jpg";
 
 const Container = styled.div`
   position: relative;
@@ -42,12 +41,22 @@ const Box = styled.div`
   }
 `;
 
+const fadein = keyframes`
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+`;
+
 const Header = styled.p`
   text-align: center;
-  color: white;
+  color: #edff88;
   font-size: 40px;
+  font-weight: 500;
   padding-bottom: 3rem;
-
+  animation: ${fadein} 2s;
 `;
 
 const Phrase1 = styled.p`
