@@ -22,6 +22,46 @@ const Row = styled.div`
     margin-right: 5rem;    
 `;
 
+/* Footer의 margin-bottom과 비슷한 구조 */
+const F_Footer = styled.div`
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 90%;
+    height: 4rem;
+    padding-left: 10%;
+    align-items: center; 
+    background: #000000;
+    @media screen and (max-width:1000px){                        
+        height: 3rem;                               
+    }
+`;
+
+const ArrIcon = styled.div`
+    position: relative;
+    display: flex;
+    left: 5rem;    
+    align-items: center;
+    width: 18rem;
+    height: 3rem;
+    @media screen and (max-width:1000px){                        
+        left: 3rem;                               
+    }
+`;
+
+const Icon = styled.div`    
+    margin-left: 1.5rem;    
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 30%;
+    background-color: #414141; 
+    background: url(${props=>props.url}) center center / cover;
+    background-size: 90% 90%;
+    background-repeat:no-repeat;
+`;
+
+
 /* 글꼴 */
 
 const LogoText = styled.p`
@@ -60,54 +100,71 @@ const DateText = styled.p`
     }
 `;
 
-
-
 const P = styled.p`
   color: wheat;
   font-size: 0.9rem;
-  margin-top: 1rem;
+  @media screen and (max-width:1000px){                        
+            font-size: 0.5rem;     
+    }
 `;
 
 function Footer(){
     return (        
-        <Container>
+        <Container>            
             <Row>
                 <LogoText>Squid</LogoText>
-                <P>A good design is not only aesthetically pleasing, but also functional. It should be able to solve the problem</P>
-            </Row>
-            <Row>
-            <TopicText>RECENT POSTS</TopicText>
-            <ContentText>Delicious Hot Grilled Chichen Recipes</ContentText>
-            <DateText>OCTOBER 4, 2022</DateText>
-            <ContentText>Better Fed Than Red Whether Glories</ContentText>
-            <DateText>OCTOBER 5, 2022</DateText>
-            <ContentText>Trade Pastry Warp To Coat Fish, Poultry</ContentText>
-            <DateText>OCTOBER 10, 2022</DateText>
+                <ContentText>A good design is not only aesthetically pleasing, but also functional. It should be able to solve the problem</ContentText>
             </Row>
 
             <Row>
-            <TopicText>RECENT POSTS</TopicText>
-            <ContentText>Delicious Hot Grilled Chichen Recipes</ContentText>
-            <DateText>OCTOBER 4, 2022</DateText>
-            <ContentText>Better Fed Than Red Whether Glories</ContentText>
-            <DateText>OCTOBER 5, 2022</DateText>
-            <ContentText>Trade Pastry Warp To Coat Fish, Poultry</ContentText>
-            <DateText>OCTOBER 10, 2022</DateText>
+                <TopicText>RECENT POSTS</TopicText>
+                <ContentText>Delicious Hot Grilled Chichen Recipes</ContentText>
+                <DateText>OCTOBER 4, 2022</DateText>
+                <ContentText>Better Fed Than Red Whether Glories</ContentText>
+                <DateText>OCTOBER 5, 2022</DateText>
+                <ContentText>Trade Pastry Warp To Coat Fish, Poultry</ContentText>
+                <DateText>OCTOBER 10, 2022</DateText>
             </Row>
 
             <Row>
-            <TopicText>RECENT POSTS</TopicText>
-            <ContentText>Delicious Hot Grilled Chichen Recipes</ContentText>
-            <DateText>OCTOBER 4, 2022</DateText>
-            <ContentText>Better Fed Than Red Whether Glories</ContentText>
-            <DateText>OCTOBER 5, 2022</DateText>
-            <ContentText>Trade Pastry Warp To Coat Fish, Poultry</ContentText>
-            <DateText>OCTOBER 10, 2022</DateText>
+                <TopicText>RECENT POSTS</TopicText>
+                <ContentText>Delicious Hot Grilled Chichen Recipes</ContentText>
+                <DateText>OCTOBER 4, 2022</DateText>
+                <ContentText>Better Fed Than Red Whether Glories</ContentText>
+                <DateText>OCTOBER 5, 2022</DateText>
+                <ContentText>Trade Pastry Warp To Coat Fish, Poultry</ContentText>
+                <DateText>OCTOBER 10, 2022</DateText>
             </Row>
-            
+
+            <Row>
+                <TopicText>RECENT POSTS</TopicText>
+                <ContentText>Delicious Hot Grilled Chichen Recipes</ContentText>
+                <DateText>OCTOBER 4, 2022</DateText>
+                <ContentText>Better Fed Than Red Whether Glories</ContentText>
+                <DateText>OCTOBER 5, 2022</DateText>
+                <ContentText>Trade Pastry Warp To Coat Fish, Poultry</ContentText>
+                <DateText>OCTOBER 10, 2022</DateText>
+            </Row>           
         </Container>
         
     )
 }
 
-export default Footer;
+function FFooter(){
+    return (
+        <div>
+            <F_Footer>
+                <P>Copyright © 2023 daejeon_u Technology Pty Limited (ACN 442 359 655)</P>
+                <ArrIcon>
+                <Icon url={'../../src/assets/img/icon/twitter-icon.png'} />
+                <Icon url={'../../src/assets/img/icon/youtube-icon.png'} />
+                <Icon url={'../../src/assets/img/icon/instargram-icon.png'} />
+                <Icon url={'../../src/assets/img/icon/facebook-icon.png'} />
+                <Icon url={'../../src/assets/img/icon/discord-icon.png'} />
+                </ArrIcon>
+            </F_Footer>
+        </div>
+    )
+}
+
+export {Footer, FFooter};

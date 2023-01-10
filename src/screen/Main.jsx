@@ -2,7 +2,7 @@ import Cube from "@/components/Cube.jsx";
 import Navibar from "@/components/Navibar.jsx";
 import Grid from "@/components/Grid.jsx";
 import SliderBox from "@/components/Slider.jsx";
-import Footer from "@/components/Footer.jsx";
+import {Footer,FFooter} from "@/components/Footer.jsx";
 
 function Main() {
     return (
@@ -11,7 +11,8 @@ function Main() {
             <Grid /> 
             <Cube />            
             <SliderBox />        
-            <Footer />        
+            <Footer />
+            <FFooter />       
         </div>        
     )
 }
