@@ -50,13 +50,22 @@ const fadein = keyframes`
     }
 `;
 
+const animate = keyframes`    
+    0%{
+        transform: translateY(-20%);
+    }
+    100%{
+        transform: translateY(0%); 
+    }            
+`;
+
 const Header = styled.p`
   text-align: center;
   color: #edff88;
   font-size: 40px;
   font-weight: 500;
   padding-bottom: 3rem;
-  animation: ${fadein} 2s;
+  animation: ${fadein} 4s,${animate} 3s;
 `;
 
 const Phrase1 = styled.p`
