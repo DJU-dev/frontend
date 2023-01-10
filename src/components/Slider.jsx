@@ -12,7 +12,7 @@ const Container = styled.div`
   background-color:tomato;
 `;
 
-const UnevenSetsInfinite = () => {
+const SliderBox = () => {
   const settings = {    
       dots: true,
       infinite: true,
@@ -51,4 +51,4 @@ const UnevenSetsInfinite = () => {
   
 }
 
-export default UnevenSetsInfinite;
+export default SliderBox;

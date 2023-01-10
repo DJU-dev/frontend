@@ -1,7 +1,7 @@
 import Cube from "@/components/Cube.jsx";
 import Navibar from "@/components/Navibar.jsx";
 import Grid from "@/components/Grid.jsx";
-import UnevenSetsInfinite from "@/components/Slider.jsx";
+import SliderBox from "@/components/Slider.jsx";
 
 function Main() {
     return (
@@ -9,7 +9,7 @@ function Main() {
             <Navibar />            
             <Grid /> 
             <Cube />            
-            <UnevenSetsInfinite />                  
+            <SliderBox />                  
         </div>
     )
 }
