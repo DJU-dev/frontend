@@ -6,22 +6,36 @@ import { useNavigate } from 'react-router-dom';
 export default function Register() {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
+    const [fieldErrors, setFieldErrors] = useState({});
     const [inputs, setInputs] = useState({
         username: "",
         email: "",
         password1: "",
         password2: "",
     });
-
     const onSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
+        setFieldErrors({});
+
         try {
             const response = await Axios.post("http://127.0.0.1:8000/accounts/registration/", inputs);
             navigate('/');
         }
         catch (error) {
-            console.log(error.response.data)
+            if (error.response) {
+                const {data: fieldsErrorMessages} = error.response;
+                setFieldErrors(Object.entries(fieldsErrorMessages).reduce(
+                    (acc, [fieldName, errors]) => {
+                        acc[fieldName] = {
+                            validateStatus: 'error',
+                            help: errors.join(" ")
+                        };
+                        return acc;
+                    }, {})
+                )
+                console.log(fieldsErrorMessages);
+            }
         }
         setLoading(false);
         reset();
@@ -29,8 +43,6 @@ export default function Register() {
 
     const reset = () => {
         setInputs({
-            username: "",
-            email: "",
             password1: "",
             password2: "",
         });
@@ -50,15 +62,20 @@ export default function Register() {
                 <Name>Register</Name>
                 <Inputbox>
                     <Nameinput placeholder='Your Name' name="username" onChange={onChange} value={inputs.username}/>
+                    <ErrorMessage>{fieldErrors.username ? fieldErrors.username.help : ""}</ErrorMessage>
                 </Inputbox>
                 <Inputbox>
                     <Idinput placeholder='Email' name="email" onChange={onChange} value={inputs.email}/>
+                    <ErrorMessage>{fieldErrors.email ? fieldErrors.email.help : ""}</ErrorMessage>
                 </Inputbox>
                 <Inputbox>
                     <Passwordinput placeholder='Password' name="password1" type="password" onChange={onChange} value={inputs.password1}/>
+                    <ErrorMessage>{fieldErrors.password1 ? fieldErrors.password1.help : ""}</ErrorMessage>
                 </Inputbox>
                 <Inputbox>
                     <RPasswordinput placeholder='Repeat Password' name="password2" type="password" onChange={onChange} value={inputs.password2}/>
+                    <ErrorMessage>{fieldErrors.password2 ? fieldErrors.password2.help : ""}</ErrorMessage>
+                    <ErrorMessage>{fieldErrors.non_field_errors ? fieldErrors.non_field_errors.help : ""}</ErrorMessage>
                 </Inputbox>
 
                 <LoginButton type="submit" value={loading ? "loading.." : "Sign Up"} />
@@ -151,5 +168,9 @@ const LoginButton = styled.input`
     color : white;
     border-radius: 10px;
     cursor: pointer;
+`
+
+const ErrorMessage = styled.p`
+  color: red;
 `
 
