@@ -1,8 +1,10 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
 import Axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
+    const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [inputs, setInputs] = useState({
         username: "",
@@ -11,15 +13,17 @@ export default function Register() {
         password2: "",
     });
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
-        Axios.post("http://127.0.0.1:8000/accounts/registration/", inputs)
-            .then(res => {
-                console.log(res)
-            })
-            .catch(error => {
-                console.log(error)
-            })
+        setLoading(true);
+        try {
+            const response = await Axios.post("http://127.0.0.1:8000/accounts/registration/", inputs);
+            navigate('/');
+        }
+        catch (error) {
+            console.log(error.response.data)
+        }
+        setLoading(false);
         reset();
     }
 
@@ -57,7 +61,7 @@ export default function Register() {
                     <RPasswordinput placeholder='Repeat Password' name="password2" type="password" onChange={onChange} value={inputs.password2}/>
                 </Inputbox>
 
-                <LoginButton type="submit" value="Sign Up" />
+                <LoginButton type="submit" value={loading ? "loading.." : "Sign Up"} />
             </LoginScreen>
         </Background>
     )
