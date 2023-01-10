@@ -9,13 +9,14 @@ const Container = styled.div`
   top:70vh;
   left:10vw;  
   width: 80vw;
-  background-color:tomato;
+  background-color:none;
 `;
 
 const Box = styled.div`  
   border: 1px solid black;  
-  height: 50vh;  
+  height: 40vh;  
   background-color: #fe3b83;
+  border-radius: 7%;
 `;
 
 const SliderBox = () => {
@@ -36,22 +37,22 @@ const SliderBox = () => {
       <Container>
         <Slider {...settings}>
           <Box>
-            <h3>1</h3>
+            <h3>111111111111111111111111111</h3>
           </Box>
           <Box>
-            <h3>2</h3>
+            <h3>2222222222222222222222222222</h3>
           </Box>
           <Box>
-            <h3>3</h3>
+            <h3>33333333333333333333333</h3>
           </Box>
           <Box>
-            <h3>4</h3>
+            <h3>44444444444444444444444444</h3>
           </Box>
           <Box>
-            <h3>5</h3>
+            <h3>5555555555555555555555555555</h3>
           </Box>
           <Box>
-            <h3>6</h3>
+            <h3>66666666666666666666666666</h3>
           </Box>
         </Slider>
       </Container>
