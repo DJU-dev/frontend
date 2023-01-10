@@ -65,6 +65,7 @@ const BoxContainer = styled.div`
   width: ${props => props.size}px;
   height: ${props => props.size}px;
   margin-top: 200px;
+  
   z-index: 3;  
 `
 

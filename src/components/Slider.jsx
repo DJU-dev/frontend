@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import React, { Component } from "react";
 import Slider from "react-slick";
+import {useState, useEffect} from "react";
+
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
@@ -14,19 +16,71 @@ const Container = styled.div`
 
 const Box = styled.div`  
   border: 1px solid black;  
-  height: 40vh;  
+  height: 18rem;  
+  width: 100%;
   background-color: #fe3b83;
-  border-radius: 7%;
+  border-radius: 1rem;
+  
+
+  @media screen and (min-width:300px){
+      height: 10rem;            
+    }
+  @media screen and (min-width:600px){
+    height: 12rem;            
+  }
+  @media screen and (min-width:900px){
+    height: 13rem;            
+  }
+  @media screen and (min-width:1900px){
+    height: 20rem;            
+  }
+  @media screen and (min-width:3600px){
+    height: 40rem;            
+  }
 `;
 
+const Header = styled.p`
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  padding-bottom: 3rem;
+
+`;
+
+
+/* 현재 윈도우 사이즈 적용  */
+const getWindowSize = () => {
+  const {innerWidth, innerHeight} = window;
+  return {innerWidth, innerHeight};
+}
+
+const ResponsiveCarousel = ({size}) => {
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+
+  useEffect(() => {
+      function handleWindowResize() {
+          setWindowSize(getWindowSize());
+      }      
+      window.addEventListener('resize', handleWindowResize);
+      return () => {
+          window.removeEventListener('resize', handleWindowResize);
+      };
+  }, []);
+  console.log(windowSize);
+    return windowSize.innerWidth;
+}
+
+/* 캐러셀 적용 */
+
 const SliderBox = () => {
+  var WidthSize = window.innerWidth;
   const settings = {    
       dots: true,
       infinite: true,
       speed: 500,
       autoplaySpeed: 3000,
       slidesToScroll: 2,
-      slidesToShow: 3,
+      slidesToShow: ResponsiveCarousel(WidthSize)< 600 ? 2 : 3,
       autoplay: true,
       arrow: true,
       centerMode: true,
@@ -35,24 +89,25 @@ const SliderBox = () => {
 
     return (
       <Container>
+        <Header>지역의 명소</Header>
         <Slider {...settings}>
           <Box>
-            <h3>111111111111111111111111111</h3>
+            <h3>11</h3>
           </Box>
           <Box>
-            <h3>2222222222222222222222222222</h3>
+            <h3>222</h3>
           </Box>
           <Box>
-            <h3>33333333333333333333333</h3>
+            <h3>333</h3>
           </Box>
           <Box>
-            <h3>44444444444444444444444444</h3>
+            <h3>444</h3>
           </Box>
           <Box>
-            <h3>5555555555555555555555555555</h3>
+            <h3>555</h3>
           </Box>
           <Box>
-            <h3>66666666666666666666666666</h3>
+            <h3>666</h3>
           </Box>
         </Slider>
       </Container>
