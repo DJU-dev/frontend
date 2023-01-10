@@ -1,17 +1,40 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 
-export default function register() {
+export default function Register() {
+    const [inputs, setInputs] = useState({});
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        console.log(inputs.username, inputs.email, inputs.password1, inputs.password2);
+    }
+
+    const onChange = (e) => {
+        const {name, value} = e.target;
+        setInputs(prev => ({
+            ...prev,
+            [name]: value
+        }))
+    }
 
     return(
         <Background>
-            <LoginScreen>
+            <LoginScreen onSubmit={onSubmit}>
                 <Name>Register</Name>
-                <Inputbox><Nameinput placeholder='Your Name'/></Inputbox>
-                <Inputbox><Idinput placeholder='Email'/></Inputbox>
-                <Inputbox><Passwordinput placeholder='Password'/></Inputbox>
-                <Inputbox><RPasswordinput placeholder='Repeat Password'/></Inputbox>
-                <LoginButton>Signed Now</LoginButton>
+                <Inputbox>
+                    <Nameinput placeholder='Your Name' name="username" onChange={onChange}/>
+                </Inputbox>
+                <Inputbox>
+                    <Idinput placeholder='Email' name="email" onChange={onChange}/>
+                </Inputbox>
+                <Inputbox>
+                    <Passwordinput placeholder='Password' name="password1" type="password" onChange={onChange}/>
+                </Inputbox>
+                <Inputbox>
+                    <RPasswordinput placeholder='Repeat Password' name="password2" type="password" onChange={onChange}/>
+                </Inputbox>
+
+                <LoginButton type="submit" value="Sign Up" />
             </LoginScreen>
         </Background>
     )
@@ -26,7 +49,7 @@ const Background = styled.div `
     align-items : center;
     padding-top: 5rem;
 `
-const LoginScreen = styled.div` 
+const LoginScreen = styled.form` 
     width : 30vw;
     height : 50vw;
     display : flex;
@@ -91,7 +114,7 @@ const RPasswordinput = styled.input`
     font-size: 1em;
 `
 
-const LoginButton = styled.button`
+const LoginButton = styled.input`
     width: 10rem;
     height: 3rem;
     background-image: linear-gradient(to right,#f9a432, #862ef7);
