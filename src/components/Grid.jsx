@@ -38,8 +38,6 @@ const GridBox = styled.section`
         transition: 1.5s;
         z-index: 0;
         
-
-        
         /*  큐브 객체 우선순위 문제로 삭제...
         &:hover {            
             background: #FF9898;

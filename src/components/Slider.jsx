@@ -15,11 +15,13 @@ const Container = styled.div`
   background-color:none;
 `;
 
-const Box = styled.div`  
+const Box = styled.div` 
+  display: flex;
   border: 1px solid black;  
   height: 18rem;  
   width: 100%;  
   border-radius: 1rem;
+  flex-wrap: wrap;
   z-index: 1;
   background: url(${props=>props.url}) center center / cover;
 
