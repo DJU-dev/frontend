@@ -1,12 +1,28 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
+import Axios from "axios";
 
 export default function Register() {
-    const [inputs, setInputs] = useState({});
+    const [loading, setLoading] = useState(false);
+    const [inputs, setInputs] = useState({
+        username: "",
+        email: "",
+        password1: "",
+        password2: "",
+    });
 
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log(inputs.username, inputs.email, inputs.password1, inputs.password2);
+        reset();
+    }
+
+    const reset = () => {
+        setInputs({
+            username: "",
+            email: "",
+            password1: "",
+            password2: "",
+        });
     }
 
     const onChange = (e) => {
@@ -22,16 +38,16 @@ export default function Register() {
             <LoginScreen onSubmit={onSubmit}>
                 <Name>Register</Name>
                 <Inputbox>
-                    <Nameinput placeholder='Your Name' name="username" onChange={onChange}/>
+                    <Nameinput placeholder='Your Name' name="username" onChange={onChange} value={inputs.username}/>
                 </Inputbox>
                 <Inputbox>
-                    <Idinput placeholder='Email' name="email" onChange={onChange}/>
+                    <Idinput placeholder='Email' name="email" onChange={onChange} value={inputs.email}/>
                 </Inputbox>
                 <Inputbox>
-                    <Passwordinput placeholder='Password' name="password1" type="password" onChange={onChange}/>
+                    <Passwordinput placeholder='Password' name="password1" type="password" onChange={onChange} value={inputs.password1}/>
                 </Inputbox>
                 <Inputbox>
-                    <RPasswordinput placeholder='Repeat Password' name="password2" type="password" onChange={onChange}/>
+                    <RPasswordinput placeholder='Repeat Password' name="password2" type="password" onChange={onChange} value={inputs.password2}/>
                 </Inputbox>
 
                 <LoginButton type="submit" value="Sign Up" />
