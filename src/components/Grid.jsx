@@ -28,7 +28,7 @@ const GridBox = styled.section`
         background: linear-gradient(#FF9898,#8054FF);
         filter: blur(1000px);
         animation: ${animate} 8s linear infinite;
-        z-index: -2;
+        z-index: 0;
     }
   
     &>span {          

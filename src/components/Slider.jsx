@@ -9,8 +9,8 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Container = styled.div`
   position: relative;
-  top:70vh;
-  left:10vw;  
+  top: 2vw;  
+  left:10vw;
   width: 80vw;
   background-color:none;
 `;

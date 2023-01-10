@@ -52,7 +52,7 @@ const Cube = () => {
 }
 
 const Container = styled.div`
-    position: absolute;
+    position: relative;
     width: 100vw;
     height: 65vh;    
     display: flex;
@@ -61,7 +61,7 @@ const Container = styled.div`
 `
 
 const BoxContainer = styled.div`
-  position: absolute;
+  position: relative;
   width: ${props => props.size}px;
   height: ${props => props.size}px;
   margin-top: 100px;  
