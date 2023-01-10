@@ -6,8 +6,8 @@ const Container = styled.div`
     width: 100%;
     height: 13rem;
     border: 1px solid white;
-    border-radius: 2rem 2rem 0 0;
-    background: linear-gradient(40deg,#FF9898,#8054FF);
+    border-radius: 2rem 2rem 0 0;    
+    background: #414141; /* #414141 good */
 `;
 
 const P = styled.p`
