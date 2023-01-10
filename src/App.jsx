@@ -1,13 +1,19 @@
-import { useState } from 'react'
+import Login from './Login/login'
+import Register from './Login/register'
+import styled from 'styled-components'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      hello world
-    </div>
+    <Container>
+      <Register/>    
+    </Container>
   )
 }
+
+const Container = styled.div`
+  width : 100vw;
+  height : 100vw;
+`
 
 export default App
