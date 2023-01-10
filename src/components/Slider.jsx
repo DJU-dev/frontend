@@ -6,10 +6,22 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Container = styled.div`
   position: relative;
-  top:65vh;
+  top:70vh;
+  left:25vw;  
+  width: 50vw;
+  background-color:tomato;
+`;
+
+const Box = styled.div`
+  display: flex;
   justify-content: center;
   align-items:center;
-  background-color:tomato;
+
+  width: 3vw;
+  height: 10vh;
+  margin: 10px;
+  padding: 10px;
+  background-color: #fe3b83;
 `;
 
 const SliderBox = () => {
@@ -21,30 +33,31 @@ const SliderBox = () => {
       slidesToScroll: 2,
       slidesToShow: 4,
       autoplay: true,
-      arrow: true,      
+      arrow: true,
+  
     }
 
     return (
       <Container>
         <Slider {...settings}>
-          <div>
+          <Box>
             <h3>1</h3>
-          </div>
-          <div>
+          </Box>
+          <Box>
             <h3>2</h3>
-          </div>
-          <div>
+          </Box>
+          <Box>
             <h3>3</h3>
-          </div>
-          <div>
+          </Box>
+          <Box>
             <h3>4</h3>
-          </div>
-          <div>
+          </Box>
+          <Box>
             <h3>5</h3>
-          </div>
-          <div>
+          </Box>
+          <Box>
             <h3>6</h3>
-          </div>
+          </Box>
         </Slider>
       </Container>
     );
