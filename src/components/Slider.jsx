@@ -7,6 +7,8 @@ import "slick-carousel/slick/slick-theme.css";
 const Container = styled.div`
   position: relative;
   top:65vh;
+  justify-content: center;
+  align-items:center;
   background-color:tomato;
 `;
 
@@ -15,13 +17,15 @@ const UnevenSetsInfinite = () => {
       dots: true,
       infinite: true,
       speed: 500,
+      autoplaySpeed: 3000,
       slidesToScroll: 2,
-      slidesToShow: 4
+      slidesToShow: 4,
+      autoplay: true,
+      arrow: true,      
     }
 
     return (
       <Container>
-        <h2>Uneven sets (infinite)</h2>
         <Slider {...settings}>
           <div>
             <h3>1</h3>
