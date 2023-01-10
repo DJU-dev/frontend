@@ -18,8 +18,7 @@ const Container = styled.div`
 const Box = styled.div`  
   border: 1px solid black;  
   height: 18rem;  
-  width: 100%;
-  background-color: #fe3b83;
+  width: 100%;  
   border-radius: 1rem;
   z-index: 1;
   background: url(${props=>props.url}) center center / cover;
@@ -65,26 +64,50 @@ const Header = styled.p`
   font-size: 40px;
   font-weight: 500;
   padding-bottom: 3rem;
-  animation: ${fadein} 4s,${animate} 3s;
+  animation: ${fadein} 4s,${animate} 3s;  
 `;
 
 const Phrase1 = styled.p`
   position: relative;
+  display: flex;
   color: #a0dbff;
   font-size: 1.5rem;
   line-height: 1.5;
   font-weight: 900;
   margin-top: 14rem;
   margin-left: 1rem;
+
+  @media screen and (max-width:1800px){
+    font-size: 1rem;
+    margin-top: 4rem;
+  }
+  @media screen and (min-width:2400px){
+    font-size: 2.5rem; 
+    margin-top: 12rem;
+  }
+  @media screen and (min-width:3600px){
+    
+    margin-top: 30rem;
+  }
 `;
 
 const Phrase2 = styled.p`
   position: relative;
+  display: flex;
   color: white;
   font-size: 2rem;
   line-height: 1.5;
   font-weight: 900;
   margin-left: 1rem;
+
+  @media screen and (max-width:1800px){
+    font-size: 1.5rem;  
+  }
+
+  @media screen and (min-width:2400px){
+    font-size: 3rem;  
+  }
+  
 `;
 
 /* 현재 윈도우 사이즈 적용  */
