@@ -7,20 +7,14 @@ import "slick-carousel/slick/slick-theme.css";
 const Container = styled.div`
   position: relative;
   top:70vh;
-  left:25vw;  
-  width: 50vw;
+  left:10vw;  
+  width: 80vw;
   background-color:tomato;
 `;
 
-const Box = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items:center;
-
-  width: 3vw;
-  height: 10vh;
-  margin: 10px;
-  padding: 10px;
+const Box = styled.div`  
+  border: 1px solid black;  
+  height: 50vh;  
   background-color: #fe3b83;
 `;
 
@@ -31,10 +25,11 @@ const SliderBox = () => {
       speed: 500,
       autoplaySpeed: 3000,
       slidesToScroll: 2,
-      slidesToShow: 4,
+      slidesToShow: 3,
       autoplay: true,
       arrow: true,
-  
+      centerMode: true,
+      focusOnSelect: true, // 클릭하면 해당 인덱스가 중앙으로      
     }
 
     return (
