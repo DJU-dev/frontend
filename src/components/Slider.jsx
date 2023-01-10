@@ -6,6 +6,8 @@ import {useState, useEffect} from "react";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
+import sample01 from "../../src/assets/img/sample01.jpg";
+
 const Container = styled.div`
   position: relative;
   top:70vh;
@@ -20,7 +22,8 @@ const Box = styled.div`
   width: 100%;
   background-color: #fe3b83;
   border-radius: 1rem;
-  
+  z-index: 1;
+  background: url(${props=>props.url}) center center / cover;
 
   @media screen and (min-width:300px){
       height: 10rem;            
@@ -91,24 +94,12 @@ const SliderBox = () => {
       <Container>
         <Header>지역의 명소</Header>
         <Slider {...settings}>
-          <Box>
-            <h3>11</h3>
-          </Box>
-          <Box>
-            <h3>222</h3>
-          </Box>
-          <Box>
-            <h3>333</h3>
-          </Box>
-          <Box>
-            <h3>444</h3>
-          </Box>
-          <Box>
-            <h3>555</h3>
-          </Box>
-          <Box>
-            <h3>666</h3>
-          </Box>
+          <Box url={'../../src/assets/img/sample01.jpg'} />          
+          <Box url={'../../src/assets/img/sample02.jpg'} />
+          <Box url={'../../src/assets/img/sample03.jpg'} />
+          <Box url={'../../src/assets/img/sample04.jpg'} />
+          <Box url={'../../src/assets/img/sample05.jpg'} />
+          <Box url={'../../src/assets/img/sample06.jpg'} />
         </Slider>
       </Container>
     );

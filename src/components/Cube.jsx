@@ -61,12 +61,11 @@ const Container = styled.div`
 `
 
 const BoxContainer = styled.div`
-  position: relative;
+  position: absolute;
   width: ${props => props.size}px;
   height: ${props => props.size}px;
-  margin-top: 200px;
-  
-  z-index: 3;  
+  margin-top: 100px;  
+  z-index: 3;
 `
 
 export default Cube;
