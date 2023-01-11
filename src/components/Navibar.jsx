@@ -61,7 +61,7 @@ const Profilebox = styled.button`
 
 
 function Navibar() {  
-  const { isModal,toggleIsModal} = useStore();
+  const { toggleIsModal } = useStore();
   return (
       <Container>
         <NavUi>

@@ -6,7 +6,7 @@ import { devtools } from "zustand/middleware";
 
 const useStore = create(
     devtools((set) => ({
-        isModal: false,
+        isModal: true,
         toggleIsModal: () => set((state) => ({ isModal: !state.isModal })),
 
         
