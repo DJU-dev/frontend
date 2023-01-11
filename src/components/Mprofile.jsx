@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, {useState, useEffect} from "react";
+import useStore from "@/utils/store";
 
 const Background = styled.div`
   position: fixed;
@@ -27,10 +27,12 @@ const Modal = styled.div`
   box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3); 
 `;
 
-function Mprofile(props){    
+function Mprofile(){    
+    const { isModal,toggleIsModal} = useStore();
     return(
         <div>
-            <Background />      
+            {isModal?null:
+            <Background/>}
         </div>
     )
 }

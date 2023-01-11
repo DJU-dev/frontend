@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Mprofile from './Mprofile';
+import useStore from "@/utils/store";
 
 const Container = styled.nav`
   padding: 0.5rem 0;
@@ -60,26 +60,25 @@ const Profilebox = styled.button`
 `;
 
 
-function Navibar() {
-  const Handler = () => {
-    
-  }
-
+function Navibar() {  
+  const { isModal,toggleIsModal} = useStore();
   return (
       <Container>
         <NavUi>
           <NavLi>
             <NavLogo href='/'>Squid</NavLogo>
           </NavLi>
-          <NavLi>            
+          <NavLi>
+                      
             <Profilebox 
-              url={'../../src/assets/img/icon/profile01.png'}         
+              url={'../../src/assets/img/icon/profile01.png'}
+              onClick={toggleIsModal}
             />
               <NavTab href='/'>Home</NavTab>
               <NavLoginBox>
                 <NavTab href='login/'>Login</NavTab>
               </NavLoginBox>
-              <Mprofile />            
+                 
           </NavLi>
         </NavUi>
       </Container>
