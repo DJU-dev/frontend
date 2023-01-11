@@ -1,16 +1,17 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
-
-
 import { useAlert } from 'react-alert'
 import {useNavigate} from "react-router-dom";
 import Axios from "axios";
+import {useLocalStorage} from "@/utils/customHooks.jsx";
+
 
 export default function Login() {
     const alert = useAlert();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [fieldErrors, setFieldErrors] = useState({});
+    const [jwtToken, setJwtToken] = useLocalStorage("jwtToken", "");
     const [inputs, setInputs] = useState({
         username: "",
         password: "",
@@ -23,6 +24,8 @@ export default function Login() {
 
         try {
             const response = await Axios.post("http://127.0.0.1:8000/accounts/login/", inputs);
+            const {data: {access_token}} = response;
+            setJwtToken(access_token);
             navigate('/');
             alert.success('로그인을 성공했습니다');
         }
