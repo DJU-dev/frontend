@@ -9,8 +9,8 @@ import Mprofile from "@/components/Mprofile.jsx";
 function Main() {
     return (
         <div>
-            <Navibar />  
-            <Mprofile />          
+            <Navibar />
+      
             <Grid /> 
             <Cube />            
             <SliderBox />        

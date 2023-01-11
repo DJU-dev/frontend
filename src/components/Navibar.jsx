@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Mprofile from './Mprofile';
 
 const Container = styled.nav`
   padding: 0.5rem 0;
@@ -60,6 +61,10 @@ const Profilebox = styled.button`
 
 
 function Navibar() {
+  const Handler = () => {
+    
+  }
+
   return (
       <Container>
         <NavUi>
@@ -67,11 +72,14 @@ function Navibar() {
             <NavLogo href='/'>Squid</NavLogo>
           </NavLi>
           <NavLi>            
-            <Profilebox url={'../../src/assets/img/icon/profile01.png'}></Profilebox>
+            <Profilebox 
+              url={'../../src/assets/img/icon/profile01.png'}         
+            />
               <NavTab href='/'>Home</NavTab>
               <NavLoginBox>
                 <NavTab href='login/'>Login</NavTab>
-              </NavLoginBox>            
+              </NavLoginBox>
+              <Mprofile />            
           </NavLi>
         </NavUi>
       </Container>

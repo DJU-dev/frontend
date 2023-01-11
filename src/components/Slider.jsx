@@ -130,7 +130,6 @@ const ResponsiveCarousel = ({size}) => {
           window.removeEventListener('resize', handleWindowResize);
       };
   }, []);
-  console.log(windowSize);
     return windowSize.innerWidth;
 }
 
