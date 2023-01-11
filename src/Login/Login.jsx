@@ -1,16 +1,84 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
+import { useAlert } from 'react-alert'
+import {useNavigate} from "react-router-dom";
+import Axios from "axios";
+import {useLocalStorage} from "@/utils/customHooks.jsx";
+
 
 export default function Login() {
+    const alert = useAlert();
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
+    const [fieldErrors, setFieldErrors] = useState({});
+    const [jwtToken, setJwtToken] = useLocalStorage("jwtToken", "");
+    const [inputs, setInputs] = useState({
+        username: "",
+        password: "",
+    });
 
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setFieldErrors({});
+
+        try {
+            const response = await Axios.post("http://127.0.0.1:8000/accounts/login/", inputs);
+            const {data: {access_token}} = response;
+            setJwtToken(access_token);
+            navigate('/');
+            alert.success('로그인을 성공했습니다');
+        }
+        catch (error) {
+            if (error.response) {
+                const {data: fieldsErrorMessages} = error.response;
+                setFieldErrors(Object.entries(fieldsErrorMessages).reduce(
+                    (acc, [fieldName, errors]) => {
+                        acc[fieldName] = {
+                            validateStatus: 'error',
+                            help: errors.join(" ")
+                        };
+                        return acc;
+                    }, {})
+                )
+                console.log(fieldsErrorMessages);
+                alert.error('로그인을 실패했습니다');
+            }
+        }
+        setLoading(false);
+        reset();
+    }
+
+    const reset = () => {
+        const {username} = inputs;
+        setInputs({
+            username: username,
+            password: ""
+        });
+    }
+
+    const onChange = (e) => {
+        const {name, value} = e.target;
+        setInputs(prev => ({
+            ...prev,
+            [name]: value
+        }))
+    }
     return(
         <Background>
-            <LoginScreen>
+            <LoginScreen onSubmit={onSubmit}>
                 <Name>Login</Name>
-                <Inputbox><Idinput placeholder='Your Email'/></Inputbox>
-                <Inputbox><Passwordinput placeholder='Password'/></Inputbox>
+                <Inputbox>
+                    <Idinput placeholder='Your Name' name="username" onChange={onChange} value={inputs.username}/>
+                    <ErrorMessage>{fieldErrors.non_field_errors ? fieldErrors.non_field_errors.help : ""}</ErrorMessage>
+                </Inputbox>
+                <Inputbox>
+                    <Passwordinput type="password" placeholder='Password' name="password" onChange={onChange} value={inputs.password}/>
+                    <ErrorMessage>{fieldErrors.password ? fieldErrors.password.help : ""}</ErrorMessage>
+                </Inputbox>
+
                 <ButtonTab>
-                    <LoginButton>Login</LoginButton>
+                    <LoginButton>{loading ? "loading.." : "Login"}</LoginButton>
                     <SignUpButton onClick={() => window.location.href='/signup'}>Sign up</SignUpButton>
                 </ButtonTab>
             </LoginScreen>
@@ -27,7 +95,7 @@ const Background = styled.div `
     align-items : center;
     padding-top: 5rem;
 `
-const LoginScreen = styled.div` 
+const LoginScreen = styled.form` 
     width : 30vw;
     height : 30vw;
     display : flex;
@@ -98,4 +166,8 @@ const ButtonTab = styled.div`
   justify-content: space-between;  
   width: 25rem;
 `;
+
+const ErrorMessage = styled.p`
+  color: red;
+`
 
