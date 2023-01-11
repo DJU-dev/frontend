@@ -4,6 +4,7 @@ import Grid from "@/components/Grid.jsx";
 import SliderBox from "@/components/Slider.jsx";
 import {Footer,FFooter} from "@/components/Footer.jsx";
 
+
 function Main() {
     return (
         <div>
