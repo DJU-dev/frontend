@@ -2,13 +2,15 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import Axios from "axios";
 import { useNavigate } from 'react-router-dom';
-import { useAlert } from 'react-alert'
+import { useAlert } from 'react-alert';
+import {useLocalStorage} from "@/utils/customHooks.jsx";
 
 export default function Register() {
     const alert = useAlert();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [fieldErrors, setFieldErrors] = useState({});
+    const [jwtToken, setJwtToken] = useLocalStorage("jwtToken", "");
     const [inputs, setInputs] = useState({
         username: "",
         email: "",
@@ -22,6 +24,8 @@ export default function Register() {
 
         try {
             const response = await Axios.post("http://127.0.0.1:8000/accounts/registration/", inputs);
+            const {data: {access_token}} = response;
+            setJwtToken(access_token);
             navigate('/');
             alert.success('회원가입을 환영합니다');
         }
