@@ -46,7 +46,10 @@ export default function Register() {
     }
 
     const reset = () => {
+        const {username, email} = inputs;
         setInputs({
+            username: username,
+            email: email,
             password1: "",
             password2: "",
         });
