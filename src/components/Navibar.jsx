@@ -45,13 +45,13 @@ function Navibar() {
       <Container>
         <NavUi>
           <NavLi>
-            <NavLogo href=''>Squid</NavLogo>
+            <NavLogo href='/'>Squid</NavLogo>
           </NavLi>
           <NavLi>
             <nav>
-              <NavTab href=''>Home</NavTab>
+              <NavTab href='/'>Home</NavTab>
               <NavLoginBox>
-                <NavTab href=''>Login</NavTab>
+                <NavTab href='login/'>Login</NavTab>
               </NavLoginBox>
             </nav>
           </NavLi>
