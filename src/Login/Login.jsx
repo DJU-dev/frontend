@@ -67,13 +67,15 @@ export default function Login() {
                 <Name>Login</Name>
                 <Inputbox>
                     <Idinput placeholder='Your Name' name="username" onChange={onChange} value={inputs.username}/>
+                    <ErrorMessage>{fieldErrors.non_field_errors ? fieldErrors.non_field_errors.help : ""}</ErrorMessage>
                 </Inputbox>
                 <Inputbox>
                     <Passwordinput type="password" placeholder='Password' name="password" onChange={onChange} value={inputs.password}/>
+                    <ErrorMessage>{fieldErrors.password ? fieldErrors.password.help : ""}</ErrorMessage>
                 </Inputbox>
 
                 <ButtonTab>
-                    <LoginButton onClick={() => alert.show('login')}>Login</LoginButton>
+                    <LoginButton>{loading ? "loading.." : "Login"}</LoginButton>
                     <SignUpButton onClick={() => window.location.href='/signup'}>Sign up</SignUpButton>
                 </ButtonTab>
             </LoginScreen>
@@ -161,4 +163,8 @@ const ButtonTab = styled.div`
   justify-content: space-between;  
   width: 25rem;
 `;
+
+const ErrorMessage = styled.p`
+  color: red;
+`
 
