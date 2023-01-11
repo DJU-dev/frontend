@@ -20,8 +20,29 @@ export default function Login() {
         e.preventDefault();
         setLoading(true);
         setFieldErrors({});
+
+        try {
+            const response = await Axios.post("http://127.0.0.1:8000/accounts/login/", inputs);
+            navigate('/');
+            alert.success('로그인을 성공했습니다');
+        }
+        catch (error) {
+            if (error.response) {
+                const {data: fieldsErrorMessages} = error.response;
+                setFieldErrors(Object.entries(fieldsErrorMessages).reduce(
+                    (acc, [fieldName, errors]) => {
+                        acc[fieldName] = {
+                            validateStatus: 'error',
+                            help: errors.join(" ")
+                        };
+                        return acc;
+                    }, {})
+                )
+                console.log(fieldsErrorMessages);
+                alert.error('로그인을 실패했습니다');
+            }
+        }
         setLoading(false);
-        console.log(inputs);
         reset();
     }
 
