@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Container = styled.nav`
-  padding: 0.3rem 0;
+  padding: 0.5rem 0;
   border-bottom: 1px solid black;
 `
 const NavUi = styled.ul`
@@ -19,19 +19,11 @@ const NavLi = styled.li`
 const NavLogo = styled.a`
   display: block;
   float: left;
-  font-size: 2.5rem;
-  font-weight: 900;
+  font-size: 1.5rem;
+  font-weight: 600;
   padding: 0 30px;
   text-decoration: none;
-`;
-
-const NavTab = styled.a`
-  display: block;
-  float: left;
-  font-size: 1.7rem;
-  font-weight: 900;
-  padding: 1rem 1.3rem;
-  text-decoration: none;
+  color: white;
 `;
 
 const NavLoginBox = styled.li`
@@ -39,6 +31,30 @@ const NavLoginBox = styled.li`
   background: linear-gradient(45deg,#FF9898,#8054FF);
   border-radius: 5px;
 `;
+
+const NavTab = styled.a`
+  display: block;
+  float: left;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.8rem 1.3rem;
+  text-decoration: none;
+  color: white;
+`;
+
+const Profilebox = styled.button`
+  display: block;
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  margin-top: 0.3rem;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  background: url(${props=>props.url}) center center / cover;
+  background-size: 120%;
+`;
+
 
 function Navibar() {
   return (
@@ -49,6 +65,7 @@ function Navibar() {
           </NavLi>
           <NavLi>
             <nav>
+            <Profilebox url={'../../src/assets/img/icon/profile01.png'}></Profilebox>
               <NavTab href='/'>Home</NavTab>
               <NavLoginBox>
                 <NavTab href='login/'>Login</NavTab>
