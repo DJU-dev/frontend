@@ -2,8 +2,10 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import Axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import { useAlert } from 'react-alert'
 
 export default function Register() {
+    const alert = useAlert();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [fieldErrors, setFieldErrors] = useState({});
@@ -21,6 +23,7 @@ export default function Register() {
         try {
             const response = await Axios.post("http://127.0.0.1:8000/accounts/registration/", inputs);
             navigate('/');
+            alert.success('회원가입을 환영합니다');
         }
         catch (error) {
             if (error.response) {
@@ -35,6 +38,7 @@ export default function Register() {
                     }, {})
                 )
                 console.log(fieldsErrorMessages);
+                alert.error('회원가입을 실패했습니다');
             }
         }
         setLoading(false);
