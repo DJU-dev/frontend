@@ -74,7 +74,7 @@ function Navibar() {
               url={'../../src/assets/img/icon/profile01.png'}
               onClick={toggleIsModal}
             />
-              <NavTab href='/'>Home</NavTab>
+              <NavTab href='/'>Mike</NavTab>
               <NavLoginBox>
                 <NavTab href='login/'>Login</NavTab>
               </NavLoginBox>
