@@ -1,17 +1,56 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 
 
 import { useAlert } from 'react-alert'
+import {useNavigate} from "react-router-dom";
+import Axios from "axios";
 
 export default function Login() {
-    const alert = useAlert()
+    const alert = useAlert();
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
+    const [fieldErrors, setFieldErrors] = useState({});
+    const [inputs, setInputs] = useState({
+        username: "",
+        password: "",
+    });
+
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setFieldErrors({});
+        setLoading(false);
+        console.log(inputs);
+        reset();
+    }
+
+    const reset = () => {
+        const {username} = inputs;
+        setInputs({
+            username: username,
+            password: ""
+        });
+    }
+
+    const onChange = (e) => {
+        const {name, value} = e.target;
+        setInputs(prev => ({
+            ...prev,
+            [name]: value
+        }))
+    }
     return(
         <Background>
-            <LoginScreen>
+            <LoginScreen onSubmit={onSubmit}>
                 <Name>Login</Name>
-                <Inputbox><Idinput placeholder='Your Email'/></Inputbox>
-                <Inputbox><Passwordinput placeholder='Password'/></Inputbox>
+                <Inputbox>
+                    <Idinput placeholder='Your Name' name="username" onChange={onChange} value={inputs.username}/>
+                </Inputbox>
+                <Inputbox>
+                    <Passwordinput type="password" placeholder='Password' name="password" onChange={onChange} value={inputs.password}/>
+                </Inputbox>
+
                 <ButtonTab>
                     <LoginButton onClick={() => alert.show('login')}>Login</LoginButton>
                     <SignUpButton onClick={() => window.location.href='/signup'}>Sign up</SignUpButton>
@@ -30,7 +69,7 @@ const Background = styled.div `
     align-items : center;
     padding-top: 5rem;
 `
-const LoginScreen = styled.div` 
+const LoginScreen = styled.form` 
     width : 30vw;
     height : 30vw;
     display : flex;
