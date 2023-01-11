@@ -1,8 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function Login() {
 
+import { useAlert } from 'react-alert'
+
+export default function Login() {
+    const alert = useAlert()
     return(
         <Background>
             <LoginScreen>
@@ -10,7 +13,7 @@ export default function Login() {
                 <Inputbox><Idinput placeholder='Your Email'/></Inputbox>
                 <Inputbox><Passwordinput placeholder='Password'/></Inputbox>
                 <ButtonTab>
-                    <LoginButton>Login</LoginButton>
+                    <LoginButton onClick={() => alert.show('login')}>Login</LoginButton>
                     <SignUpButton onClick={() => window.location.href='/signup'}>Sign up</SignUpButton>
                 </ButtonTab>
             </LoginScreen>
