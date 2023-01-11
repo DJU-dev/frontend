@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import useStore from "@/utils/store";
+import { Link } from 'react-router-dom';
 
 const Container = styled.nav`
   padding: 0.5rem 0;
@@ -20,7 +21,7 @@ const NavLi = styled.li`
 const NavLogo = styled.a`
   display: block;
   float: left;
-  margin-top: 0.3rem;
+  margin-top: 0.25rem;
   font-size: 1.5rem;
   font-weight: 600;
   padding: 0 20px;
@@ -59,7 +60,6 @@ const LogoBox = styled.button`
   background-size: 110%;
 `;
 
-
 const Profilebox = styled.button`
   display: block;
   float: left;
@@ -80,9 +80,14 @@ function Navibar() {
   return (
       <Container>
         <NavUi>
-          <NavLi>
+          <NavLi>            
             <LogoBox url={'../../src/assets/img/icon/Logo-icon.jpg'}></LogoBox>
             <NavLogo href='/'>Squid</NavLogo>            
+              <NavTab>About</NavTab>            
+            <Link to="/fill-in">
+              <NavTab>Write</NavTab>
+            </Link>
+            <NavTab>Borad</NavTab>
           </NavLi>
           <NavLi>                      
             <Profilebox 
