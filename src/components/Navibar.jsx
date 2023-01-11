@@ -37,7 +37,8 @@ const NavTab = styled.a`
   float: left;
   font-size: 1rem;
   font-weight: 500;
-  padding: 0.8rem 1.3rem;
+  padding: 0.7rem 1.1rem;
+  margin-right: 0.5rem;
   text-decoration: none;
   color: white;
 `;
@@ -48,6 +49,8 @@ const Profilebox = styled.button`
   width: 2rem;
   height: 2rem;
   margin-top: 0.3rem;
+  margin-right: 0.7rem;
+  right: 1rem;
   border-radius: 50%;
   cursor: pointer;
   border: none;
@@ -63,14 +66,12 @@ function Navibar() {
           <NavLi>
             <NavLogo href='/'>Squid</NavLogo>
           </NavLi>
-          <NavLi>
-            <nav>
+          <NavLi>            
             <Profilebox url={'../../src/assets/img/icon/profile01.png'}></Profilebox>
               <NavTab href='/'>Home</NavTab>
               <NavLoginBox>
                 <NavTab href='login/'>Login</NavTab>
-              </NavLoginBox>
-            </nav>
+              </NavLoginBox>            
           </NavLi>
         </NavUi>
       </Container>
