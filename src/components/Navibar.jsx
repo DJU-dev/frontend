@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Container = styled.nav`
-  padding: 1.2rem 0;
+  padding: 0.3rem 0;
   border-bottom: 1px solid black;
 `
 const NavUi = styled.ul`

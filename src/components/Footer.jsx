@@ -4,6 +4,7 @@ const Container = styled.div`
     position: relative;
     display: flex;
     flex-wrap: wrap;
+    overflow: hidden;
     margin-top: 10rem;
     width: 90%;
     height: 20rem;
@@ -17,9 +18,11 @@ const Row = styled.div`
     display:block;
     flex-wrap: wrap;
     word-wrap: break-word;
-    width: 15rem;
-    border: 1px solid white;    
-    margin-right: 5rem;    
+    width: 18rem;       
+    margin-right: 5rem;
+    @media screen and (max-width:1000px){                        
+        width: 16rem;                            
+    }   
 `;
 
 /* Footer의 margin-bottom과 비슷한 구조 */
@@ -27,7 +30,7 @@ const F_Footer = styled.div`
     position: relative;
     display: flex;
     flex-wrap: wrap;
-
+    overflow:hidden;
     width: 90%;
     height: 4rem;
     padding-left: 10%;
@@ -59,6 +62,10 @@ const Icon = styled.div`
     background: url(${props=>props.url}) center center / cover;
     background-size: 90% 90%;
     background-repeat:no-repeat;
+    @media screen and (max-width:1000px){                        
+        width: 1.3rem;
+        height: 1.3rem;                    
+    }   
 `;
 
 
@@ -75,7 +82,7 @@ const LogoText = styled.p`
 `;
 
 const TopicText = styled.p`
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 0.4rem;
     @media screen and (max-width:1000px){                        
@@ -104,7 +111,7 @@ const P = styled.p`
   color: wheat;
   font-size: 0.9rem;
   @media screen and (max-width:1000px){                        
-            font-size: 0.5rem;     
+            font-size: 0.4rem;     
     }
 `;
 
