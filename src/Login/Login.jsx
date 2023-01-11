@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function login() {
+export default function Login() {
 
     return(
         <Background>
@@ -9,7 +9,10 @@ export default function login() {
                 <Name>Login</Name>
                 <Inputbox><Idinput placeholder='Your Email'/></Inputbox>
                 <Inputbox><Passwordinput placeholder='Password'/></Inputbox>
-                <LoginButton>Signed Now</LoginButton>
+                <ButtonTab>
+                    <LoginButton>Login</LoginButton>
+                    <SignUpButton onClick={() => window.location.href='/signup'}>Sign up</SignUpButton>
+                </ButtonTab>
             </LoginScreen>
         </Background>
     )
@@ -76,4 +79,23 @@ const LoginButton = styled.button`
     border-radius: 10px;
     cursor: pointer;
 `
+
+const SignUpButton = styled.button`
+    width: 10rem;
+    height: 3rem;
+    background-image: linear-gradient(to right,#f9a432 ,#862ef7);
+    box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+    font-size: 1rem;
+    margin-top: 3rem;
+    color : white;
+    border-radius: 10px;
+    cursor: pointer;
+    
+`
+
+const ButtonTab = styled.div`
+  display: flex;
+  justify-content: space-between;  
+  width: 25rem;
+`;
 

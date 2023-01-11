@@ -12,7 +12,7 @@ const animate = keyframes`
 const GridBox = styled.section`
   position: absolute;
   width: 100vw;
-  height: 100vh;
+  height: 65vh;
   display: flex;
   justify-content: center;
   align-items:center;
@@ -28,7 +28,7 @@ const GridBox = styled.section`
         background: linear-gradient(#FF9898,#8054FF);
         filter: blur(1000px);
         animation: ${animate} 8s linear infinite;
-        z-index: -2;
+        z-index: 0;
     }
   
     &>span {          
@@ -37,8 +37,6 @@ const GridBox = styled.section`
         background: #181818;
         transition: 1.5s;
         z-index: 0;
-        
-
         
         /*  큐브 객체 우선순위 문제로 삭제...
         &:hover {            

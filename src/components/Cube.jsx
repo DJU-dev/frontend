@@ -52,9 +52,9 @@ const Cube = () => {
 }
 
 const Container = styled.div`
-    position: absolute;
+    position: relative;
     width: 100vw;
-    height: 100vh;
+    height: 65vh;    
     display: flex;
     justify-content: center;
     perspective: 1000px;
@@ -64,8 +64,8 @@ const BoxContainer = styled.div`
   position: relative;
   width: ${props => props.size}px;
   height: ${props => props.size}px;
-  margin-top: 200px;
-  z-index: 3;  
+  margin-top: 100px;  
+  z-index: 3;
 `
 
 export default Cube;

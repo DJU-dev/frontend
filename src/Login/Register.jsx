@@ -1,17 +1,84 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
+import Axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
-export default function register() {
+export default function Register() {
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
+    const [fieldErrors, setFieldErrors] = useState({});
+    const [inputs, setInputs] = useState({
+        username: "",
+        email: "",
+        password1: "",
+        password2: "",
+    });
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setFieldErrors({});
+
+        try {
+            const response = await Axios.post("http://127.0.0.1:8000/accounts/registration/", inputs);
+            navigate('/');
+        }
+        catch (error) {
+            if (error.response) {
+                const {data: fieldsErrorMessages} = error.response;
+                setFieldErrors(Object.entries(fieldsErrorMessages).reduce(
+                    (acc, [fieldName, errors]) => {
+                        acc[fieldName] = {
+                            validateStatus: 'error',
+                            help: errors.join(" ")
+                        };
+                        return acc;
+                    }, {})
+                )
+                console.log(fieldsErrorMessages);
+            }
+        }
+        setLoading(false);
+        reset();
+    }
+
+    const reset = () => {
+        setInputs({
+            password1: "",
+            password2: "",
+        });
+    }
+
+    const onChange = (e) => {
+        const {name, value} = e.target;
+        setInputs(prev => ({
+            ...prev,
+            [name]: value
+        }))
+    }
 
     return(
         <Background>
-            <LoginScreen>
+            <LoginScreen onSubmit={onSubmit}>
                 <Name>Register</Name>
-                <Inputbox><Nameinput placeholder='Your Name'/></Inputbox>
-                <Inputbox><Idinput placeholder='Email'/></Inputbox>
-                <Inputbox><Passwordinput placeholder='Password'/></Inputbox>
-                <Inputbox><RPasswordinput placeholder='Repeat Password'/></Inputbox>
-                <LoginButton>Signed Now</LoginButton>
+                <Inputbox>
+                    <Nameinput placeholder='Your Name' name="username" onChange={onChange} value={inputs.username}/>
+                    <ErrorMessage>{fieldErrors.username ? fieldErrors.username.help : ""}</ErrorMessage>
+                </Inputbox>
+                <Inputbox>
+                    <Idinput placeholder='Email' name="email" onChange={onChange} value={inputs.email}/>
+                    <ErrorMessage>{fieldErrors.email ? fieldErrors.email.help : ""}</ErrorMessage>
+                </Inputbox>
+                <Inputbox>
+                    <Passwordinput placeholder='Password' name="password1" type="password" onChange={onChange} value={inputs.password1}/>
+                    <ErrorMessage>{fieldErrors.password1 ? fieldErrors.password1.help : ""}</ErrorMessage>
+                </Inputbox>
+                <Inputbox>
+                    <RPasswordinput placeholder='Repeat Password' name="password2" type="password" onChange={onChange} value={inputs.password2}/>
+                    <ErrorMessage>{fieldErrors.password2 ? fieldErrors.password2.help : ""}</ErrorMessage>
+                    <ErrorMessage>{fieldErrors.non_field_errors ? fieldErrors.non_field_errors.help : ""}</ErrorMessage>
+                </Inputbox>
+
+                <LoginButton type="submit" value={loading ? "loading.." : "Sign Up"} />
             </LoginScreen>
         </Background>
     )
@@ -26,7 +93,7 @@ const Background = styled.div `
     align-items : center;
     padding-top: 5rem;
 `
-const LoginScreen = styled.div` 
+const LoginScreen = styled.form` 
     width : 30vw;
     height : 50vw;
     display : flex;
@@ -91,7 +158,7 @@ const RPasswordinput = styled.input`
     font-size: 1em;
 `
 
-const LoginButton = styled.button`
+const LoginButton = styled.input`
     width: 10rem;
     height: 3rem;
     background-image: linear-gradient(to right,#f9a432, #862ef7);
@@ -101,5 +168,9 @@ const LoginButton = styled.button`
     color : white;
     border-radius: 10px;
     cursor: pointer;
+`
+
+const ErrorMessage = styled.p`
+  color: red;
 `
 
