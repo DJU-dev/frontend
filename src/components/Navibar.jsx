@@ -20,9 +20,10 @@ const NavLi = styled.li`
 const NavLogo = styled.a`
   display: block;
   float: left;
+  margin-top: 0.3rem;
   font-size: 1.5rem;
   font-weight: 600;
-  padding: 0 30px;
+  padding: 0 20px;
   text-decoration: none;
   color: white;
 `;
@@ -44,6 +45,21 @@ const NavTab = styled.a`
   color: white;
 `;
 
+const LogoBox = styled.button`
+  display: block;
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  margin-top: 0.3rem;  
+  right: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  background: url(${props=>props.url}) center center / cover;
+  background-size: 110%;
+`;
+
+
 const Profilebox = styled.button`
   display: block;
   float: left;
@@ -52,8 +68,7 @@ const Profilebox = styled.button`
   margin-top: 0.3rem;
   margin-right: 0.7rem;
   right: 1rem;
-  border-radius: 50%;
-  cursor: pointer;
+  border-radius: 50%;  
   border: none;
   background: url(${props=>props.url}) center center / cover;
   background-size: 120%;
@@ -66,15 +81,15 @@ function Navibar() {
       <Container>
         <NavUi>
           <NavLi>
-            <NavLogo href='/'>Squid</NavLogo>
+            <LogoBox url={'../../src/assets/img/icon/Logo-icon.jpg'}></LogoBox>
+            <NavLogo href='/'>Squid</NavLogo>            
           </NavLi>
-          <NavLi>
-                      
+          <NavLi>                      
             <Profilebox 
               url={'../../src/assets/img/icon/profile01.png'}
               onClick={toggleIsModal}
             />
-              <NavTab href='/'>Mike</NavTab>
+              <NavTab>Mike</NavTab>
               <NavLoginBox>
                 <NavTab href='login/'>Login</NavTab>
               </NavLoginBox>
