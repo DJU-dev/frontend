@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import React,{ useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 
 const animate = keyframes`    
     0%{
@@ -24,7 +25,7 @@ const animate = keyframes`
 
 const Container = styled.div`
     position: relative;
-    display:flex;
+    display:${props=>props.hidden?"none":"flex"} ;
     width:100%;
     height:55rem;
     flex-wrap: wrap;
@@ -35,7 +36,7 @@ const Container = styled.div`
 
 const Formground = styled.form`
     position: relative;
-    display:block;
+    display: block;
     width:40rem;
     height:90%;
     border-radius: 0.5rem;
@@ -45,7 +46,7 @@ const Formground = styled.form`
 `;
 
 const Title = styled.input`
-    position: relative;
+    position: relative;    
     height: 2rem;
     width: 85%;
     margin-top: 3rem;
@@ -180,8 +181,8 @@ function Form_In(){
     const [NumForm, setNumForm] = useState(1);
 
     useEffect(() => {
-        if(NumForm <= 0)
-            window.history.back();
+        if(NumForm <= 0) window.history.back();
+        if(NumForm >= 3) {<Link to="/"></Link>}
         console.log(NumForm);
     },[NumForm]);
 
@@ -193,9 +194,9 @@ function Form_In(){
     }
 
     return (
-    <Container>        
+    <Container hidden={NumForm >= 3}>        
         <Prev onClick={PrevNum}>이전</Prev>
-        <Next onClick={NextNum}>다음</Next>
+        <Next onClick={NextNum} href={NumForm >=3? "/" : null}>{NumForm>=2?"공유":"다음"}</Next>        
         <Formground>            
             <Title 
                 type={NumForm == 1? "text" : "hidden"}
@@ -209,8 +210,10 @@ function Form_In(){
                 <MapIcon url={'../../src/assets/img/icon/map-icon.png'}/>
                 <Map>California</Map>
             </LocationBox>
-            <ImgBox hidden={NumForm==2}></ImgBox>
-            <ContentText hidden={NumForm==2}></ContentText>
+            <ImgBox hidden={NumForm==2}>이미지</ImgBox>
+            <ContentText hidden={NumForm==2}>
+                내용
+            </ContentText>
         </Formground>      
     </Container>    
     )

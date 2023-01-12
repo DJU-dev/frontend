@@ -70,6 +70,7 @@ const Profilebox = styled.button`
   right: 1rem;
   border-radius: 50%;  
   border: none;
+  cursor: pointer;
   background: url(${props=>props.url}) center center / cover;
   background-size: 120%;
 `;
