@@ -7,7 +7,6 @@ function BulletinBoard() {
     return (
         <div>
             <Navibar />
-            <Grid />
             <Board />
         </div>        
     )

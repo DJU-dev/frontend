@@ -78,6 +78,10 @@ const Container = styled.div`
     justify-content: center;
     perspective: 1000px;
     animation: ${animate} 4s linear infinite;
+    z-index:1;
+    &:hover {
+       pointer-events: none; 
+    }
 `
 
 const BoxContainer = styled.div`
@@ -91,11 +95,14 @@ const BoxContainer = styled.div`
 const Img = styled.img` 
   display: flex; 
   border-radius: 0.3rem;  
-  z-index: 1;
+  z-index: 2;
   background: url(${props=>props.url}) center center / cover;
   opacity: 0.85;
   cursor: pointer;
   box-shadow: 0px 0px 3rem;
+  &:hover {
+       pointer-events: auto; 
+    }
 `;
 
 export default Cube;

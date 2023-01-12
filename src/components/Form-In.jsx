@@ -32,6 +32,10 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     background-color: none;
+    z-index: 1;    
+    &:hover {
+        pointer-events: none;
+    }    
 `;
 
 const Formground = styled.form`
@@ -59,6 +63,9 @@ const Title = styled.input`
     background-color: #8A8A8A;
     animation: ${animate} 1.5s;
     transition: ease-out;
+    &:hover {
+        pointer-events: auto;
+    }
      
 `;
 
@@ -75,10 +82,14 @@ const ContentFile = styled.input`
     overflow:hidden;
     white-space:pre-line;
     box-shadow: 0.2rem 0.2rem 0.2rem 0.1rem;
-    
+    cursor: pointer;
+
     background-color: #8A8A8A;
     animation: ${animate} 1.5s;
     transition: ease-out;
+    &:hover {
+        pointer-events: auto;
+    }
 `;
 
 const LocationBox = styled.div`
@@ -90,8 +101,6 @@ const LocationBox = styled.div`
     margin-top: 2.4rem;
     background-color: none;
     margin-left: 7%;
-    
-     
 `;
 
 const ImgBox = styled.div`
@@ -126,7 +135,11 @@ const MapIcon = styled.div`
     height: 2rem;
     width: 1.5rem;
     margin-right: 0.5rem;
-    background: url(${props=>props.url}) center center / cover;   
+    background: url(${props=>props.url}) center center / cover; 
+    cursor: pointer;
+    &:hover{
+        pointer-events: auto;
+    }
 `;
 
 const Map = styled.div`
@@ -149,6 +162,10 @@ const Map = styled.div`
         font-weight:800;
         background-color: #8f8f8f;
         border-radius: 50%;
+        
+        &:hover{
+            pointer-events: auto;
+        }
     }
 `;
 
@@ -162,7 +179,9 @@ const Prev = styled.a`
     
     cursor: pointer;
     z-index: 4;
-
+    &:hover{
+        pointer-events: auto;
+    }
 `;
 
 const Next = styled.a`
@@ -174,7 +193,10 @@ const Next = styled.a`
     margin-left: 36rem;    
     
     cursor: pointer;  
-    z-index: 4;  
+    z-index: 4;
+    &:hover{
+        pointer-events: auto;
+    }
 `;
 
 function Form_In(){
