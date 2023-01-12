@@ -78,11 +78,13 @@ const Profilebox = styled.button`
 function Navibar() {  
   const { toggleIsModal } = useStore();
   return (
-      <Container>
+      <Container>                    
         <NavUi>
           <NavLi>            
-            <LogoBox url={'../../src/assets/img/icon/Logo-icon.jpg'}></LogoBox>
-            <NavLogo href='/'>Squid</NavLogo>            
+            <Link to="/">
+              <LogoBox url={'../../src/assets/img/icon/Logo-icon.jpg'}></LogoBox>            
+              <NavLogo>Squid</NavLogo>
+            </Link>   
               <NavTab>About</NavTab>            
             <Link to="/fill-in">
               <NavTab>Write</NavTab>

@@ -72,7 +72,7 @@ const Profile = styled.div`
 
   margin-top: 1rem;
   margin-left: 1rem;
-  
+  cursor: pointer;
   border-radius: 50%;
   background: url(${props=>props.url}) center center / cover;
   background-size: 130%; 

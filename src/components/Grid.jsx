@@ -11,7 +11,7 @@ const animate = keyframes`
 
 const GridBox = styled.section`
   position: absolute;
-  width: 100vw;
+  width: 100%;
   height: 65vh;
   display: flex;
   justify-content: center;
