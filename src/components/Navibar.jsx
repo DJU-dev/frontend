@@ -90,7 +90,9 @@ function Navibar() {
             <Link to="/fill-in">
               <NavTab>Write</NavTab>
             </Link>
+            <Link to="/bulletinboard">
             <NavTab>Borad</NavTab>
+            </Link>
           </NavLi>
           <NavLi>                      
             <Profilebox 
