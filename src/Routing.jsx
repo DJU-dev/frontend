@@ -2,6 +2,7 @@ import Main from "@/screen/Main.jsx";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import LogIn from "@/screen/LogIn.jsx";
 import SignUp from "@/screen/SignUp.jsx";
+import KakaoMap from "@/screen/KakaoMap.jsx";
 
 export default function Routing() {
     return (
@@ -13,6 +14,7 @@ export default function Routing() {
                 <Route path="/" element={<Main />}/>
                 <Route path="login/" element={<LogIn />}/>
                 <Route path="signup/" element={<SignUp />}/>
+                <Route path="map/" element={<KakaoMap />}/>
             </Routes>
         </BrowserRouter>
     )
