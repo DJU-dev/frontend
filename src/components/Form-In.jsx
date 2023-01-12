@@ -183,7 +183,6 @@ function Form_In(){
     useEffect(() => {
         if(NumForm <= 0) window.history.back();
         if(NumForm >= 3) {<Link to="/"></Link>}
-        console.log(NumForm);
     },[NumForm]);
 
     const PrevNum = () => {

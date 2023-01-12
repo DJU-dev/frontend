@@ -29,11 +29,18 @@ const ResponsiveBox = ({size}) => {
     return (
         
             <BoxContainer size={windowSize.innerWidth / size}>
-                <PackageCube size={windowSize.innerWidth / size} index="front" />
+                <PackageCube size={windowSize.innerWidth / size} index="front">
+                <Img url={"../../src/assets/img/sample01.jpg"}/>
+                <Img url={'../../src/assets/img/sample02.jpg'}/>
+                <Img url={'../../src/assets/img/sample03.jpg'}/>
+                <Img url={'../../src/assets/img/sample04.jpg'}/>
+                <Img url={'../../src/assets/img/sample05.jpg'}/>
+                <Img url={'../../src/assets/img/sample06.jpg'}/>
+                </PackageCube>
             </BoxContainer>
         
     )
-}
+}  
 
 const Cube = () => {
     return (
@@ -67,5 +74,12 @@ const BoxContainer = styled.div`
   margin-top: 100px;  
   z-index: 3;
 `
+
+const Img = styled.img` 
+  display: flex; 
+  border-radius: 0.3rem;  
+  z-index: 1;
+  background: url(${props=>props.url}) center center / cover;
+`;
 
 export default Cube;
