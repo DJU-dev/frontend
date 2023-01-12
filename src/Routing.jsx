@@ -15,6 +15,7 @@ export default function Routing() {
                 <Route path="fill-in/" element={<Fill_In />}/>
                 <Route path="login/" element={<LogIn />}/>
                 <Route path="signup/" element={<SignUp />}/>
+                <Route path="buiietinboard" element={<BulletinBoard/>}/>
             </Routes>
         </BrowserRouter>
     )

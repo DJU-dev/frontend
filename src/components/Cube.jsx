@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {keyframes} from 'styled-components';
 import {Mobile, Desktop, Tablet} from "@/components/MediaQuery/MediaQuery.jsx";
 import {useState, useEffect} from "react";
 import PackageCube from 'react-3d-cube';
@@ -58,6 +58,18 @@ const Cube = () => {
     )
 }
 
+const animate = keyframes`    
+    0%{
+        transform: translateY(1%);
+    }
+    50%{
+        transform: translateY(-0%);
+    } 
+    100%{
+        transform: translateY(1%);
+    }            
+`;
+
 const Container = styled.div`
     position: relative;
     width: 100%;
@@ -65,6 +77,7 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     perspective: 1000px;
+    animation: ${animate} 4s linear infinite;
 `
 
 const BoxContainer = styled.div`
@@ -80,6 +93,9 @@ const Img = styled.img`
   border-radius: 0.3rem;  
   z-index: 1;
   background: url(${props=>props.url}) center center / cover;
+  opacity: 0.85;
+  cursor: pointer;
+  box-shadow: 0px 0px 3rem;
 `;
 
 export default Cube;
