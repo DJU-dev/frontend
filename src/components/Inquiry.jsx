@@ -22,6 +22,8 @@ const Tab = styled.div`
     & > div {
         
         &.back{
+            position: relative;
+            
             > a {
                 &.s1{
                     position: absolute;            
@@ -91,7 +93,10 @@ function Inquiry(){
         <Container>
             <Board>
                 <Tab>
-
+                    <div className="back">
+                        <a className="s1"/>
+                        <a className="s2"/>
+                    </div>
                 </Tab>
                 <BackButton>
                     <a className="s1"/>
