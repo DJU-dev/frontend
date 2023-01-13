@@ -1,6 +1,10 @@
 import styled from "styled-components";
+import React, {useState, useEffect} from "react";
+
 
 const Container = styled.div`
+    position: relative;
+    display: flex;
     width: 100%;
     height: 100vh;
     background-color: #939393;
@@ -9,38 +13,66 @@ const Container = styled.div`
 const Board = styled.div`
     width: 50%;
     height: 100%;
+    position: relative;
+    right: ${(props) => props.isBoard ? 0 : 50}%;
+    transition: all 0.7s ease-in-out;
+    display: flex;
     background-color: #EFEFEF;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
 const Tab = styled.div`
-    width: 100%;
-    height: 4.7vh;
+    position: relative;
+    width: 100vw;
+    height: 4.3vh;
     background-color: #848484;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: space-between;
+    overflow: wrap;
 
     & > div {
-        
+        &.menu{            
+            position: relative;
+            display: flex;
+            width:4.3vh;            
+            height:4.3vh;
+            right:0.4rem;;                     
+            align-items: center;
+            cursor: pointer;
+            &> a {
+                position: relative;  
+                background-color: #000000;
+                border-radius: 100%;                    
+                margin-right:0.4rem;
+                width: 0.47rem;
+                height: 0.47rem;               
+            }
+        }      
+
         &.back{
             position: relative;
-            
+            width:5%;
+            height:4.3vh;
+            left:1rem;
+            cursor: pointer;
             > a {
                 &.s1{
                     position: absolute;            
                     background-color: #000;
                     border-radius: 20px;
                     transform: rotate(-45deg); 
-                    width: 1.4rem;
-                    height: 0.7rem;            
+                    width: 1rem;
+                    height: 0.5rem;            
                     bottom: 49%;
-                }                
+                }
                 &.s2{
                     position: absolute;            
                     background-color: #000;
                     border-radius: 20px;
                     transform: rotate(-135deg);
-                    width: 1.4rem;
-                    height: 0.7rem;            
+                    width: 1rem;
+                    height: 0.5rem;            
                     top: 49%;
                 } 
             }
@@ -49,13 +81,15 @@ const Tab = styled.div`
 `;
 
 const BackButton = styled.div`
-    background-color: #848484;
-    position: relative;
+    background-color: rgb(132, 132, 132);
+    position: absolute;
 
     top: 35vh;
     left: 48vw;
     width: 4rem;
-    height: 8rem;
+    height: 7rem;
+    padding-left: ${(props) => props.isBoard ? 0 : 1}rem;
+
     border-radius: 0 10px 10px 0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     cursor: pointer;
@@ -63,7 +97,7 @@ const BackButton = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    transition: 0.7s;
     > a {
         &.s1{
             position: absolute;            
@@ -72,7 +106,8 @@ const BackButton = styled.div`
             transform: rotate(-45deg); 
             width: 1.4rem;
             height: 0.7rem;            
-            bottom: 49%;
+            bottom:${(props) => props.isBoard ? 49 : 41}%;
+            transition: 0.7s;
         }
         
         &.s2{
@@ -81,24 +116,36 @@ const BackButton = styled.div`
             border-radius: 20px;
             transform: rotate(-135deg);
             width: 1.4rem;
-            height: 0.7rem;            
-            top: 49%;
+            height: 0.7rem;
+            top: ${(props) => props.isBoard ? 49 : 41}%;
+            transition: 0.7s;
         }        
     }
 `;
 
 
 function Inquiry(){
+    const [board, setBoard] = useState(false);
+
+    const boardChange = () => {
+        setBoard(() => !board);            
+    };
+
+    useEffect(() => {}, [board]);
+
     return (
         <Container>
-            <Board>
+            <Board isBoard={board}>
                 <Tab>
-                    <div className="back">
+                <div className="back" onClick={boardChange}>
                         <a className="s1"/>
                         <a className="s2"/>
                     </div>
+                    <div className="menu">
+                        <a>　</a><a>　</a><a>　</a>
+                    </div>
                 </Tab>
-                <BackButton>
+                <BackButton onClick={boardChange} isBoard={board}>
                     <a className="s1"/>
                     <a className="s2"/>
                 </BackButton>
