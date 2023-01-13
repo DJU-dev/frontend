@@ -7,6 +7,9 @@ function BulletinBoard() {
         <div>
             <Navibar />
             <Inquiry />
+            {/*
+            <Board /> 
+             */}
         </div>        
     )
 }

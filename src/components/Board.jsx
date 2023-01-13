@@ -18,16 +18,14 @@ const animate2 = keyframes`
     }            
 `;
 
-
-
 const Body = styled.div`
     display: flex;
     justify-content:center;
     align-items: center;
     font-family: 'Poppins', sans-serif;    
-    margin-top: 2rem;
+    
     width: 100%;
-    height: 90vh;
+    height: 100vh;
     background-color: #000000;
     overflow: hidden;
 `;
