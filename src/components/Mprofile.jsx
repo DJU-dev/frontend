@@ -69,7 +69,6 @@ const Profile = styled.div`
   border: 0.18rem solid black;
   width: 7rem;
   height: 7rem;
-
   margin-top: 1rem;
   margin-left: 1rem;
   cursor: pointer;
