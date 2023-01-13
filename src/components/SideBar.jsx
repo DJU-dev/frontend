@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import useStore from "@/utils/store";
 
 const FixSide = styled.div`
     position:fixed;
@@ -23,11 +24,14 @@ const MenuToggle = styled.div`
     height:1rem;
     top: -0.5rem;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
     &>div{
         position: relative;
         left: 1rem;
         width: 1rem;
-        height: 1rem;           
+        height: 1rem;
+        transform: ${(props) => (props.toggle ? "rotate(0deg)" : "rotate(180deg)")};
+        transition: 0.3s;
         cursor: pointer;
         border-radius: 50%;
         background: url(${props=>props.url}) center center / cover;
@@ -91,11 +95,14 @@ const MenuEvent = styled.div`
 
 
 function SideBar() {
-
+    const { isSide,toggleIsSide } = useStore();
+    const what = () => {
+        console.log(isSide);
+    }
     return (        
-        <div>
-            <FixSide>
-                <MenuToggle url={'../../src/assets/img/icon/triangular-arrowhead-icon.png'}>
+        <div>{what()}
+            <FixSide>                
+                <MenuToggle toggle={isSide} onClick={toggleIsSide} url={'../../src/assets/img/icon/triangular-arrowhead-icon.png'}>
                     <div></div>
                 </MenuToggle>
                 <MenuList>

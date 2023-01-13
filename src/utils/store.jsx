@@ -9,7 +9,8 @@ const useStore = create(
         isModal: true,
         toggleIsModal: () => set((state) => ({ isModal: !state.isModal })),
 
-        
+        isSide: true,
+        toggleIsSide: () => set((state) => ({ isSide: !state.isSide })),
     }))
 );
 

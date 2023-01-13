@@ -34,9 +34,7 @@ const Background = styled.div`
   z-index: 20;
 
   /* 자식 요소 */
-  display: flex;
-
-  
+  display: flex;  
 `;
 
 const X = styled.div`
