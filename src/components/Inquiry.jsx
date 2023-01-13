@@ -14,7 +14,7 @@ const Board = styled.div`
     width: 50%;
     height: 100%;
     position: relative;
-    right: ${(props) => props.isBoard ? 0 : 50}%;
+    right: ${(props) => props.isBoard ? 0 : 49.7}%;
     transition: all 0.7s ease-in-out;
     display: flex;
     background-color: #EFEFEF;
@@ -85,11 +85,9 @@ const BackButton = styled.div`
     position: absolute;
 
     top: 35vh;
-    left: 48vw;
+    left: 99%;
     width: 4rem;
     height: 7rem;
-    padding-left: ${(props) => props.isBoard ? 0 : 1}rem;
-
     border-radius: 0 10px 10px 0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     cursor: pointer;
@@ -97,28 +95,28 @@ const BackButton = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 0.7s;
+    transition: 1s;
     > a {
         &.s1{
             position: absolute;            
             background-color: #000;
             border-radius: 20px;
-            transform: rotate(-45deg); 
+            transform: rotate(${(props) => props.isBoard ? 135 : 45}deg); 
             width: 1.4rem;
             height: 0.7rem;            
-            bottom:${(props) => props.isBoard ? 49 : 41}%;
-            transition: 0.7s;
+            top: 41%;
+            transition: 1s;            
         }
         
         &.s2{
             position: absolute;            
             background-color: #000;
             border-radius: 20px;
-            transform: rotate(-135deg);
+            transform: rotate(${(props) => props.isBoard ? 45 : 135}deg);
             width: 1.4rem;
             height: 0.7rem;
-            top: ${(props) => props.isBoard ? 49 : 41}%;
-            transition: 0.7s;
+            top: 49%;
+            transition: 1s;            
         }        
     }
 `;
