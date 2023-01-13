@@ -1,13 +1,12 @@
 import Navibar from "@/components/Navibar.jsx";
-import Grid from "@/components/Grid.jsx";
-
+import Inquiry from "@/components/Inquiry.jsx";
 import Board from "@/components/Board.jsx";
 
 function BulletinBoard() {
     return (
         <div>
             <Navibar />
-            <Board />
+            <Inquiry />
         </div>        
     )
 }
