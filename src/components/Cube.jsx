@@ -53,7 +53,7 @@ const Cube = () => {
 
 const Container = styled.div`
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 65vh;    
     display: flex;
     justify-content: center;

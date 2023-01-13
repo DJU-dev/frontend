@@ -1,7 +1,9 @@
 import styled from 'styled-components';
+import useStore from "@/utils/store";
+import { Link } from 'react-router-dom';
 
 const Container = styled.nav`
-  padding: 0.3rem 0;
+  padding: 0.5rem 0;
   border-bottom: 1px solid black;
 `
 const NavUi = styled.ul`
@@ -19,19 +21,12 @@ const NavLi = styled.li`
 const NavLogo = styled.a`
   display: block;
   float: left;
-  font-size: 2.5rem;
-  font-weight: 900;
-  padding: 0 30px;
+  margin-top: 0.25rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 0 20px;
   text-decoration: none;
-`;
-
-const NavTab = styled.a`
-  display: block;
-  float: left;
-  font-size: 1.7rem;
-  font-weight: 900;
-  padding: 1rem 1.3rem;
-  text-decoration: none;
+  color: white;
 `;
 
 const NavLoginBox = styled.li`
@@ -40,20 +35,72 @@ const NavLoginBox = styled.li`
   border-radius: 5px;
 `;
 
-function Navibar() {
+const NavTab = styled.a`
+  display: block;
+  float: left;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.7rem 1.1rem;
+  margin-right: 0.5rem;
+  text-decoration: none;
+  color: white;
+`;
+
+const LogoBox = styled.button`
+  display: block;
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  margin-top: 0.3rem;  
+  right: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  background: url(${props=>props.url}) center center / cover;
+  background-size: 110%;
+`;
+
+const Profilebox = styled.button`
+  display: block;
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  margin-top: 0.3rem;
+  margin-right: 0.7rem;
+  right: 1rem;
+  border-radius: 50%;  
+  border: none;
+  background: url(${props=>props.url}) center center / cover;
+  background-size: 120%;
+`;
+
+
+function Navibar() {  
+  const { toggleIsModal } = useStore();
   return (
-      <Container>
+      <Container>                    
         <NavUi>
-          <NavLi>
-            <NavLogo href='/'>Squid</NavLogo>
+          <NavLi>            
+            <Link to="/">
+              <LogoBox url={'../../src/assets/img/icon/Logo-icon.jpg'}></LogoBox>            
+              <NavLogo>Squid</NavLogo>
+            </Link>   
+              <NavTab>About</NavTab>            
+            <Link to="/fill-in">
+              <NavTab>Write</NavTab>
+            </Link>
+            <NavTab>Borad</NavTab>
           </NavLi>
-          <NavLi>
-            <nav>
-              <NavTab href='/'>Home</NavTab>
+          <NavLi>                      
+            <Profilebox 
+              url={'../../src/assets/img/icon/profile01.png'}
+              onClick={toggleIsModal}
+            />
+              <NavTab>Mike</NavTab>
               <NavLoginBox>
                 <NavTab href='login/'>Login</NavTab>
               </NavLoginBox>
-            </nav>
+                 
           </NavLi>
         </NavUi>
       </Container>

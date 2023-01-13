@@ -22,7 +22,10 @@ const Row = styled.div`
     margin-right: 5rem;
     @media screen and (max-width:1000px){                        
         width: 16rem;                            
-    }   
+    }
+    @media screen and (max-width:1800px){                        
+        width: 10rem;                            
+    }  
 `;
 
 /* Footer의 margin-bottom과 비슷한 구조 */

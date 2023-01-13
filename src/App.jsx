@@ -1,28 +1,30 @@
-import Main from "@/screen/Main.jsx";
-import styled from "styled-components";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
-import LogIn from "@/screen/LogIn.jsx";
-import SignUp from "@/screen/SignUp.jsx";
+import Routing from "@/Routing.jsx";
+import {Provider as AlertProvider} from "react-alert";
+import AlertTemplate from 'react-alert-template-basic'
+
+const options = {
+    position: 'bottom center',
+    timeout: 5000,
+    offset: '30px',
+    transition: 'scale'
+}
+
+// react-alert 사용법
+//
+// const alert = useAlert()
+// alert.show('안내');
+// alert.error('에러');
+// alert.info('정보');
+// alert.success('성공');
 
 
 function App() {
 
   return (
-    <Container>    
-      <BrowserRouter>
-        <Routes>
-          /* 원하시는 페이지 경로 설정해서 아래와 같이 작성하십시오.
-              새로고침을 원하지 않는다면 Link(?)컴포넌트를 사용해야하니 필요시 요청해주세요. */
-          <Route path="/" element={<Main />}/>
-          <Route path="login/" element={<LogIn />}/>
-          <Route path="signup/" element={<SignUp />}/>
-        </Routes>
-      </BrowserRouter>
-    </Container>    
+      <AlertProvider template={AlertTemplate} {...options}>
+          <Routing />
+      </AlertProvider>
   )
 }
 
-const Container = styled.div`
-    width: 100vw;
-`;
 export default App
