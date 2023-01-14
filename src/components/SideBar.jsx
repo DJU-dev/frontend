@@ -21,7 +21,7 @@ const MenuToggle = styled.div`
     position: fixed;
     background:${(props) => (props.toggle ? "#FFF" : "linear-gradient(45deg,#FF9898,#8054FF)")};
     
-    border-radius: ${(props) => (props.toggle ? "20px" : "50px 50px 50px 50px")};
+    border-radius: ${(props) => (props.toggle ? "100px" : "10px 20px 20px 20px;")};
     left: 3.4rem;
     top:29.5vh;
     margin-bottom: 3rem;

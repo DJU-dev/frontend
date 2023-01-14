@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 const Container = styled.nav`
   padding: 0.5rem 0;
   border-bottom: 1px solid black;
+  background: #020002;
 `
 const NavUi = styled.ul`
   display: flex;

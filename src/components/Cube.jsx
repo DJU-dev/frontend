@@ -76,7 +76,7 @@ const Container = styled.div`
     height: 65vh;    
     display: flex;
     justify-content: center;
-    perspective: 1000px;
+    perspective: 1000px;    
     animation: ${animate} 4s linear infinite;
     z-index:1;
     &:hover {

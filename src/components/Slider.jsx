@@ -12,6 +12,7 @@ const Container = styled.div`
   top: 2vw;  
   left:10vw;
   width: 80vw;
+  
   background-color:none;
 `;
 
@@ -62,7 +63,7 @@ const animate = keyframes`
 
 const Header = styled.p`
   text-align: center;
-  color: #edff88;
+  color: linear-gradient(45deg,#FF9898,#8054FF);
   font-size: 40px;
   font-weight: 500;
   padding-bottom: 3rem;

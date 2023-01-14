@@ -16,7 +16,7 @@ const GridBox = styled.section`
   display: flex;
   justify-content: center;
   align-items:center;
-  gap: 2px;
+  gap: 0.35rem;
   flex-wrap: wrap;
   overflow: hidden;
   
@@ -34,13 +34,13 @@ const GridBox = styled.section`
     &>span {          
         width: 2rem;
         height: 2rem;
-        background: #181818;
-        transition: 1.5s;
+        background: #000;
+        transition: 2s;
         z-index: 1;        
         /*  큐브 객체 우선순위 문제로 삭제... */
         &:hover {            
-            background: #FF9898;
-            filter: blur(3px);
+            background: #f398ff;            
+            filter: blur(1px);
             opacity: 0.1;
             transition: 0s;            
         }

@@ -111,7 +111,7 @@ const DateText = styled.p`
 `;
 
 const P = styled.p`
-  color: wheat;
+  color: #ffffff;
   font-size: 0.9rem;
   @media screen and (max-width:1000px){                        
             font-size: 0.4rem;     
