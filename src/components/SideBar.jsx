@@ -1,11 +1,14 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import useStore from "@/utils/store";
 
 const FixSide = styled.div`
     position:fixed;
+    transition:1s;
     width: 7rem;
-    display:block;   
-    height: 31rem;
+    display:block;
+    
+    height: ${(props)=>props.toggle? "31rem" : "0rem"};
+    
     left: 1.4rem;
     top:30vh;
     background: rgba(58, 58, 71, 0.9);
@@ -15,14 +18,15 @@ const FixSide = styled.div`
 `;
 
 const MenuToggle = styled.div`
-    position: absolute;
+    position: fixed;
     background-color:#FFF;
     border-radius: 20px;
-    left: 30%;
+    left: 3.4rem;
+    top:29.5vh;
     margin-bottom: 3rem;
     width: 3rem;
     height:1rem;
-    top: -0.5rem;
+    z-index:1001;    
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     cursor: pointer;
     &>div{
@@ -30,7 +34,7 @@ const MenuToggle = styled.div`
         left: 1rem;
         width: 1rem;
         height: 1rem;
-        transform: ${(props) => (props.toggle ? "rotate(0deg)" : "rotate(180deg)")};
+        transform: ${(props) => (props.toggle ? "rotate(180deg)" : "rotate(0deg)")};
         transition: 0.3s;
         cursor: pointer;
         border-radius: 50%;
@@ -44,10 +48,10 @@ const MenuToggle = styled.div`
 
 const MenuList = styled.div`
     overflow: hidden;
-    position: relative;
-    
+    position: relative;    
     width: 7rem;     
-    height: 31rem;
+    height: ${(props)=>props.toggle? "31rem" : "0rem"};
+    transition: 1s;
 `;
 
 const MenuEvent = styled.div`
@@ -59,7 +63,7 @@ const MenuEvent = styled.div`
     
     &:hover{
         &> div{
-            &.menuItem{                           
+            &.menuItem{
             transform: translateX(100%);
             transition: 0.3s ease-in-out;
             }
@@ -74,7 +78,7 @@ const MenuEvent = styled.div`
             height: 5.5rem;  
             transition: 1s;
         }
-        &.profile{
+        &.icon{
             position: relative;
             top: 18%;
             left: 23.5%;
@@ -91,39 +95,38 @@ const MenuEvent = styled.div`
     }  
 `;
 
-
-
-
 function SideBar() {
     const { isSide,toggleIsSide } = useStore();
-    const what = () => {
-        console.log(isSide);
-    }
+        
     return (        
-        <div>{what()}
-            <FixSide>                
-                <MenuToggle toggle={isSide} onClick={toggleIsSide} url={'../../src/assets/img/icon/triangular-arrowhead-icon.png'}>
-                    <div></div>
-                </MenuToggle>
-                <MenuList>
+        <div>
+            <MenuToggle 
+            toggle={isSide} 
+            onClick={toggleIsSide} 
+            url={'../../src/assets/img/icon/triangular-arrowhead-icon.png'}>
+            <div></div>
+            </MenuToggle>
+
+            <FixSide toggle={isSide}>
+                <MenuList toggle={isSide}>
                     <MenuEvent url={'../../src/assets/img/icon/earth-icon.png'}>
-                        <div className="profile"/>
+                        <div className="icon"/>
                         <div className="menuItem"/>                                        
                     </MenuEvent>
                     <MenuEvent url={'../../src/assets/img/icon/writing-icon.png'}>
-                        <div className="profile"/>
+                        <div className="icon"/>
                         <div className="menuItem"/>                                        
                     </MenuEvent>
                     <MenuEvent url={'../../src/assets/img/icon/Simpsons-icon.png'}>
-                        <div className="profile"/>  
+                        <div className="icon"/>  
                         <div className="menuItem"/>                                        
                     </MenuEvent>
                     <MenuEvent url={'../../src/assets/img/icon/phone-icon.png'}>
-                        <div className="profile"/>
+                        <div className="icon"/>
                         <div className="menuItem"/>                                        
                     </MenuEvent>                    
                 </MenuList>                
-            </FixSide>            
+            </FixSide>
         </div>
     )
 }
