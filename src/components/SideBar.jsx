@@ -19,29 +19,33 @@ const FixSide = styled.div`
 
 const MenuToggle = styled.div`
     position: fixed;
-    background-color:#FFF;
-    border-radius: 20px;
+    background:${(props) => (props.toggle ? "#FFF" : "linear-gradient(45deg,#FF9898,#8054FF)")};
+    
+    border-radius: ${(props) => (props.toggle ? "20px" : "50px 50px 50px 50px")};
     left: 3.4rem;
     top:29.5vh;
     margin-bottom: 3rem;
-    width: 3rem;
-    height:1rem;
+    width: ${(props) => (props.toggle ? "3rem" : "2rem")};
+    height:${(props) => (props.toggle ? "1rem" : "2rem")};
     z-index:1001;    
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     cursor: pointer;
+    transition: 0.3s;
+    
     &>div{
         position: relative;
-        left: 1rem;
+        left: ${(props) => (props.toggle ? "1rem" : "0.55rem")};
+        top: ${(props) => (props.toggle ? "" : "0.5rem")};
         width: 1rem;
         height: 1rem;
-        transform: ${(props) => (props.toggle ? "rotate(180deg)" : "rotate(0deg)")};
-        transition: 0.3s;
+        transform: ${(props) => (props.toggle ? "rotate(180deg)" : "rotate(90deg)")};
+        transition: 0.3s;       
         cursor: pointer;
         border-radius: 50%;
         background: url(${props=>props.url}) center center / cover;
         background-size: 65%;   
         background-repeat: no-repeat;
-        z-index:30;
+        z-index:30;       
     }
      
 `;
@@ -97,7 +101,7 @@ const MenuEvent = styled.div`
 
 function SideBar() {
     const { isSide,toggleIsSide } = useStore();
-        
+
     return (        
         <div>
             <MenuToggle 
