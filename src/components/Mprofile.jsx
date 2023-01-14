@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import useStore from "@/utils/store";
+import {useStore} from "@/utils/store";
 
 const fadein = keyframes`    
     0%{

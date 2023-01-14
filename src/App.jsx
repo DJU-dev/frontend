@@ -1,6 +1,8 @@
 import Routing from "@/Routing.jsx";
 import {Provider as AlertProvider} from "react-alert";
 import AlertTemplate from 'react-alert-template-basic'
+import {useEffect} from "react";
+import {useLoginRequired} from "@/utils/store.jsx";
 
 const options = {
     position: 'bottom center',
@@ -19,12 +21,16 @@ const options = {
 
 
 function App() {
+    const {login, user, setLogin, setUser} = useLoginRequired(state => state);
+    useEffect(() => {
+        console.log(login, user);
+    }, []);
 
-  return (
-      <AlertProvider template={AlertTemplate} {...options}>
-          <Routing />
-      </AlertProvider>
-  )
+    return (
+        <AlertProvider template={AlertTemplate} {...options}>
+            <Routing />
+        </AlertProvider>
+    )
 }
 
 export default App

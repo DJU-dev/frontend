@@ -19,7 +19,6 @@ const ResponsiveBox = ({size}) => {
         function handleWindowResize() {
             setWindowSize(getWindowSize());
         }
-        console.log(windowSize);
         window.addEventListener('resize', handleWindowResize);
         return () => {
             window.removeEventListener('resize', handleWindowResize);

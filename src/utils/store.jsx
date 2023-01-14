@@ -4,7 +4,7 @@ import create from "zustand";
 import { devtools } from "zustand/middleware";
 
 
-const useStore = create(
+export const useStore = create(
     devtools((set) => ({
         isModal: true,
         toggleIsModal: () => set((state) => ({ isModal: !state.isModal })),
@@ -13,6 +13,10 @@ const useStore = create(
     }))
 );
 
+export const useLoginRequired = create(set => ({
+    login: false,
+    user: {},
+    setLogin: (state) => set({login: state}),
+    setUser: (state) => set({user: state}),
+}))
 
-
-export default useStore;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import useStore from "@/utils/store";
+import {useStore} from "@/utils/store";
 import { Link } from 'react-router-dom';
 
 const Container = styled.nav`
