@@ -1,242 +1,228 @@
-import styled, { keyframes } from "styled-components";
-import React,{ useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
-
-const animate = keyframes`    
+import styled, {keyframes} from 'styled-components';
+import React, {useState, useEffect} from "react"
+const animate1 = keyframes`    
     0%{
-        transform: translateX(1.4%);
-    }
-    20%{
-        transform: translateX(0.3%);
-    }
-    30%{
-        transform: translateX(0.5%);
-    }
-    40%{
-        transform: translateX(0.2%);
-    }
-    50%{
-        transform: translateX(0.3%);
+        transform: translate(-50%,-50%) rotate(0deg);
     }
     100%{
-        transform: translateY(0%); 
+        transform: translate(-50%,-50%) rotate(360deg);
     }            
 `;
 
-const Container = styled.div`
+const animate2 = keyframes`    
+    0%{
+        transform: translate(-50%,-50%) rotate(360deg);
+    }
+    100%{
+        transform: translate(-50%,-50%) rotate(0deg);
+    }            
+`;
+
+
+const BackImg = styled.div`
+    position:fixed;
+    width: 100%;
+    height: 100vh;
+    right: 10vh;    
+    opacity: 0.3;
+    background: url(${props=>props.url}) center center / cover;
+    transform: matrix(-1, 0, 0, 1, 0, 0);   
+    z-index: -3;
+`;
+
+const Container = styled.form`    
+    position: relative;    
+    display: flex;        
+    left: 10rem;
+    top: 2rem;          
+    background: none;
+    z-index:10; 
+    height: 70rem;
+    width:100rem;
+    border: 1px solid white;
+`;
+
+const ImgInputLabel = styled.label`
     position: relative;
-    display:${props=>props.hidden?"none":"flex"} ;
-    width:100%;
-    height:55rem;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    background-color: none;
-    z-index: 1;    
-    &:hover {
-        pointer-events: none;
+    cursor: pointer;
+    display: flex;
+    &:hover{        
+        .imgbox{           
+            &> img{
+                opacity: 1;
+            }
+        }
+        .imgbox::before{
+            animation-play-state: running;
+        }
+    }
+    &> div{
+        &.imgbox{
+            position: absolute;                       
+            width: 20rem;
+            height: 20rem;            
+            background-color: #0b0b0b;
+            transition: 0.5s;
+            overflow: hidden;
+            display:flex;
+            justify-content:center;
+            align-items: center;
+            & > img {
+                position: absolute;
+                width: 5rem;
+                z-index: 1;
+                filter: invert(1);
+                opacity: 0.5;
+                transition: 0.5s;
+            }
+        }
+        &.imgbox::before{
+            content: '';
+            position:absolute;
+            top:50%;
+            left:50%;
+            width:30rem;
+            height:30rem;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(transparent,#4000ff,#8054FF,transparent);
+            animation: ${animate2} 2s linear infinite;
+            animation-play-state: paused;
+        }
+        &.imgbox::after{
+            content:'';
+            position:absolute;
+            inset: 0.2rem;
+            background-color: #000;   
+        }        
     }    
 `;
 
-const Formground = styled.form`
+const ImgInput = styled.input`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0;  
+`;
+
+const TagStorage = styled.div`
     position: relative;
-    display: block;
-    width:40rem;
-    height:90%;
-    border-radius: 0.5rem;
-    justify-content: center;
-    overflow: wrap;
-    background-color: #434343;
+    display: flex;
+    width: 20rem;
+    flex-grow: row;
+    flex-wrap: wrap;
+    overflow: auto;
 `;
 
-const Title = styled.input`
-    position: relative;    
-    height: 2rem;
-    width: 85%;
-    margin-top: 3rem;
-    margin-left: 7%;
-    border: 0px none;
-    border-radius: 0.5rem;    
-    border-color: none;
-    color: #434343;
-    box-shadow: 0.2rem 0.2rem 0.2rem 0.1rem;   
-    background-color: #8A8A8A;
-    animation: ${animate} 1.5s;
-    transition: ease-out;
-    &:hover {
-        pointer-events: auto;
-    }
-     
-`;
-
-const ContentFile = styled.input`
-    position: relative;    
-    height: 80%;
-    width: 85%;
-    margin-top: 2rem;
-    margin-left: 7%;
-    border: 0px none;
-    border-radius: 0.5rem;
-    border-color: none;
-    font-size: 0.5rem;
-    overflow:hidden;
-    white-space:pre-line;
-    box-shadow: 0.2rem 0.2rem 0.2rem 0.1rem;
-    cursor: pointer;
-
-    background-color: #8A8A8A;
-    animation: ${animate} 1.5s;
-    transition: ease-out;
-    &:hover {
-        pointer-events: auto;
-    }
-`;
-
-const LocationBox = styled.div`
+const TagContainer = styled.div`
     position: relative;
-    display: ${props => props.hidden ? "flex" : "none"};
-    align-items: center;
-    height: 4.5%;
-    width: 85%;
-    margin-top: 2.4rem;
-    background-color: none;
-    margin-left: 7%;
+    
+    margin-top: 21rem;
+    left: 1rem;
 `;
 
-const ImgBox = styled.div`
-    display: ${props => props.hidden ? "flex" : "none"};
-    height: 40%;
-    width: 85%;
-    margin-top: 1rem;
-    margin-left: 7%;
-    background-color:wheat;
-    border-radius:1.4rem;
-    box-shadow: 0.2rem 0.2rem 0.2rem 0.1rem;
-    animation: ${animate} 1.5s;
-    transition: ease-out;
-`;
-
-const ContentText = styled.div`
-    display: ${props => props.hidden ? "flex" : "none"};
-    height: 40%;
-    width: 85%;
-    margin-top: 1rem;
-    margin-left: 7%;
-    background-color:#8A8A8A;
-    border-radius:1.4rem;
-    box-shadow: 0.2rem 0.2rem 0.2rem 0.1rem;
-    animation: ${animate} 1.5s;
-    transition: ease-out;
-`;
-
-
-const MapIcon = styled.div`
-    position: relative;    
+const TagInput = styled.input`
+    position: relative;
+    
+    width: 18rem;
     height: 2rem;
-    width: 1.5rem;
-    margin-right: 0.5rem;
-    background: url(${props=>props.url}) center center / cover; 
-    cursor: pointer;
-    &:hover{
-        pointer-events: auto;
-    }
+`;
+
+const TagKeyword = styled.div`
+    position: relative;
+    
+    margin: 1rem; 
+    left: -1rem;
+    width: 4rem;
+    height: 2rem;
+    background-color: white;
+    border-radius: 10px;
+`;
+
+const ContentContainer = styled.div`
+    position: relative;
+    margin: 0.8rem;
+    border: 1px solid white;
+    width: 74rem;
+`;
+const SubbitButton = styled.div`
+    position: absolute;
+    top: 0.5rem;
+    left: 74.6rem;
+    width: 4rem;
+    height: 2rem;
+    border-radius: 10px;
+    background-color: white;
+`;
+
+const FeedInput = styled.input`
+    position: relative;
+    margin: 1rem;
+    width: 60rem;
+    height: 5rem;
+    border-radius: 2rem;
 `;
 
 const Map = styled.div`
-    position:relative;
-    margin-right: 0.5rem;
-    background: white;
-    border-radius: 0.3rem;
-    font-weight:800;
-    padding: 0.4rem 0.3rem 0.5rem 0.5rem;
-    &::after{
-        content: "  \\00d7";
-        cursor: pointer;        
-        padding-right: 0.3rem;
-        padding-bottom: 0.2rem;
-        
-        margin-left: 0.7rem;
-        margin-bottom: 0.4rem;
-
-        color:white;
-        font-weight:800;
-        background-color: #8f8f8f;
-        border-radius: 50%;
-        
-        &:hover{
-            pointer-events: auto;
-        }
-    }
-`;
-
-const Prev = styled.a`
-    position:absolute;
-    color:white;    
-    top:0;
-
-    margin-top: 3.5rem;
-    margin-right: 36rem;
+    position: relative;
+    width: 78rem;
+    height: 61rem;
+    border: 1px solid white;
     
-    cursor: pointer;
-    z-index: 4;
-    &:hover{
-        pointer-events: auto;
-    }
 `;
 
-const Next = styled.a`
-    position:absolute;
-    color:white;
-    top:0;
-
-    margin-top: 3.5rem;
-    margin-left: 36rem;    
-    
-    cursor: pointer;  
-    z-index: 4;
-    &:hover{
-        pointer-events: auto;
-    }
-`;
 
 function Form_In(){
-    const [NumForm, setNumForm] = useState(1);
+    {/* 훅으로 이미지 바꾸는 역할 할거임. DOM쓸줄 몰라서,,,  */}
+    const [imgfile, setImgfile] = useState("../../src/assets/img/icon/gallery.png");
 
-    useEffect(() => {
-        if(NumForm <= 0) window.history.back();
-        if(NumForm >= 3) {<Link to="/"></Link>}
-    },[NumForm]);
+    const imgChange = () => {
+        
+    };
+    useEffect(() => {}, [imgfile]);
 
-    const PrevNum = () => {
-        setNumForm((NumForm) => NumForm - 1);        
-    }
-    const NextNum = () => {
-        setNumForm((NumForm) => NumForm + 1);  
-    }
+    {/* 태그 데이터 */}
 
-    return (
-    <Container hidden={NumForm >= 3}>        
-        <Prev onClick={PrevNum}>이전</Prev>
-        <Next onClick={NextNum} href={NumForm >=3? "/" : null}>{NumForm>=2?"공유":"다음"}</Next>        
-        <Formground>            
-            <Title 
-                type={NumForm == 1? "text" : "hidden"}
-                placeholder="제목을 입력하세요"
-            />
-            <ContentFile 
-                type={NumForm == 1? "file" : "hidden"}
-                placeholder="폴더에서 사진을 선택하거나 드래그하여 추가해주세요."
-            />       
-            <LocationBox hidden={NumForm==2}>
-                <MapIcon url={'../../src/assets/img/icon/map-icon.png'}/>
-                <Map>California</Map>
-            </LocationBox>
-            <ImgBox hidden={NumForm==2}>이미지</ImgBox>
-            <ContentText hidden={NumForm==2}>
-                내용
-            </ContentText>
-        </Formground>      
-    </Container>    
+    return ( 
+         <div>
+            <BackImg url={'../../src/assets/img/background/background01.jpg'} />
+
+            <Container method="post" enctype="multipart/form-data">
+                {/* 이미지 입력 */}
+                <ImgInputLabel url={"../../src/assets/img/icon/gallery.png"} for="addImg">
+                <div className='imgbox'><img src={imgfile}/></div>
+                </ImgInputLabel>
+                <ImgInput id="addImg" type="file" accept="image/*" onChange={imgChange}/>
+
+                {/* 태그입력 */}
+                <TagContainer>
+                        <TagInput type="text" value="#태그를 입력해주세요"/>
+                    <TagStorage>
+                        {/* 함수 및 배열 반복문 이용하기 */}
+                        <TagKeyword>fd</TagKeyword>                    
+                        <TagKeyword>fd</TagKeyword>
+                        <TagKeyword>fd</TagKeyword>
+                        <TagKeyword>fd</TagKeyword>
+                        <TagKeyword>fd</TagKeyword>
+                        <TagKeyword>fd</TagKeyword>
+                        <TagKeyword>fd</TagKeyword>
+                        <TagKeyword>fd</TagKeyword>
+                        <TagKeyword>fd</TagKeyword>
+                        <TagKeyword>fd</TagKeyword>
+                    </TagStorage>
+                </TagContainer>
+                {/* 피드 입력 및 맵 지정 */}
+                <ContentContainer>
+                    <SubbitButton />
+                    <FeedInput type="text" vlaue="말을 남겨보세요."/>
+                    <Map />
+                </ContentContainer>
+
+           </Container>
+        </div>
     )
 }
 

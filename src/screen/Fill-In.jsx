@@ -9,7 +9,6 @@ function Fill_In() {
         <div>
             <Navibar />
             <SideBar />
-            <Grid />
             <Form_In />
         </div>        
     )

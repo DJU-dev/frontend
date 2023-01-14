@@ -204,7 +204,7 @@ const cardArr = () => {
         <Card>
             <div className='lines'></div>
             <div className='imgbox'>
-                <img src="../../src/assets/img/icon/gallery.png"/>
+                <img src="../../../src/assets/img/icon/gallery.png"/>
             </div>
             <div className='content'>
                 <div className='details'>

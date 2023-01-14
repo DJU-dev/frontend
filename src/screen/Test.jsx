@@ -1,12 +1,12 @@
 import Navibar from "@/components/Navibar.jsx";
 import SideBar from "@/components/SideBar.jsx";
-import SampleBoard from "@/components/SampleBoard.jsx";
+import Board from "@/components/Garbage/Board";
+
 function Test() {    
     return (        
         <div>
             <Navibar />
             <SideBar />
-            <SampleBoard/>
         </div>
     )
 }
