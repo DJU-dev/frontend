@@ -3,7 +3,7 @@ import useStore from "@/utils/store";
 
 const FixSide = styled.div`
     position:fixed;
-    transition:1s;
+    transition: 0.3s;
     width: 7rem;
     display:block;
     
@@ -55,7 +55,7 @@ const MenuList = styled.div`
     position: relative;    
     width: 7rem;     
     height: ${(props)=>props.toggle? "31rem" : "0rem"};
-    transition: 1s;
+    transition: 0.3s;
 `;
 
 const MenuEvent = styled.div`

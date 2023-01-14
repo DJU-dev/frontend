@@ -1,5 +1,5 @@
 import styled, {keyframes} from 'styled-components';
-
+import React, {useState, useEffect} from "react"
 const animate1 = keyframes`    
     0%{
         transform: translate(-50%,-50%) rotate(0deg);
@@ -18,103 +18,59 @@ const animate2 = keyframes`
     }            
 `;
 
-const Body = styled.div`
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    font-family: 'Poppins', sans-serif;    
-    
+
+const BackImg = styled.div`
+    position:fixed;
     width: 100%;
     height: 100vh;
-    background-color: #000000;
-    overflow: hidden;
+    right: 10vh;    
+    opacity: 0.3;
+    background: url(${props=>props.url}) center center / cover;
+    transform: matrix(-1, 0, 0, 1, 0, 0);   
+    z-index: -3;
 `;
 
-const Container = styled.div`
+const Container = styled.form`    
+    position: relative;    
+    display: flex;        
+    left: 10rem;
+    top: 3rem;      
+    overflow: hidden;
+    background: none;
+    z-index:10; 
+    height: 85vh;
+    width:80%;
+    border: 1px solid white;
+`;
+
+
+const ImgInputLabel = styled.label`
     position: relative;
     display: flex;
-    padding: 80px 40px;
-    justify-content: center;
-    align-items:center;
     flex-wrap: wrap;
-    overflow: hidden;
-    gap: 80px;
-    background-color: none;
+    opacity:1;
+    z-index:10; 
 
-`;
-
-const Card = styled.div`    
-    position: relative;
-    width:350px;
-    height: 180px;
-    background-color:none;
-    transition: 0.5s;
-    
     &:hover{
-        height: 450px;
-
-        .lines::before{
-            animation-play-state: running;
-        }
-        .imgbox{
-            top:25px;
-            width:150px;
-            height:150px;
-
+        
+        .imgbox{           
             &> img{
                 opacity: 1;
             }
         }
         .imgbox::before{
             animation-play-state: running;
-        }
-        .content .details{
-            transform: translateY(0px);
-            
-            &> p{
-                opacity: 1;
-                padding-top: 0.5rem;              
-            }
-            &> a{
-                opacity: 1; 
-                padding-top: 0.5rem;              
-            }
-        }
+        }        
         
     }
 
     &> div{
-        &.lines{
-            position:absolute;
-            inset: 0;
-            background-color: #454545;
-            overflow: hidden;            
-        }
-        &.lines::before{
-            content:'';
-            position:absolute;
-            top:50%;
-            left:50%;
-            width:600px;
-            height:120px;
-            background: linear-gradient(transparent,#FF9898,transparent);
-            animation: ${animate1} 4s linear infinite;
-            animation-play-state: paused;
-        }
-        &.lines::after{
-            content:'';
-            position:absolute;
-            inset: 3px;
-            background-color: #000000;            
-        }
         &.imgbox{
-            position: absolute;
-            top: -60px;
-            left:50%;
-            width: 130px;
-            height: 130px;
-            transform: translateX(-50%);
-            background-color: #999999;
+            position: relative;
+            top: 2rem;            
+            width: 20rem;
+            height: 20rem;            
+            background-color: #0b0b0b;
             transition: 0.5s;
             z-index:10;
             overflow: hidden;
@@ -124,9 +80,9 @@ const Card = styled.div`
 
             & > img {
                 position: absolute;
-                width: 100px;
+                width: 5rem;
                 z-index: 1;
-                filter: inver(1);
+                filter: invert(1);
                 opacity: 0.5;
                 transition: 0.5s;
             }
@@ -136,108 +92,64 @@ const Card = styled.div`
             position:absolute;
             top:50%;
             left:50%;
-            width:500px;
-            height:150px;
+            width:50rem;
+            height:20rem;
             transform: translate(-50%, -50%);
-            background: linear-gradient(transparent,#8054FF,#8054FF,#8054FF,transparent);
-            animation: ${animate2} 6s linear infinite;
+            background: linear-gradient(transparent,#4000ff,#8054FF,transparent);
+            animation: ${animate2} 2s linear infinite;
             animation-play-state: paused;
         }
         &.imgbox::after{
             content:'';
             position:absolute;
-            inset: 3px;
-            background-color: #a480b2;            
-        }
-        &.content{
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display:flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-
-            &> .details{
-                padding: 30px 50px;
-                text-align: center;
-                width:100%;
-                transition: 0.5s;
-                margin-top: 6rem;
-                transform: translateY(40px);
-
-                &> h2{
-                    font-size: 1.5rem;
-                    font-weight: 900;
-                    color: #ff91f8;
-                    line-height: 1.2em; 
-                                       
-                }
-                &> p{
-                    color: white;
-                    opacity: 0;
-                    margin-top: 1rem;
-                    padding-top:5rem;
-                    transition: 0.5s;
-                }
-                &> a{
-                    display: inline-block;
-                    padding:4rem, 6rem;
-                    
-                    background-color: #aaffcf;
-                    color: #292929;
-                    margin-top:1rem;
-                    font-weight:700;
-                    text-decoration: none;
-                    opacity: 0;
-                    transition:0.5s;
-                }
-            }
+            inset: 0.2rem;
+            background-color: #000;   
         }        
     }    
 `;
 
-const cardArr = () => {
-    var card = [];
-    for (var i = 0; i < 6; i++) {
-        card.push(
-        <Card>
-            <div className='lines'></div>
-            <div className='imgbox'>
-                <img src="../../src/assets/img/icon/gallery.png"/>
-            </div>
-            <div className='content'>
-                <div className='details'>
-                    <h2>Design</h2>
-                    <p>ABCDEFGHIJKLMNOKOPQRSTUVWXYZ</p>
-                    <a href="#">Read More</a>
-                </div>
-            </div>  
-        </Card>
-        )
-    }
-    return card
-}
+const ImgInput = styled.input`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0;  
+`;
+
+
 
 function SampleBoard(){
-    return (        
-        <Body>            
-            <Container>                        
-                    <Card>
-                    <div className='lines'></div>
-                    <div className='imgbox'>
-                        <img src="../../src/assets/img/icon/gallery.png"/>
-                    </div>
-                    <div className='content'>
-                        <div className='details'>
-                            <h2>Design</h2>
-                            <p>ABCDEFGHIJKLMNOKOPQRSTUVWXYZ</p>
-                            <a href="#">Read More</a>
-                        </div>
-                    </div>  
-                </Card>
-            </Container>                       
-        </Body>
+    const [imgfile, setImgfile] = useState("../../src/assets/img/icon/gallery.png");
+    
+    const imgChange = () => {
+
+    }
+
+    return ( 
+         <div>
+            <BackImg url={'../../src/assets/img/background/background01.jpg'} /> 
+            <Container method="post" enctype="multipart/form-data">                
+                <ImgInputLabel url={"../../src/assets/img/icon/gallery.png"} for="addImg">
+                <div className='imgbox'>
+                    <img src={imgfile}/>
+                </div>
+                </ImgInputLabel>
+                {/*
+                <ImgInput
+                id="addImg"
+                type="file" 
+                accept="image/*" 
+                onchange="loadFile(this)"
+                url={"../../src/assets/img/icon/gallery.png"}
+                >
+                </ImgInput>
+    */}
+                <ImgInput id="addImg" type="file"/>
+           </Container>
+        </div>
     )
 }
 

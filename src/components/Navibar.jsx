@@ -92,7 +92,7 @@ function Navibar() {
               <NavTab>Write</NavTab>
             </Link>
             <Link to="/bulletinboard">
-            <NavTab>Borad</NavTab>
+            <NavTab>Map</NavTab>
             </Link>
           </NavLi>
           <NavLi>                      
