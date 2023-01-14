@@ -1,15 +1,7 @@
 import styled, {keyframes} from 'styled-components';
-import React, {useState, useEffect} from "react"
-const animate1 = keyframes`    
-    0%{
-        transform: translate(-50%,-50%) rotate(0deg);
-    }
-    100%{
-        transform: translate(-50%,-50%) rotate(360deg);
-    }            
-`;
+import React, {useState, useEffect, useRef} from "react"
 
-const animate2 = keyframes`    
+const animate = keyframes`    
     0%{
         transform: translate(-50%,-50%) rotate(360deg);
     }
@@ -39,13 +31,18 @@ const Container = styled.form`
     z-index:10; 
     height: 70rem;
     width:100rem;
-    border: 1px solid white;
+    border-radius: 1rem;
+    background: linear-gradient(-188deg,  rgba(59, 59, 59, 0.3) 0%, rgba(58, 58, 71, 0.8) 90%);
+    box-shadow:  10px 10px 10px 10px rgba(0, 0, 0, 0.25);    
+    backdrop-filter: blur(1px) invert(60%);
 `;
 
 const ImgInputLabel = styled.label`
     position: relative;
     cursor: pointer;
     display: flex;
+    top: 0.4rem;
+    left: 0.4rem;
     &:hover{        
         .imgbox{           
             &> img{
@@ -67,6 +64,7 @@ const ImgInputLabel = styled.label`
             display:flex;
             justify-content:center;
             align-items: center;
+            border-radius: 10px;
             & > img {
                 position: absolute;
                 width: 5rem;
@@ -84,12 +82,14 @@ const ImgInputLabel = styled.label`
             width:30rem;
             height:30rem;
             transform: translate(-50%, -50%);
-            background: linear-gradient(transparent,#4000ff,#8054FF,transparent);
-            animation: ${animate2} 2s linear infinite;
+            background: linear-gradient(transparent,#000000,#ff9e9e,transparent);
+            animation: ${animate} 2s linear infinite;
             animation-play-state: paused;
+            border-radius: 10px;
         }
         &.imgbox::after{
             content:'';
+            border-radius: 10px;
             position:absolute;
             inset: 0.2rem;
             background-color: #000;   
@@ -103,67 +103,128 @@ const ImgInput = styled.input`
   height: 1px;
   padding: 0;
   margin: -1px;
-  overflow: hidden;
+  overflow: hidden;  
   clip:rect(0,0,0,0);
   border: 0;  
+`;
+
+const TagContainer = styled.div`
+    position: relative;
+    margin-top: 21rem;
+    left: 1rem;
+
+    &> div{
+        &.btn{
+            cursor: pointer;
+            position: absolute; 
+            z-index: 10;
+            width:2rem;
+            height: 1.3rem;            
+            top: 0.5rem;
+            left: 16rem;
+            background-color: white;
+            border-radius: 5px;
+        }
+    }
+`;
+
+const TagInput = styled.input`
+    position: relative;
+    width: 18rem;
+    height: 2rem;
+    font-size: 15px;
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(233, 233, 233);
+    box-shadow:  4px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
 const TagStorage = styled.div`
     position: relative;
     display: flex;
     width: 20rem;
+    top: 1rem;
     flex-grow: row;
     flex-wrap: wrap;
     overflow: auto;
+       
+
+    &> div{
+        position: relative;    
+        display: inline-block;
+
+        margin: 0.5rem;     
+        width: auto;
+        height: auto;
+        padding: 0.5rem;
+        padding-right: 1.5rem;        
+        
+        text-align: center;
+        font-size: 15px;
+        border: 0;
+        border-radius: 15px;
+        outline: none;
+        padding-left: 10px;
+        background-color: rgb(233, 233, 233);
+        box-shadow:  4px 4px 4px rgba(0, 0, 0, 0.25);
+
+        &::after {            
+            position: relative;
+            display: inline-block;
+            cursor: pointer;            
+            left: 1rem;
+            padding: 0 0.2rem;
+            padding-bottom:0.2rem;
+            
+            border-radius: 10px;
+            content: "\\00d7"; 
+            font-size:1.3rem;
+            font-weight: 900;
+            background-color: none;
+            
+        }
+    }
 `;
 
-const TagContainer = styled.div`
-    position: relative;
-    
-    margin-top: 21rem;
-    left: 1rem;
-`;
-
-const TagInput = styled.input`
-    position: relative;
-    
-    width: 18rem;
-    height: 2rem;
-`;
-
-const TagKeyword = styled.div`
-    position: relative;
-    
-    margin: 1rem; 
-    left: -1rem;
-    width: 4rem;
-    height: 2rem;
-    background-color: white;
-    border-radius: 10px;
-`;
 
 const ContentContainer = styled.div`
     position: relative;
-    margin: 0.8rem;
-    border: 1px solid white;
+    margin: 0.8rem;    
     width: 74rem;
 `;
 const SubbitButton = styled.div`
     position: absolute;
-    top: 0.5rem;
-    left: 74.6rem;
+    
+    left: 73.6rem;
     width: 4rem;
     height: 2rem;
+    cursor: pointer;
+    
+    font-size: 15px;
+    border: 0;
     border-radius: 10px;
-    background-color: white;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(233, 233, 233);
+    box-shadow:  4px 4px 4px rgba(0, 0, 0, 0.25);
+    
 `;
 
 const FeedInput = styled.input`
     position: relative;
     margin: 1rem;
     width: 60rem;
-    height: 5rem;
-    border-radius: 2rem;
+    height: 5rem; 
+
+    font-size: 15px;
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(233, 233, 233);
+    box-shadow:  4px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
 const Map = styled.div`
@@ -171,53 +232,85 @@ const Map = styled.div`
     width: 78rem;
     height: 61rem;
     border: 1px solid white;
-    
+    border-radius: 15px;
 `;
 
 
 function Form_In(){
-    {/* 훅으로 이미지 바꾸는 역할 할거임. DOM쓸줄 몰라서,,,  */}
+    {/* 이미지 바꾸는 역할 할거임. DOM쓸줄 몰라서,,,  */}
     const [imgfile, setImgfile] = useState("../../src/assets/img/icon/gallery.png");
 
     const imgChange = () => {
         
     };
+    
     useEffect(() => {}, [imgfile]);
-
     {/* 태그 데이터 */}
+    const tagId = useRef(0);
+    const [tagValue, setTagValue] = useState([{}]);
+    
+    const tagStore = () => {
+        const taglist = tagValue.map((tagValue) => (
+            <div key={tagValue.tagid}>{tagValue.tag}</div>          
+        ));            
+        return taglist;        
+    }
 
+
+    const tagCreate = () => { 
+        var inTagValue = document.getElementById("inputTag").value;
+        if(inTagValue === null || inTagValue === undefined ||inTagValue === "") return;
+        
+        console.log("Create:", tagValue);
+         document.getElementById("inputTag").value = null;
+        
+        setTagValue(() => [...tagValue,{
+            tagid:tagId.current++,
+            tag:inTagValue,
+        }]);
+        console.log(inTagValue); 
+    }
+   
+    const tagDelete = () => {
+        
+    }
+    
+    const activeEnter = (e) => {
+        if(e.key === "Enter") tagCreate();
+    }
+    
     return ( 
          <div>
             <BackImg url={'../../src/assets/img/background/background01.jpg'} />
 
             <Container method="post" enctype="multipart/form-data">
                 {/* 이미지 입력 */}
-                <ImgInputLabel url={"../../src/assets/img/icon/gallery.png"} for="addImg">
+                <ImgInputLabel url={"../../src/assets/img/icon/gallery.png"} htmlfor="addImg">
                 <div className='imgbox'><img src={imgfile}/></div>
                 </ImgInputLabel>
                 <ImgInput id="addImg" type="file" accept="image/*" onChange={imgChange}/>
 
                 {/* 태그입력 */}
                 <TagContainer>
-                        <TagInput type="text" value="#태그를 입력해주세요"/>
+                    <div className='btn' onClick={tagCreate}>확인</div>
+                    <TagInput 
+                        type="text"
+                        id='inputTag'
+                        size="10"
+                        onchange={tagCreate}
+                        onKeyDown={activeEnter}                 
+                        placeholder="#태그를 입력해주세요"/>                    
                     <TagStorage>
-                        {/* 함수 및 배열 반복문 이용하기 */}
-                        <TagKeyword>fd</TagKeyword>                    
-                        <TagKeyword>fd</TagKeyword>
-                        <TagKeyword>fd</TagKeyword>
-                        <TagKeyword>fd</TagKeyword>
-                        <TagKeyword>fd</TagKeyword>
-                        <TagKeyword>fd</TagKeyword>
-                        <TagKeyword>fd</TagKeyword>
-                        <TagKeyword>fd</TagKeyword>
-                        <TagKeyword>fd</TagKeyword>
-                        <TagKeyword>fd</TagKeyword>
+                        {tagStore()}
+                        <div>das</div>                       
                     </TagStorage>
                 </TagContainer>
                 {/* 피드 입력 및 맵 지정 */}
                 <ContentContainer>
                     <SubbitButton />
-                    <FeedInput type="text" vlaue="말을 남겨보세요."/>
+                    <FeedInput 
+                    type="text" 
+                    placeholder="말을 남겨보세요."/>
                     <Map />
                 </ContentContainer>
 
