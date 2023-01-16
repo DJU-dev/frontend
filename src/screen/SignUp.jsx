@@ -1,4 +1,3 @@
-import Login from "@/Login/Login.jsx";
 import Register from "@/Login/Register.jsx";
 
 function SignUp() {

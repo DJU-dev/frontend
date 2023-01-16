@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 const Container = styled.nav`
   padding: 0.5rem 0;
   border-bottom: 1px solid black;
+  background: #020002;
+  
 `
 const NavUi = styled.ul`
   display: flex;
@@ -70,6 +72,7 @@ const Profilebox = styled.button`
   right: 1rem;
   border-radius: 50%;  
   border: none;
+  cursor: pointer;
   background: url(${props=>props.url}) center center / cover;
   background-size: 120%;
 `;
@@ -89,7 +92,9 @@ function Navibar() {
             <Link to="/fill-in">
               <NavTab>Write</NavTab>
             </Link>
-            <NavTab>Borad</NavTab>
+            <Link to="/map">
+            <NavTab>Map</NavTab>
+            </Link>
           </NavLi>
           <NavLi>                      
             <Profilebox 

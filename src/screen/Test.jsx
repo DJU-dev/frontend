@@ -1,17 +1,14 @@
 import Navibar from "@/components/Navibar.jsx";
 import SideBar from "@/components/SideBar.jsx";
-import Form_In from "@/components/Form-In.jsx";
+import Board from "@/components/Garbage/Board";
 
-
-
-function Fill_In() {
-    return (
+function Test() {    
+    return (        
         <div>
             <Navibar />
             <SideBar />
-            <Form_In />
-        </div>        
+        </div>
     )
 }
 
-export default Fill_In;
+export default Test;

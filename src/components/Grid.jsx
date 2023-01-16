@@ -16,7 +16,7 @@ const GridBox = styled.section`
   display: flex;
   justify-content: center;
   align-items:center;
-  gap: 2px;
+  gap: 0.35rem;
   flex-wrap: wrap;
   overflow: hidden;
   
@@ -28,23 +28,23 @@ const GridBox = styled.section`
         background: linear-gradient(#FF9898,#8054FF);
         filter: blur(1000px);
         animation: ${animate} 8s linear infinite;
-        z-index: 0;
+        z-index: 1;
     }
   
     &>span {          
         width: 2rem;
         height: 2rem;
-        background: #181818;
-        transition: 1.5s;
-        z-index: 0;
-        
-        /*  큐브 객체 우선순위 문제로 삭제...
+        background: #000;
+        transition: 2s;
+        z-index: 1;        
+        /*  큐브 객체 우선순위 문제로 삭제... */
         &:hover {            
-            background: #FF9898;
-            filter: blur(3px);
-            transition: 0s;
+            background: #f398ff;            
+            filter: blur(1px);
+            opacity: 0.1;
+            transition: 0s;            
         }
-        */
+        
 
         /* 화면 비율별 사각형 크기 */
         @media screen and (min-width:900px){                        
