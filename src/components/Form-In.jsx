@@ -194,19 +194,19 @@ const ContentContainer = styled.div`
     margin: 0.8rem;    
     width: 74rem;
 `;
-const SubbitButton = styled.div`
-    position: absolute;
+const SubbitButton = styled.a`
+    position: absolute;    
+    text-align: center;
+    left: 75rem;
+    width: 2rem;
     
-    left: 73.6rem;
-    width: 4rem;
-    height: 2rem;
     cursor: pointer;
     
     font-size: 15px;
     border: 0;
     border-radius: 10px;
     outline: none;
-    padding-left: 10px;
+    padding: 10px;
     background-color: rgb(233, 233, 233);
     box-shadow:  4px 4px 4px rgba(0, 0, 0, 0.25);
     
@@ -245,30 +245,34 @@ function Form_In(){
     };
     
     useEffect(() => {}, [imgfile]);
-    {/* 태그 데이터 */}
+    {/* 태그 데이터 */}    
+    const [tagValue, setTagValue] = useState([{tagid:null,tag:null}]);
+    const [initTag,setInitTag] = useState(false); {/** 첫번째 null 요소 삭제용 */}
     const tagId = useRef(0);
-    const [tagValue, setTagValue] = useState([{}]);
-    
+
     const tagStore = () => {
+        if(!initTag){ 
+            tagValue.shift();
+            setInitTag(true);
+            return;
+        } 
         const taglist = tagValue.map((tagValue) => (
+            <>
             <div key={tagValue.tagid}>{tagValue.tag}</div>          
-        ));            
+            </>
+        )); 
         return taglist;        
     }
-
 
     const tagCreate = () => { 
         var inTagValue = document.getElementById("inputTag").value;
         if(inTagValue === null || inTagValue === undefined ||inTagValue === "") return;
-        
-        console.log("Create:", tagValue);
          document.getElementById("inputTag").value = null;
         
         setTagValue(() => [...tagValue,{
             tagid:tagId.current++,
             tag:inTagValue,
-        }]);
-        console.log(inTagValue); 
+        }]); 
     }
    
     const tagDelete = () => {
@@ -278,14 +282,14 @@ function Form_In(){
     const activeEnter = (e) => {
         if(e.key === "Enter") tagCreate();
     }
-    
+
     return ( 
          <div>
             <BackImg url={'../../src/assets/img/background/background01.jpg'} />
 
             <Container method="post" enctype="multipart/form-data">
                 {/* 이미지 입력 */}
-                <ImgInputLabel url={"../../src/assets/img/icon/gallery.png"} htmlfor="addImg">
+                <ImgInputLabel url={"../../src/assets/img/icon/gallery.png"} htmlFor="addImg">
                 <div className='imgbox'><img src={imgfile}/></div>
                 </ImgInputLabel>
                 <ImgInput id="addImg" type="file" accept="image/*" onChange={imgChange}/>
@@ -301,13 +305,12 @@ function Form_In(){
                         onKeyDown={activeEnter}                 
                         placeholder="#태그를 입력해주세요"/>                    
                     <TagStorage>
-                        {tagStore()}
-                        <div>das</div>                       
+                        {tagStore()}                      
                     </TagStorage>
                 </TagContainer>
                 {/* 피드 입력 및 맵 지정 */}
                 <ContentContainer>
-                    <SubbitButton />
+                    <SubbitButton onClick={() => window.location.href="/"}>공유</SubbitButton>
                     <FeedInput 
                     type="text" 
                     placeholder="말을 남겨보세요."/>
