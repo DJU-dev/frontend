@@ -1,5 +1,6 @@
 import styled, {keyframes} from 'styled-components';
 import React, {useState, useEffect, useRef} from "react"
+import {MapMarker, Map} from "react-kakao-maps-sdk";
 
 const animate = keyframes`    
     0%{
@@ -234,13 +235,12 @@ const FeedInput = styled.input`
     }
 `;
 
-const Map = styled.div`
+const MapIn = styled.div`
     position: relative;
     width: 78rem;
     height: 61rem;
     border: 1px solid white;
     border-radius: 0.3rem;
-    background: url(${props=>props.url}) center center / cover;
 `;
 
 function Form_In(){
@@ -290,9 +290,14 @@ function Form_In(){
         setTagValue(tagValue.filter(t => t.tagid != id));
     }
     
+    {/** 카카오맵 중앙값 위치 */}  
+    const [position, setPosition] = useState({lat: 37.38914, lng: 126.9544});
+  
+
     const activeEnter = (e) => {
         if(e.key === "Enter") tagCreate();
     }
+
 
     return ( 
          <div>
@@ -325,7 +330,22 @@ function Form_In(){
                     <FeedInput 
                     type="text" 
                     placeholder="말을 남겨보세요."/>
-                    <Map url={"../../src/assets/img/sample07.jpg"} />
+                    <MapIn>
+                        <Map
+                            center={{ lat: 37.38914, lng: 126.9544 }}
+                            style={{ width: "100%", height: "100%" }}
+                            level={2}
+                            onClick={(_t,mouseEvent) => setPosition({
+                                lat: mouseEvent.latLng.getLat(),
+                                lng: mouseEvent.latLng.getLng(),
+                            })}
+                        >
+                            {<MapMarker position={position}>
+                                <div style={{color:"#000"}}>Hello World!</div>
+                            </MapMarker>}
+                        </Map>
+                        {position && <p>{'클릭한 위치의 위도는 ' + position.lat + ' 이고, 경도는 ' + position.lng + ' 입니다'}</p>}
+                    </MapIn>
                 </ContentContainer>
 
            </Container>

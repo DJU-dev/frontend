@@ -6,6 +6,7 @@ const Container = styled.nav`
   padding: 0.5rem 0;
   border-bottom: 1px solid black;
   background: #020002;
+  
 `
 const NavUi = styled.ul`
   display: flex;
@@ -91,7 +92,7 @@ function Navibar() {
             <Link to="/fill-in">
               <NavTab>Write</NavTab>
             </Link>
-            <Link to="/bulletinboard">
+            <Link to="/map">
             <NavTab>Map</NavTab>
             </Link>
           </NavLi>

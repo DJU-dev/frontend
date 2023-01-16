@@ -114,7 +114,7 @@ function SideBar() {
             <FixSide toggle={isSide}>
                 <MenuList toggle={isSide}>
                     <MenuEvent
-                    onClick={() => window.location.href="/bulletinboard"}
+                    onClick={() => window.location.href="/map"}
                     url={'../../src/assets/img/icon/earth-icon.png'}>
                         <div className="icon"/>
                         <div className="menuItem"/>                                        

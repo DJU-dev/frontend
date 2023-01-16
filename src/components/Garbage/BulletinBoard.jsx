@@ -16,3 +16,4 @@ function BulletinBoard() {
 }
 
 export default BulletinBoard;
+{/** KaKaoMap.jsx로 변경 */}

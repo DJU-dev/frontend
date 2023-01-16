@@ -225,3 +225,5 @@ function Inquiry(){
 }
 
 export default Inquiry;
+
+{/** SideBoard.jsx로 변경 */}
