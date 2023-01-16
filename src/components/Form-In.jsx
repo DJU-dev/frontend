@@ -34,7 +34,7 @@ const Container = styled.form`
     border-radius: 1rem;
     background: linear-gradient(-188deg,  rgba(59, 59, 59, 0.3) 0%, rgba(58, 58, 71, 0.8) 90%);
     box-shadow:  10px 10px 10px 10px rgba(0, 0, 0, 0.25);    
-    backdrop-filter: blur(1px) invert(60%);
+    backdrop-filter: blur(1px) invert(20%);
 `;
 
 const ImgInputLabel = styled.label`
@@ -122,8 +122,9 @@ const TagContainer = styled.div`
             height: 1.3rem;            
             top: 0.5rem;
             left: 16rem;
-            background-color: white;
+            background-color: none;
             border-radius: 5px;
+            font-weight: 800;
         }
     }
 `;
@@ -159,27 +160,28 @@ const TagStorage = styled.div`
         width: auto;
         height: auto;
         padding: 0.5rem;
-        padding-right: 1.5rem;        
+        padding-right: 1rem;        
         
         text-align: center;
         font-size: 15px;
+        font-weight: 800;
         border: 0;
-        border-radius: 15px;
+        border-radius: 50px;
         outline: none;
         padding-left: 10px;
         background-color: rgb(233, 233, 233);
         box-shadow:  4px 4px 4px rgba(0, 0, 0, 0.25);
 
-        &::after {            
+        &> div {            
             position: relative;
             display: inline-block;
             cursor: pointer;            
-            left: 1rem;
+            left: 0.4rem;
             padding: 0 0.2rem;
             padding-bottom:0.2rem;
-            
-            border-radius: 10px;
-            content: "\\00d7"; 
+            width:0.7rem;
+            height: 0.5rem;
+            border-radius: 10px;            
             font-size:1.3rem;
             font-weight: 900;
             background-color: none;
@@ -203,6 +205,7 @@ const SubbitButton = styled.a`
     cursor: pointer;
     
     font-size: 15px;
+    font-weight: 800;
     border: 0;
     border-radius: 10px;
     outline: none;
@@ -258,7 +261,10 @@ function Form_In(){
         } 
         const taglist = tagValue.map((tagValue) => (
             <>
-            <div key={tagValue.tagid}>{tagValue.tag}</div>          
+            <div key={tagValue.tagid}>
+                {tagValue.tag}
+                <div onClick={() => tagDelete(tagValue.tagid)}>×</div>
+            </div>          
             </>
         )); 
         return taglist;        
@@ -275,8 +281,10 @@ function Form_In(){
         }]); 
     }
    
-    const tagDelete = () => {
-        
+    const tagDelete = (id) => {
+        setTagValue(tagValue.filter(t => t.tagid != id));
+        console.log(id,tagValue);
+
     }
     
     const activeEnter = (e) => {
