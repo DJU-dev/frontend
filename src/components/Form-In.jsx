@@ -10,13 +10,11 @@ const animate = keyframes`
     }            
 `;
 
-
 const BackImg = styled.div`
     position:fixed;
     width: 100%;
-    height: 100vh;
-    right: 10vh;    
-    opacity: 0.3;
+    height: 100vh;   
+    opacity: 0.8;
     background: url(${props=>props.url}) center center / cover;
     transform: matrix(-1, 0, 0, 1, 0, 0);   
     z-index: -3;
@@ -31,7 +29,7 @@ const Container = styled.form`
     z-index:10; 
     height: 70rem;
     width:100rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     background: linear-gradient(-188deg,  rgba(59, 59, 59, 0.3) 0%, rgba(58, 58, 71, 0.8) 90%);
     box-shadow:  10px 10px 10px 10px rgba(0, 0, 0, 0.25);    
     backdrop-filter: blur(1px) invert(20%);
@@ -112,6 +110,7 @@ const TagContainer = styled.div`
     position: relative;
     margin-top: 21rem;
     left: 1rem;
+    
 
     &> div{
         &.btn{
@@ -125,6 +124,7 @@ const TagContainer = styled.div`
             background-color: none;
             border-radius: 5px;
             font-weight: 800;
+            color: white;
         }
     }
 `;
@@ -134,12 +134,16 @@ const TagInput = styled.input`
     width: 18rem;
     height: 2rem;
     font-size: 15px;
+    color: white;
     border: 0;
     border-radius: 15px;
     outline: none;
     padding-left: 10px;
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(81, 81, 81);
     box-shadow:  4px 4px 4px rgba(0, 0, 0, 0.25);
+    &::placeholder{
+        color: white;
+    }
 `;
 
 const TagStorage = styled.div`
@@ -150,17 +154,17 @@ const TagStorage = styled.div`
     flex-grow: row;
     flex-wrap: wrap;
     overflow: auto;
-       
 
     &> div{
         position: relative;    
         display: inline-block;
-
+        color: white;
         margin: 0.5rem;     
         width: auto;
         height: auto;
-        padding: 0.5rem;
-        padding-right: 1rem;        
+        padding: 0.3rem;
+        padding-right: 1rem;
+        padding-bottom: 0.5rem;       
         
         text-align: center;
         font-size: 15px;
@@ -169,13 +173,13 @@ const TagStorage = styled.div`
         border-radius: 50px;
         outline: none;
         padding-left: 10px;
-        background-color: rgb(233, 233, 233);
+        background-color: rgb(81, 81, 81);
         box-shadow:  4px 4px 4px rgba(0, 0, 0, 0.25);
 
         &> div {            
             position: relative;
             display: inline-block;
-            cursor: pointer;            
+            cursor: pointer;                     
             left: 0.4rem;
             padding: 0 0.2rem;
             padding-bottom:0.2rem;
@@ -185,34 +189,31 @@ const TagStorage = styled.div`
             font-size:1.3rem;
             font-weight: 900;
             background-color: none;
-            
+            color: black;
         }
     }
 `;
-
 
 const ContentContainer = styled.div`
     position: relative;
     margin: 0.8rem;    
     width: 74rem;
 `;
+
 const SubbitButton = styled.a`
     position: absolute;    
     text-align: center;
-    left: 75rem;
+    left: 76.4rem;
     width: 2rem;
     
     cursor: pointer;
-    
-    font-size: 15px;
+    color: white;
+    font-size: 16px;
     font-weight: 800;
     border: 0;
-    border-radius: 10px;
-    outline: none;
-    padding: 10px;
-    background-color: rgb(233, 233, 233);
-    box-shadow:  4px 4px 4px rgba(0, 0, 0, 0.25);
-    
+    border-radius: 0.3rem;
+    outline: none;    
+    background-color: none;
 `;
 
 const FeedInput = styled.input`
@@ -220,14 +221,17 @@ const FeedInput = styled.input`
     margin: 1rem;
     width: 60rem;
     height: 5rem; 
-
+    color: white;
     font-size: 15px;
     border: 0;
-    border-radius: 15px;
+    border-radius: 0.3rem;
     outline: none;
     padding-left: 10px;
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(81, 81, 81);
     box-shadow:  4px 4px 4px rgba(0, 0, 0, 0.25);
+    &::placeholder{
+        color: white;
+    }
 `;
 
 const Map = styled.div`
@@ -235,9 +239,9 @@ const Map = styled.div`
     width: 78rem;
     height: 61rem;
     border: 1px solid white;
-    border-radius: 15px;
+    border-radius: 0.3rem;
+    background: url(${props=>props.url}) center center / cover;
 `;
-
 
 function Form_In(){
     {/* 이미지 바꾸는 역할 할거임. DOM쓸줄 몰라서,,,  */}
@@ -248,6 +252,7 @@ function Form_In(){
     };
     
     useEffect(() => {}, [imgfile]);
+
     {/* 태그 데이터 */}    
     const [tagValue, setTagValue] = useState([{tagid:null,tag:null}]);
     const [initTag,setInitTag] = useState(false); {/** 첫번째 null 요소 삭제용 */}
@@ -262,7 +267,7 @@ function Form_In(){
         const taglist = tagValue.map((tagValue) => (
             <>
             <div key={tagValue.tagid}>
-                {tagValue.tag}
+                #{tagValue.tag}
                 <div onClick={() => tagDelete(tagValue.tagid)}>×</div>
             </div>          
             </>
@@ -283,8 +288,6 @@ function Form_In(){
    
     const tagDelete = (id) => {
         setTagValue(tagValue.filter(t => t.tagid != id));
-        console.log(id,tagValue);
-
     }
     
     const activeEnter = (e) => {
@@ -293,7 +296,7 @@ function Form_In(){
 
     return ( 
          <div>
-            <BackImg url={'../../src/assets/img/background/background01.jpg'} />
+            <BackImg url={'../../src/assets/img/background/background02.jpg'} />
 
             <Container method="post" enctype="multipart/form-data">
                 {/* 이미지 입력 */}
@@ -308,7 +311,7 @@ function Form_In(){
                     <TagInput 
                         type="text"
                         id='inputTag'
-                        size="10"
+                        
                         onchange={tagCreate}
                         onKeyDown={activeEnter}                 
                         placeholder="#태그를 입력해주세요"/>                    
@@ -322,7 +325,7 @@ function Form_In(){
                     <FeedInput 
                     type="text" 
                     placeholder="말을 남겨보세요."/>
-                    <Map />
+                    <Map url={"../../src/assets/img/sample07.jpg"} />
                 </ContentContainer>
 
            </Container>

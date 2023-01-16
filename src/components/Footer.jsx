@@ -7,11 +7,11 @@ const Container = styled.div`
     overflow: hidden;
     margin-top: 10rem;
     width: 90%;
-    height: 20rem;
+    height: 15rem;
     padding-left: 10%;
     align-items: center;
     border-radius: 2rem 2rem 0 0;    
-    background: #414141; /* #414141 good */
+    background: #080808; 
 `;
 
 const Row = styled.div`

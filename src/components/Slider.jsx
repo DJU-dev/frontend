@@ -7,24 +7,69 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
+const animate1 = keyframes`    
+    0%{
+        transform: translate(-50%,-50%) rotate(360deg);
+    }
+    100%{
+        transform: translate(-50%,-50%) rotate(0deg);
+    }            
+`;
+
+
 const Container = styled.div`
   position: relative;
   top: 2vw;  
-  left:10vw;
+  left: 15rem;
   width: 80vw;
+  margin-bottom: 15rem;
+  padding: 2rem 2.5rem;
+  overflow: hidden;
+  z-index: 3;
+  border-radius: 10px;
+  background-color:black;
+  box-shadow:  0px 0px 20px rgba(255, 255, 255, 0.1);  
   
-  background-color:none;
+  ::before{
+          content: '';
+          position:absolute;
+          top:50%;
+          left:50%;
+          width:110rem;
+          height:110rem;
+          transform: translate(-50%, -50%);
+          background: linear-gradient(transparent,rgba(255, 128, 232, 0.5) 40%,rgba(190, 100, 255, 0.5) 60%,transparent);
+          animation: ${animate1} 3s linear infinite;          
+          border-radius: 10px;
+          z-index: -2;
+        }
+  ::after{
+            content:'';
+            border-radius: 10px;
+            position:absolute;
+            inset: 0.2rem;
+            z-index: -1;
+            background-color: black;   
+        }     
 `;
 
 const Box = styled.div` 
+  position: relative;
   display: flex;
   border: 1px solid black;  
-  height: 18rem;  
+  height: 100%;  
   width: 100%;  
+  cursor: pointer;
   border-radius: 1rem;
   flex-wrap: wrap;
   z-index: 1;
+  transition: 1s;
   background: url(${props=>props.url}) center center / cover;
+
+  &:hover{    
+    border-radius: 10rem;
+    transition: 0.5s;
+  }
 
   @media screen and (min-width:300px){
       height: 10rem;            
@@ -63,9 +108,9 @@ const animate = keyframes`
 
 const Header = styled.p`
   text-align: center;
-  color: linear-gradient(45deg,#FF9898,#8054FF);
+  color: white;
   font-size: 40px;
-  font-weight: 500;
+  font-weight: 800;
   padding-bottom: 3rem;
   animation: ${fadein} 4s,${animate} 3s;  
 `;
@@ -179,7 +224,7 @@ const SliderBox = () => {
             <Phrase1>Lifestyle</Phrase1>
             <Phrase2>A Matter of Taste</Phrase2>
           </Box>
-        </Slider>
+        </Slider>        
       </Container>
     );
   

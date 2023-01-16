@@ -15,8 +15,7 @@ function Main() {
             <Mprofile />  
             <Grid /> 
             <Cube />            
-            <SliderBox />                  
-            <Footer />
+            <SliderBox />            
             <FFooter />       
         </div>        
     )

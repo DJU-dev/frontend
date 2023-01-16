@@ -63,8 +63,8 @@ const MenuEvent = styled.div`
     position: relative;
     display:flex;
     width: 7rem;
-    height: 5.5rem; 
-    
+    height: 5.5rem;
+
     &:hover{
         &> div{
             &.menuItem{
