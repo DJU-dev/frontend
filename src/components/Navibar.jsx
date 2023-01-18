@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Container = styled.nav`
   position: relative;
   width:100%;
-  height: 3rem;
+  height: 2.5rem;
   padding: 0.5rem 0;
   border-bottom: 1px solid black;
   background: #020002;
