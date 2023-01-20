@@ -1,12 +1,13 @@
 import Navibar from "@/components/Navibar.jsx";
 import SideBar from "@/components/SideBar.jsx";
-import Board from "@/components/Garbage/Board";
+import ManageWindow from "@/components/ManageWindow";
 
 function Test() {    
     return (        
         <div>
             <Navibar />
             <SideBar />
+            <ManageWindow />
         </div>
     )
 }
