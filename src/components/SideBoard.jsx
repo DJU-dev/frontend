@@ -754,7 +754,7 @@ function SideBoard(){
                 src="../../../src/assets/img/icon/point3-icon.png" 
                 className="menu"/>                    
             </Tab>            
-            {isList ? PostList(): Post()}
+            {isList ? PostList(): Post()}            
         </Container>
     )
 }
