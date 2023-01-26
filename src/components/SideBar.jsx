@@ -1,5 +1,7 @@
 import styled, {keyframes} from "styled-components";
 import useStore from "@/utils/store";
+import { GiEarthAmerica } from 'react-icons/gi';
+import { TfiWrite } from 'react-icons/Tfi';
 
 const FixSide = styled.div`
     position:fixed;
@@ -68,8 +70,8 @@ const MenuEvent = styled.div`
     &:hover{
         &> div{
             &.menuItem{
-            transform: translateX(100%);
-            transition: 0.3s ease-in-out;
+                transform: translateX(100%);
+                transition: 0.3s ease-in-out;
             }
         }
     }
@@ -85,8 +87,7 @@ const MenuEvent = styled.div`
         &.icon{
             position: relative;
             top: 18%;
-            left: 23.5%;
-            
+            left: 23.5%;            
             width: 3.5rem;
             height: 3.5rem;           
             cursor: pointer;
@@ -98,6 +99,28 @@ const MenuEvent = styled.div`
         }
     }  
 `;
+
+const EarthIcon = styled(GiEarthAmerica)`
+            position: absolute;
+            top: 18%;
+            left: 23.5%;            
+            width: 3rem;
+            height: 3rem;           
+            color: white;  
+            cursor: pointer;                      
+            z-index:30;
+`
+
+const WriteIcon = styled(TfiWrite)`
+            position: absolute;
+            top: 18%;
+            left: 23.5%;            
+            width: 3rem;
+            height: 3rem;
+            color: white;
+            cursor: pointer;            
+            z-index:30;
+`
 
 function SideBar() {
     const { isSide,toggleIsSide } = useStore();
@@ -113,17 +136,14 @@ function SideBar() {
 
             <FixSide toggle={isSide}>
                 <MenuList toggle={isSide}>
-                    <MenuEvent
-                    onClick={() => window.location.href="/frontend/map"}
-                    url={'/frontend/src/assets/img/icon/earth-icon.png'}>
-                        <div className="icon"/>
-                        <div className="menuItem"/>                                        
+                    <MenuEvent>                        
+                        <div className="menuItem"/>
+                        <EarthIcon onClick={() => window.location.href="/frontend/map"}
+                        />
                     </MenuEvent>
-                    <MenuEvent 
-                    onClick={() => window.location.href="/frontend/fill-in"}
-                    url={'/frontend/src/assets/img/icon/writing-icon.png'}>
-                        <div className="icon"/>
-                        <div className="menuItem"/>                                        
+                    <MenuEvent>
+                        <WriteIcon onClick={() => window.location.href="/frontend/fill-in"}/>
+                        <div className="menuItem"/>
                     </MenuEvent>
                     <MenuEvent url={'/frontend/src/assets/img/icon/Simpsons-icon.png'}>
                         <div className="icon"/>  
@@ -132,7 +152,8 @@ function SideBar() {
                     <MenuEvent url={'/frontend/src/assets/img/icon/phone-icon.png'}>
                         <div className="icon"/>
                         <div className="menuItem"/>                                        
-                    </MenuEvent>                    
+                    </MenuEvent>  
+                    
                 </MenuList>                
             </FixSide>
         </div>
