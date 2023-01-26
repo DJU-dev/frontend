@@ -301,11 +301,11 @@ function Form_In(){
 
     return ( 
          <div>
-            <BackImg url={'../../src/assets/img/background/background02.jpg'} />
+            <BackImg url={'/frontend/src/assets/img/background/background02.jpg'} />
 
             <Container method="post" enctype="multipart/form-data">
                 {/* 이미지 입력 */}
-                <ImgInputLabel url={"../../src/assets/img/icon/gallery.png"} htmlFor="addImg">
+                <ImgInputLabel url={"/frontend/src/assets/img/icon/gallery.png"} htmlFor="addImg">
                 <div className='imgbox'><img src={imgfile}/></div>
                 </ImgInputLabel>
                 <ImgInput id="addImg" type="file" accept="image/*" onChange={imgChange}/>
@@ -326,7 +326,7 @@ function Form_In(){
                 </TagContainer>
                 {/* 피드 입력 및 맵 지정 */}
                 <ContentContainer>
-                    <SubbitButton onClick={() => window.location.href="/"}>공유</SubbitButton>
+                    <SubbitButton onClick={() => window.location.href="/frontend/"}>공유</SubbitButton>
                     <FeedInput 
                     type="text" 
                     placeholder="말을 남겨보세요."/>

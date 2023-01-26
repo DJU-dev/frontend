@@ -83,7 +83,7 @@ function Mprofile(){
             <Background isModal={isModal}>
                 <X onClick={toggleIsModal}/>
                 <HeadBox>
-                    <Profile url={'../../src/assets/img/icon/profile01.png'}/>
+                    <Profile url={'/frontend/src/assets/img/icon/profile01.png'}/>
                 </HeadBox>
             </Background>
             }

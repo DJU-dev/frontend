@@ -204,23 +204,23 @@ const SliderBox = () => {
             <Phrase1>Around the world</Phrase1>
             <Phrase2>Vineyards from the skies</Phrase2>
           </Box>          
-          <Box url={'../../src/assets/img/sample02.jpg'}>
+          <Box url={'/frontend/src/assets/img/sample02.jpg'}>
             <Phrase1>Around the world</Phrase1>
             <Phrase2>Wine Planets</Phrase2>
           </Box>
-          <Box url={'../../src/assets/img/sample03.jpg'}>
+          <Box url={'/frontend/src/assets/img/sample03.jpg'}>
             <Phrase1>Through the ages</Phrase1>
             <Phrase2>Winegrowers and terroirs</Phrase2>
           </Box>
-          <Box url={'../../src/assets/img/sample04.jpg'}>
+          <Box url={'/frontend/src/assets/img/sample04.jpg'}>
             <Phrase1>Through the ages</Phrase1>
             <Phrase2>The Gallery of Civilisations</Phrase2>
           </Box>
-          <Box url={'../../src/assets/img/sample05.jpg'}>
+          <Box url={'/frontend/src/assets/img/sample05.jpg'}>
             <Phrase1>Lifestyle</Phrase1>
             <Phrase2>The Buffet of the Five Senses</Phrase2>
           </Box>
-          <Box url={'../../src/assets/img/sample06.jpg'}>
+          <Box url={'/frontend/src/assets/img/sample06.jpg'}>
             <Phrase1>Lifestyle</Phrase1>
             <Phrase2>A Matter of Taste</Phrase2>
           </Box>

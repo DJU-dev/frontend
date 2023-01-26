@@ -166,11 +166,11 @@ function FFooter(){
             <F_Footer>
                 <P>Copyright © 2023 daejeon_u Technology Pty Limited (ACN 442 359 655)</P>
                 <ArrIcon>
-                <Icon url={'../../src/assets/img/icon/twitter-icon.png'} />
-                <Icon url={'../../src/assets/img/icon/youtube-icon.png'} />
-                <Icon url={'../../src/assets/img/icon/instargram-icon.png'} />
-                <Icon url={'../../src/assets/img/icon/facebook-icon.png'} />
-                <Icon url={'../../src/assets/img/icon/discord-icon.png'} />
+                <Icon url={'/frontend/src/assets/img/icon/twitter-icon.png'} />
+                <Icon url={'/frontend/src/assets/img/icon/youtube-icon.png'} />
+                <Icon url={'/frontend/src/assets/img/icon/instargram-icon.png'} />
+                <Icon url={'/frontend/src/assets/img/icon/facebook-icon.png'} />
+                <Icon url={'/frontend/src/assets/img/icon/discord-icon.png'} />
                 </ArrIcon>
             </F_Footer>
         </div>
