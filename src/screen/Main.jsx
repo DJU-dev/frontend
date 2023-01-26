@@ -26,10 +26,11 @@ function Main() {
                 }
             })
     }, [])
+
     console.log(isLoggedIn, 'login check')
     return (
         <div>
-            <Navibar isLoggedIn={isLoggedIn} />
+            <Navibar isLoggedIn={isLoggedIn} username={user.username} />
             <SideBar />
             <Mprofile user={user} />
             <MainIntroduce />
