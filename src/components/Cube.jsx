@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {keyframes} from 'styled-components';
 import {Mobile, Desktop, Tablet} from "@/components/MediaQuery/MediaQuery.jsx";
 import {useState, useEffect} from "react";
 import PackageCube from 'react-3d-cube';
@@ -29,11 +29,18 @@ const ResponsiveBox = ({size}) => {
     return (
         
             <BoxContainer size={windowSize.innerWidth / size}>
-                <PackageCube size={windowSize.innerWidth / size} index="front" />
+                <PackageCube size={windowSize.innerWidth / size} index="front">
+                <Img url={"../../src/assets/img/sample01.jpg"}/>
+                <Img url={'../../src/assets/img/sample02.jpg'}/>
+                <Img url={'../../src/assets/img/sample03.jpg'}/>
+                <Img url={'../../src/assets/img/sample04.jpg'}/>
+                <Img url={'../../src/assets/img/sample05.jpg'}/>
+                <Img url={'../../src/assets/img/sample06.jpg'}/>
+                </PackageCube>
             </BoxContainer>
         
     )
-}
+}  
 
 const Cube = () => {
     return (
@@ -51,21 +58,51 @@ const Cube = () => {
     )
 }
 
+const animate = keyframes`    
+    0%{
+        transform: translateY(1%);
+    }
+    50%{
+        transform: translateY(-0%);
+    } 
+    100%{
+        transform: translateY(1%);
+    }            
+`;
+
 const Container = styled.div`
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
+    position: relative;
+    width: 100%;
+    height: 65vh;    
     display: flex;
     justify-content: center;
-    perspective: 1000px;
+    perspective: 1000px;    
+    animation: ${animate} 4s linear infinite;
+    z-index:1;
+    &:hover {
+       pointer-events: none; 
+    }
 `
 
 const BoxContainer = styled.div`
   position: relative;
   width: ${props => props.size}px;
   height: ${props => props.size}px;
-  margin-top: 200px;
-  z-index: 3;  
+  margin-top: 45rem;  
+  z-index: 3;
 `
+
+const Img = styled.img` 
+  display: flex; 
+  border-radius: 0.3rem;  
+  z-index: 2;
+  background: url(${props=>props.url}) center center / cover;
+  opacity: 0.85;
+  cursor: pointer;
+  box-shadow: 0px 0px 3rem;
+  &:hover {
+       pointer-events: auto; 
+    }
+`;
 
 export default Cube;
