@@ -7,9 +7,7 @@ function ShortCut() {
     var colorList = ["#89ec5b","#5b98eb","#eb5ea5"];
     return(
         <Body>
-            <Name>Short cut</Name>
             <Container>
-                
                 <Box color={"#89ec5b"}>
                     <Content>
                         <Icon color1={"#89ec5b"}><BiCube/></Icon>          
