@@ -5,6 +5,7 @@ import Grid from "@/components/Grid.jsx";
 import SliderBox from "@/components/Slider.jsx";
 import {Footer,FFooter} from "@/components/Footer.jsx";
 import Mprofile from "@/components/Mprofile.jsx";
+import MainIntroduce from "@/components/MainIntroduce";
 
 
 function Main() {
@@ -13,6 +14,7 @@ function Main() {
             <Navibar /> 
             <SideBar /> 
             <Mprofile />  
+            <MainIntroduce />
             <Grid /> 
             <Cube />            
             <SliderBox />            

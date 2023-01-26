@@ -125,11 +125,14 @@ function SideBar() {
                         <div className="icon"/>
                         <div className="menuItem"/>                                        
                     </MenuEvent>
-                    <MenuEvent url={'../../src/assets/img/icon/Simpsons-icon.png'}>
+                    <MenuEvent 
+                    onClick={() => window.location.href="/management"}
+                    url={'../../src/assets/img/icon/Simpsons-icon.png'}>
                         <div className="icon"/>  
                         <div className="menuItem"/>                                        
                     </MenuEvent>
-                    <MenuEvent url={'../../src/assets/img/icon/phone-icon.png'}>
+                    <MenuEvent                     
+                    url={'../../src/assets/img/icon/phone-icon.png'}>
                         <div className="icon"/>
                         <div className="menuItem"/>                                        
                     </MenuEvent>                    
