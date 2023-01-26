@@ -8,10 +8,11 @@ import MainIntroduce from "@/components/MainIntroduce";
 import ShortCut from "../components/ShortCut";
 import {useEffect, useState} from "react";
 import {useLogin, useLocalStorage} from "@/utils/customHooks.jsx";
+import {useAuthStore} from "@/utils/store.jsx";
 
 function Main() {
-    const [isLogged, setIsLoggedIn] = useState(false);
     const [jwtToken, setJwtToken] = useLocalStorage("jwtToken", "");
+    const {isLoggedIn, setLoggedIn, setLoggedOut} = useAuthStore(state => state);
     const [user, setUser] = useState({
         username: "Anonymous",
         email: "Anonymous",
@@ -21,13 +22,14 @@ function Main() {
             .then(r => {
                 if (r !== undefined) {
                     setUser(r);
+                    setLoggedIn();
                 }
             })
     }, [])
-
+    console.log(isLoggedIn, 'login check')
     return (
         <div>
-            <Navibar />
+            <Navibar isLoggedIn={isLoggedIn} />
             <SideBar />
             <Mprofile user={user} />
             <MainIntroduce />

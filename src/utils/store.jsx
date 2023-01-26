@@ -14,6 +14,12 @@ const useStore = create(
     }))
 );
 
+export const useAuthStore = create(set => ({
+    isLoggedIn: false,
+    setLoggedIn: () => set(() => ({ isLoggedIn: true})),
+    setLoggedOut: () => set(() => ({ isLoggedIn: false})),
+}))
+
 
 
 export default useStore;

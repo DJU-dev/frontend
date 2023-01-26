@@ -82,7 +82,7 @@ const Profilebox = styled.button`
 `;
 
 
-function Navibar() {  
+function Navibar({isLoggedIn}) {
   const { toggleIsModal } = useStore();
   return (
       <Container>                    
