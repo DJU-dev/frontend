@@ -4,7 +4,7 @@ import VitePluginHtmlEnv from 'vite-plugin-html-env'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base : "/",
+  base : "/frontend/",
   plugins: [react(), VitePluginHtmlEnv()],
   resolve: {
     alias: [

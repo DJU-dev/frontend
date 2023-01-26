@@ -114,13 +114,13 @@ function SideBar() {
             <FixSide toggle={isSide}>
                 <MenuList toggle={isSide}>
                     <MenuEvent
-                    onClick={() => window.location.href="/map"}
+                    onClick={() => window.location.href="/frontend/map"}
                     url={'../../src/assets/img/icon/earth-icon.png'}>
                         <div className="icon"/>
                         <div className="menuItem"/>                                        
                     </MenuEvent>
                     <MenuEvent 
-                    onClick={() => window.location.href="/fill-in"}
+                    onClick={() => window.location.href="/frontend/fill-in"}
                     url={'../../src/assets/img/icon/writing-icon.png'}>
                         <div className="icon"/>
                         <div className="menuItem"/>                                        

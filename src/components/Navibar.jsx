@@ -84,15 +84,15 @@ function Navibar() {
       <Container>                    
         <NavUi>
           <NavLi>            
-            <Link to="/">
+            <Link to="/frontend/">
               <LogoBox url={'../../src/assets/img/icon/Logo-icon.jpg'}></LogoBox>            
               <NavLogo>Squid</NavLogo>
             </Link>   
               <NavTab>About</NavTab>            
-            <Link to="/fill-in">
+            <Link to="/frontend/fill-in">
               <NavTab>Write</NavTab>
             </Link>
-            <Link to="/map">
+            <Link to="/frontend/map">
             <NavTab>Map</NavTab>
             </Link>
           </NavLi>
