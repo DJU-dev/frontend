@@ -1,34 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import Main from "@/screen/Main.jsx";
+import styled from "styled-components";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Login from "@/Login/Login.jsx";
+import Register from "@/Login/Register.jsx";
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <Container>    
+      <BrowserRouter>
+        <Routes>
+          {/* 원하시는 페이지 경로 설정해서 아래와 같이 작성하십시오.
+              새로고침을 원하지 않는다면 Link(?)컴포넌트를 사용해야하니 필요시 요청해주세요.
+          */}
+          <Route path="/" element={<Main />}/>
+          <Route path="login/" element={<Login />}/>
+          <Route path="signup/" element={<Register />}/>
+        </Routes>
+      </BrowserRouter>
+    </Container>    
   )
 }
 
+const Container = styled.div`
+    width: 100vw;
+`;
 export default App
