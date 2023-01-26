@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Axios from "axios";
 
 export function useLocalStorage(key, initialValue) {
     const [storedValue, setStoredValue] = useState(() => {
@@ -30,7 +31,19 @@ export function useLocalStorage(key, initialValue) {
     return [storedValue, setValue];
 }
 
-function useWindowSize() {
+export function useWindowSize() {
     const {innerWidth, innerHeight} = window;
     return {innerWidth, innerHeight};
+}
+
+export async function useProfile(jwtToken) {
+    const headers = {Authorization: `Bearer ${jwtToken}`}
+    try {
+        const response = await Axios.get('http://127.0.0.1:8000/accounts/my/profile/', {headers})
+        const profile = response.data;
+        return profile;
+    }
+    catch (error) {
+        console.log("profile error")
+    }
 }

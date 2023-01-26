@@ -12,11 +12,3 @@ export const useStore = create(
         
     }))
 );
-
-export const useLoginRequired = create(set => ({
-    login: false,
-    user: {},
-    setLogin: (state) => set({login: state}),
-    setUser: (state) => set({user: state}),
-}))
-

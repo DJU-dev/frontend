@@ -55,8 +55,6 @@ const X = styled.div`
 
 const HeadBox = styled.div`
     position: relative;
- 
-
     margin: 0 0.5rem;
     margin-top: 0.5rem;
     
@@ -65,12 +63,11 @@ const HeadBox = styled.div`
 `;
 
 const Profile = styled.div`  
-  position: absolute;  
+  //position: absolute;  
   border: 0.18rem solid black;
   width: 7rem;
   height: 7rem;
-
-  margin-top: 1rem;
+  
   margin-left: 1rem;
   cursor: pointer;
   border-radius: 50%;

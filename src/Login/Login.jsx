@@ -5,7 +5,6 @@ import {useNavigate} from "react-router-dom";
 import Axios from "axios";
 import {useLocalStorage} from "@/utils/customHooks.jsx";
 
-
 export default function Login() {
     const alert = useAlert();
     const navigate = useNavigate();
@@ -24,10 +23,10 @@ export default function Login() {
 
         try {
             const response = await Axios.post("http://127.0.0.1:8000/accounts/login/", inputs);
-            const {data: {access_token}} = response;
+            const {data: {access_token, user}} = response;
             setJwtToken(access_token);
             navigate('/');
-            alert.success('로그인을 성공했습니다');
+            alert.success(`${user.username} 님 환영합니다.`);
         }
         catch (error) {
             if (error.response) {
