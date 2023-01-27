@@ -47,3 +47,13 @@ export async function useLogin(jwtToken) {
         console.log("login error")
     }
 }
+
+export async function usePost() {
+    try {
+        const response = await Axios.get('http://127.0.0.1:8000/dslr/readyonly/post/');
+        return response.data
+    }
+    catch (error) {
+        console.log(error)
+    }
+}

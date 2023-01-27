@@ -6,7 +6,7 @@ import {useLocalStorage} from "@/utils/customHooks.jsx";
 const Container = styled.nav`
   position: relative;
   width:100%;
-  height: 4rem;
+  height: 5vh;
   padding: 0.5rem 0;
   border-bottom: 1px solid #D3D3D3;
   background: #020002;
