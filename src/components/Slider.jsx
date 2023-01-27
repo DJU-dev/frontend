@@ -19,10 +19,10 @@ const animate1 = keyframes`
 
 const Container = styled.div`
   position: relative;
-  top: 2vw;  
+  top: 40rem;  
   left: 15rem;
   width: 80vw;
-  margin-bottom: 15rem;
+  margin-bottom: 50rem;
   padding: 2rem 2.5rem;
   overflow: hidden;
   z-index: 3;
@@ -35,8 +35,8 @@ const Container = styled.div`
           position:absolute;
           top:50%;
           left:50%;
-          width:110rem;
-          height:110rem;
+          width:200vw;
+          height:200vh;
           transform: translate(-50%, -50%);
           background: linear-gradient(transparent,rgba(255, 128, 232, 0.5) 40%,rgba(190, 100, 255, 0.5) 60%,transparent);
           animation: ${animate1} 3s linear infinite;          
@@ -108,9 +108,11 @@ const animate = keyframes`
 
 const Header = styled.p`
   text-align: center;
-  color: white;
-  font-size: 40px;
-  font-weight: 800;
+  color: white;    
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 3rem;
   padding-bottom: 3rem;
   animation: ${fadein} 4s,${animate} 3s;  
 `;

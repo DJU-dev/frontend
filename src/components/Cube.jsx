@@ -88,7 +88,7 @@ const BoxContainer = styled.div`
   position: relative;
   width: ${props => props.size}px;
   height: ${props => props.size}px;
-  margin-top: 100px;  
+  margin-top: 45rem;  
   z-index: 3;
 `
 

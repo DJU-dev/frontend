@@ -12,7 +12,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "axios": "^1.2.2",
+    "axios": "^1.2.4",
     "react": "^18.2.0",
     "react-3d-cube": "^1.0.5",
     "react-alert": "^7.0.3",
@@ -25,8 +25,7 @@
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.6",
-    "vite-plugin-html-env": "^1.2.7",
-    "zustand": "^4.3.1"
+    "zustand": "^4.3.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

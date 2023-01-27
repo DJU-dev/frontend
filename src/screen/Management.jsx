@@ -2,7 +2,7 @@ import Navibar from "@/components/Navibar.jsx";
 import SideBar from "@/components/SideBar.jsx";
 import ManageWindow from "@/components/ManageWindow";
 
-function Test() {    
+function Management() {    
     return (        
         <div>
             <Navibar />
@@ -12,4 +12,4 @@ function Test() {
     )
 }
 
-export default Test;
+export default Management;

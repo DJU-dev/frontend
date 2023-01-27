@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { AiFillTwitterCircle, AiFillYoutube, AiFillInstagram, AiFillFacebook } from "react-icons/ai";
+// import { AiFillTwitterCircle, AiFillYoutube, AiFillInstagram, AiFillFacebook } from "react-icons/ai";
 import { FaDiscord } from "react-icons/fa";
 
 const Container = styled.div`    
@@ -58,22 +58,6 @@ const ArrIcon = styled.div`
     }
 `;
 
-const Icon = styled.div`    
-    margin-left: 1.5rem;    
-    width: 2.2rem;
-    height: 2.2rem;
-    border-radius: 30%;
-    background-color: #414141; 
-    background: url(${props=>props.url}) center center / cover;
-    background-size: 90% 90%;
-    background-repeat:no-repeat;
-    @media screen and (max-width:1000px){                        
-        width: 1.3rem;
-        height: 1.3rem;                    
-    }   
-`;
-
-
 /* 글꼴 */
 
 const LogoText = styled.p`
@@ -120,40 +104,40 @@ const P = styled.p`
     }
 `;
 
-const TwitterIcon =styled(AiFillTwitterCircle)`
-    margin-left: 1.5rem;    
-    width: 2.2rem;
-    height: 2.2rem;    
-    color: white; 
-`
+// const TwitterIcon =styled(AiFillTwitterCircle)`
+//     margin-left: 1.5rem;    
+//     width: 2.2rem;
+//     height: 2.2rem;    
+//     color: white; 
+// `
 
-const YoutubeIcon =styled(AiFillYoutube)`
-    margin-left: 1.5rem;    
-    width: 2.2rem;
-    height: 2.2rem;    
-    color: white; 
-`
+// const YoutubeIcon =styled(AiFillYoutube)`
+//     margin-left: 1.5rem;    
+//     width: 2.2rem;
+//     height: 2.2rem;    
+//     color: white; 
+// `
 
-const InstarIcon =styled(AiFillInstagram)`
-    margin-left: 1.5rem;    
-    width: 2.2rem;
-    height: 2.2rem;    
-    color: white; 
-`
+// const InstarIcon =styled(AiFillInstagram)`
+//     margin-left: 1.5rem;    
+//     width: 2.2rem;
+//     height: 2.2rem;    
+//     color: white; 
+// `
 
-const FacebookIcon =styled(AiFillFacebook)`
-    margin-left: 1.5rem;    
-    width: 2.2rem;
-    height: 2.2rem;    
-    color: white; 
-`
+// const FacebookIcon =styled(AiFillFacebook)`
+//     margin-left: 1.5rem;    
+//     width: 2.2rem;
+//     height: 2.2rem;    
+//     color: white; 
+// `
 
-const DiscordIcon = styled(FaDiscord)`
-    margin-left: 1.5rem;    
-    width: 2.2rem;
-    height: 2.2rem;    
-    color: white;
-`
+// const DiscordIcon = styled(FaDiscord)`
+//     margin-left: 1.5rem;    
+//     width: 2.2rem;
+//     height: 2.2rem;    
+//     color: white;
+// `
 
 
 
@@ -205,11 +189,11 @@ function FFooter(){
             <F_Footer>
                 <P>Copyright © 2023 daejeon_u Technology Pty Limited (ACN 442 359 655)</P>
                 <ArrIcon>
-                <TwitterIcon />
-                <YoutubeIcon />
-                <InstarIcon />
-                <FacebookIcon />
-                <DiscordIcon />
+                    {/* <TwitterIcon />
+                    <YoutubeIcon />
+                    <InstarIcon />
+                    <FacebookIcon />
+                    <DiscordIcon /> */}
                 </ArrIcon>
             </F_Footer>
         </div>

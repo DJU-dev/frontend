@@ -3,9 +3,13 @@ import useStore from "@/utils/store";
 import { Link } from 'react-router-dom';
 
 const Container = styled.nav`
+  position: relative;
+  width:100%;
+  height: 2.5rem;
   padding: 0.5rem 0;
   border-bottom: 1px solid black;
   background: #020002;
+  z-index: 1000;
   
 `
 const NavUi = styled.ul`

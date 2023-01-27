@@ -125,6 +125,7 @@ function SideBar() {
                         <div className="icon"/>
                         <div className="menuItem"/>                                        
                     </MenuEvent>
+
                     <MenuEvent url={'/frontend/public/img/icon/Simpsons-icon.png'}>
                         <div className="icon"/>  
                         <div className="menuItem"/>                                        
