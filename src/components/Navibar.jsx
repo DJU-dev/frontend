@@ -100,7 +100,9 @@ function Navibar() {
             />
               <NavTab>Mike</NavTab>
               <NavLoginBox>
-                <NavTab href='login/'>Login</NavTab>
+                <Link to="/frontend/login">
+                  <NavTab>Login</NavTab>
+                </Link>
               </NavLoginBox>
                  
           </NavLi>

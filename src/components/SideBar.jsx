@@ -1,4 +1,5 @@
 import styled, {keyframes} from "styled-components";
+import { Link } from 'react-router-dom';
 import useStore from "@/utils/store";
 
 const FixSide = styled.div`
@@ -113,25 +114,27 @@ function SideBar() {
 
             <FixSide toggle={isSide}>
                 <MenuList toggle={isSide}>
-                    <MenuEvent
-                    onClick={() => window.location.href="./map/"}
-                    url={'img/icon/earth-icon.png'}>
-                        <div className="icon"/>
-                        <div className="menuItem"/>                                        
-                    </MenuEvent>
-                    <MenuEvent 
-                    onClick={() => window.location.href="./fill-in/"}
-                    url={'img/icon/writing-icon.png'}>
-                        <div className="icon"/>
-                        <div className="menuItem"/>                                        
-                    </MenuEvent>
-                    
-                    <MenuEvent 
-                    onClick={() => window.location.href="./management/"}
-                    url={'img/icon/Simpsons-icon.png'}>
-                        <div className="icon"/>  
-                        <div className="menuItem"/>                                        
-                    </MenuEvent>
+                    <Link to="/frontend/map">
+                    <MenuEvent                        
+                        url={'img/icon/earth-icon.png'}>
+                            <div className="icon"/>
+                            <div className="menuItem"/>                                        
+                        </MenuEvent>
+                    </Link>
+                    <Link to="/frontend/fill-in">
+                        <MenuEvent                         
+                        url={'img/icon/writing-icon.png'}>
+                            <div className="icon"/>
+                            <div className="menuItem"/>                                        
+                        </MenuEvent>
+                    </Link>
+                    <Link to="/frontend/management">
+                        <MenuEvent                         
+                        url={'img/icon/Simpsons-icon.png'}>
+                            <div className="icon"/>  
+                            <div className="menuItem"/>                                        
+                        </MenuEvent>
+                    </Link>
                     <MenuEvent url={'img/icon/phone-icon.png'}>
                         <div className="icon"/>
                         <div className="menuItem"/>                                        

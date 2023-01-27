@@ -4,7 +4,7 @@ import { useAlert } from 'react-alert'
 import {useNavigate} from "react-router-dom";
 import Axios from "axios";
 import {useLocalStorage} from "@/utils/customHooks.jsx";
-
+import { Link } from 'react-router-dom';
 
 export default function Login() {
     const alert = useAlert();
@@ -77,9 +77,12 @@ export default function Login() {
                     <ErrorMessage>{fieldErrors.password ? fieldErrors.password.help : ""}</ErrorMessage>
                 </Inputbox>
 
-                <ButtonTab>
-                    <LoginButton>{loading ? "loading.." : "Login"}</LoginButton>
-                    <SignUpButton onClick={() => window.location.href='/signup'}>Sign up</SignUpButton>
+                <ButtonTab>                
+                <LoginButton>{loading ? "loading.." : "Login"}</LoginButton>
+                
+                    <Link to="/frontend/signup">
+                        <SignUpButton>Sign up</SignUpButton>
+                    </Link>
                 </ButtonTab>
             </LoginScreen>
         </Background>

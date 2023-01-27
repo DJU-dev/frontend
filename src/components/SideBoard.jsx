@@ -483,8 +483,7 @@ const 임시버튼 = styled.div`
 function SideBoard(){
     const Post = () => {
         return(        
-            <Board isBoard={board}>
-            <임시버튼 onClick={()=>setIsList(!isList)}>바꾸기</임시버튼>      
+            <Board isBoard={board}>   
             <ProfileContainer>
                 <img 
                 className="img-pf" 
@@ -560,186 +559,187 @@ function SideBoard(){
             </Board>
         )
     }
+    // 폐기
+    // const PostList = () => {
+    //     return(
+    //     <Board isBoard={board}>
+    //         <임시버튼 onClick={()=>setIsList(!isList)}>바꾸기</임시버튼>
+    //         <SearchContainer>
+    //             <input 
+    //             type="text" 
+    //             placeholder="Search"/>
+    //             <img src="img/icon/search-icon.png" />
+    //         </SearchContainer>
+    //         <ListContainer>
+    //         {/** 실제 동작할 때 바꾸도록 합시다 */}
+    //             <List>                        
+    //                 <img 
+    //                 className="imgCard"
+    //                 src="img/sample01.jpg" />                        
+    //                 <div className="info">
+    //                     <a>
+    //                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy ...
+    //                     </a>
+    //                     <div className="tagC">
+    //                     <a>#View</a>
+    //                     <a>#Apart</a>
+    //                     <a>#Money</a>
+    //                     </div>
+    //                     <div className="date-view">
+    //                         <a>2023.01.18</a>
+    //                         <img src="img/icon/eye-icon.png"/>
+    //                         <p>2424</p>
+    //                     </div>
+    //                     <div className="mk-city-etc">
+    //                         <div className="mk-city">
+    //                             <img src="img/icon/map-marker-icon.png"/>
+    //                             <a>Seoul, YongSan</a>
+    //                         </div>
+    //                         <div className="etc">
+    //                             <div>
+    //                                 <img 
+    //                                 className="icon"
+    //                                 src="img/icon/star-icon.png"/>
+    //                                 <a className="num">34</a>
+    //                             </div>
+    //                             <div>
+    //                                 <img 
+    //                                 className="icon"
+    //                                 src="img/icon/heart-icon.png"/>
+    //                                 <a className="num">135</a>
+    //                             </div>
+    //                             <div>
+    //                                 <img 
+    //                                 className="icon"
+    //                                 src="img/icon/share-icon.png"/>
+    //                                 <a className="num">23</a>
+    //                             </div>
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //             </List>
+    //             <List>                        
+    //                 <img 
+    //                 className="imgCard"
+    //                 src="img/sample01.jpg" />                        
+    //                 <div className="info">
+    //                     <a>
+    //                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy ...
+    //                     </a>
+    //                     <div className="tagC">
+    //                     <a>#View</a>
+    //                     <a>#Apart</a>
+    //                     <a>#Money</a>
+    //                     </div>
+    //                     <div className="date-view">
+    //                         <a>2023.01.18</a>
+    //                         <img src="img/icon/eye-icon.png"/>
+    //                         <p>2424</p>
+    //                     </div>
+    //                     <div className="mk-city-etc">
+    //                         <div className="mk-city">
+    //                             <img src="img/icon/map-marker-icon.png"/>
+    //                             <a>Seoul, YongSan</a>
+    //                         </div>
+    //                         <div className="etc">
+    //                             <div>
+    //                                 <img 
+    //                                 className="icon"
+    //                                 src="img/icon/star-icon.png"/>
+    //                                 <a className="num">34</a>
+    //                             </div>
+    //                             <div>
+    //                                 <img 
+    //                                 className="icon"
+    //                                 src="img/icon/heart-icon.png"/>
+    //                                 <a className="num">135</a>
+    //                             </div>
+    //                             <div>
+    //                                 <img 
+    //                                 className="icon"
+    //                                 src="img/icon/share-icon.png"/>
+    //                                 <a className="num">23</a>
+    //                             </div>
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //             </List>
+    //             <List>                        
+    //                 <img 
+    //                 className="imgCard"
+    //                 src="img/sample01.jpg" />                        
+    //                 <div className="info">
+    //                     <a>
+    //                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy ...
+    //                     </a>
+    //                     <div className="tagC">
+    //                     <a>#View</a>
+    //                     <a>#Apart</a>
+    //                     <a>#Money</a>
+    //                     </div>
+    //                     <div className="date-view">
+    //                         <a>2023.01.18</a>
+    //                         <img src="img/icon/eye-icon.png"/>
+    //                         <p>2424</p>
+    //                     </div>
+    //                     <div className="mk-city-etc">
+    //                         <div className="mk-city">
+    //                             <img src="img/icon/map-marker-icon.png"/>
+    //                             <a>Seoul, YongSan</a>
+    //                         </div>
+    //                         <div className="etc">
+    //                             <div>
+    //                                 <img 
+    //                                 className="icon"
+    //                                 src="img/icon/star-icon.png"/>
+    //                                 <a className="num">34</a>
+    //                             </div>
+    //                             <div>
+    //                                 <img 
+    //                                 className="icon"
+    //                                 src="img/icon/heart-icon.png"/>
+    //                                 <a className="num">135</a>
+    //                             </div>
+    //                             <div>
+    //                                 <img 
+    //                                 className="icon"
+    //                                 src="img/icon/share-icon.png"/>
+    //                                 <a className="num">23</a>
+    //                             </div>
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //             </List>
+    //         </ListContainer>
+    //         <IndexContainer>
+    //             <div>
+    //                 <img 
+    //                 className="prev"
+    //                 src="img/icon/next-icon.png" />
+    //                 <div>
+    //                     <a>1</a>
+    //                     <a>2</a>
+    //                     <a>3</a>
+    //                     <a>4</a>
+    //                     <a>5</a>
+    //                 </div>
+    //                 <img 
+    //                 className="next"
+    //                 src="img/icon/next-icon.png" />
+    //             </div>
+    //         </IndexContainer>
+    //     </Board> 
+    //     )        
+    // }
 
-    const PostList = () => {
-        return(
-        <Board isBoard={board}>
-            <임시버튼 onClick={()=>setIsList(!isList)}>바꾸기</임시버튼>
-            <SearchContainer>
-                <input 
-                type="text" 
-                placeholder="Search"/>
-                <img src="img/icon/search-icon.png" />
-            </SearchContainer>
-            <ListContainer>
-            {/** 실제 동작할 때 바꾸도록 합시다 */}
-                <List>                        
-                    <img 
-                    className="imgCard"
-                    src="img/sample01.jpg" />                        
-                    <div className="info">
-                        <a>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy ...
-                        </a>
-                        <div className="tagC">
-                        <a>#View</a>
-                        <a>#Apart</a>
-                        <a>#Money</a>
-                        </div>
-                        <div className="date-view">
-                            <a>2023.01.18</a>
-                            <img src="img/icon/eye-icon.png"/>
-                            <p>2424</p>
-                        </div>
-                        <div className="mk-city-etc">
-                            <div className="mk-city">
-                                <img src="img/icon/map-marker-icon.png"/>
-                                <a>Seoul, YongSan</a>
-                            </div>
-                            <div className="etc">
-                                <div>
-                                    <img 
-                                    className="icon"
-                                    src="img/icon/star-icon.png"/>
-                                    <a className="num">34</a>
-                                </div>
-                                <div>
-                                    <img 
-                                    className="icon"
-                                    src="img/icon/heart-icon.png"/>
-                                    <a className="num">135</a>
-                                </div>
-                                <div>
-                                    <img 
-                                    className="icon"
-                                    src="img/icon/share-icon.png"/>
-                                    <a className="num">23</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </List>
-                <List>                        
-                    <img 
-                    className="imgCard"
-                    src="img/sample01.jpg" />                        
-                    <div className="info">
-                        <a>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy ...
-                        </a>
-                        <div className="tagC">
-                        <a>#View</a>
-                        <a>#Apart</a>
-                        <a>#Money</a>
-                        </div>
-                        <div className="date-view">
-                            <a>2023.01.18</a>
-                            <img src="img/icon/eye-icon.png"/>
-                            <p>2424</p>
-                        </div>
-                        <div className="mk-city-etc">
-                            <div className="mk-city">
-                                <img src="img/icon/map-marker-icon.png"/>
-                                <a>Seoul, YongSan</a>
-                            </div>
-                            <div className="etc">
-                                <div>
-                                    <img 
-                                    className="icon"
-                                    src="img/icon/star-icon.png"/>
-                                    <a className="num">34</a>
-                                </div>
-                                <div>
-                                    <img 
-                                    className="icon"
-                                    src="img/icon/heart-icon.png"/>
-                                    <a className="num">135</a>
-                                </div>
-                                <div>
-                                    <img 
-                                    className="icon"
-                                    src="img/icon/share-icon.png"/>
-                                    <a className="num">23</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </List>
-                <List>                        
-                    <img 
-                    className="imgCard"
-                    src="img/sample01.jpg" />                        
-                    <div className="info">
-                        <a>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy ...
-                        </a>
-                        <div className="tagC">
-                        <a>#View</a>
-                        <a>#Apart</a>
-                        <a>#Money</a>
-                        </div>
-                        <div className="date-view">
-                            <a>2023.01.18</a>
-                            <img src="img/icon/eye-icon.png"/>
-                            <p>2424</p>
-                        </div>
-                        <div className="mk-city-etc">
-                            <div className="mk-city">
-                                <img src="img/icon/map-marker-icon.png"/>
-                                <a>Seoul, YongSan</a>
-                            </div>
-                            <div className="etc">
-                                <div>
-                                    <img 
-                                    className="icon"
-                                    src="img/icon/star-icon.png"/>
-                                    <a className="num">34</a>
-                                </div>
-                                <div>
-                                    <img 
-                                    className="icon"
-                                    src="img/icon/heart-icon.png"/>
-                                    <a className="num">135</a>
-                                </div>
-                                <div>
-                                    <img 
-                                    className="icon"
-                                    src="img/icon/share-icon.png"/>
-                                    <a className="num">23</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </List>
-            </ListContainer>
-            <IndexContainer>
-                <div>
-                    <img 
-                    className="prev"
-                    src="img/icon/next-icon.png" />
-                    <div>
-                        <a>1</a>
-                        <a>2</a>
-                        <a>3</a>
-                        <a>4</a>
-                        <a>5</a>
-                    </div>
-                    <img 
-                    className="next"
-                    src="img/icon/next-icon.png" />
-                </div>
-            </IndexContainer>
-        </Board> 
-        )
-    }
 
-    const [board, setBoard] = useState(true);
+    const [board, setBoard] = useState(false);
 
     const boardChange = () => {
         setBoard(() => !board);            
     };
 
-    const [isList, setIsList] = useState(true);
+    //const [isList, setIsList] = useState(true);
 
     useEffect(() => {}, [board]);   
 
@@ -754,7 +754,7 @@ function SideBoard(){
                 src="img/icon/point3-icon.png" 
                 className="menu"/>                    
             </Tab>            
-            {isList ? PostList(): Post()}            
+            {Post()}
         </Container>
     )
 }
