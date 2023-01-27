@@ -22,6 +22,7 @@ export default function Routing() {
                 <Route path="/frontend/fill-in/" element={<Fill_In />}/>                
                 <Route path="/frontend/test/" element={<Test/>}/>
                 <Route path="/frontend/map/" element={<KakaoMap />}/>
+                <Route path="/frontend/management/" element={<Management />}/>
 
 
             </Routes>

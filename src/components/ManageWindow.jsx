@@ -244,7 +244,7 @@ function ManageWindow(){
                 <Header>
                 <img
                 className="icon"
-                src="../../../src/assets/img/icon/Logo-icon.jpg"
+                src="img/icon/Logo-icon.jpg"
                 />
                 <p>Squid</p>
                 </Header>
@@ -252,33 +252,33 @@ function ManageWindow(){
                         <Item select={false}>
                             <img
                             className="icon"
-                            src="../../../src/assets/img/icon/dashboard-icon.png"
+                            src="img/icon/dashboard-icon.png"
                             />
                             <p>DashBoard</p>
                         </Item>
                         <Item select={false}>
                             <img
                             className="icon"
-                            src="../../../src/assets/img/icon/heart-icon.png"/>
+                            src="img/icon/heart-icon.png"/>
                             <p>Favorites</p>
                         </Item>
                         <Item select={true}>
                         <img
                             className="icon"
-                            src="../../../src/assets/img/icon/profile-icon.png"/>
+                            src="img/icon/profile-icon.png"/>
                             <p>Profile</p>
                         </Item>
                         <Item select={false}>
                         <img
                             className="icon"
-                            src="../../../src/assets/img/icon/setting-icon.png"/>
+                            src="img/icon/setting-icon.png"/>
                             <p>Settings</p>
                         </Item>
                     </Menu>
                     <Footer>
                     <img
                     className="icon"
-                    src="../../../src/assets/img/icon/categories-icon.png"/>
+                    src="img/icon/categories-icon.png"/>
                     </Footer>
                 </Category>
                 <ProfileContainer>
@@ -286,17 +286,17 @@ function ManageWindow(){
                         <p>Edit profile</p>
                         <img
                         className="alarm"
-                        src="../../../src/assets/img/icon/notification-icon.png"/>
+                        src="img/icon/notification-icon.png"/>
                         <img
                         className="profile"
-                        src="../../../src/assets/img/icon/profile01.png"/>
+                        src="img/icon/profile01.png"/>
                     </ProfileBar>
                     <div className="edit-img">                        <img
                     className="profile"
-                    src="../../../src/assets/img/icon/profile01.png"/>
+                    src="img/icon/profile01.png"/>
                     <img
                     className="edit"
-                    src="../../../src/assets/img/icon/edit-icon.png"/>
+                    src="img/icon/edit-icon.png"/>
                     </div>
                     <IntroCard>
                         <div className="inputbox">

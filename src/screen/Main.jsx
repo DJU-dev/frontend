@@ -17,7 +17,6 @@ function Main() {
             <Mprofile />
             <MainIntroduce />
             <Grid />
-            <Cube />
             <SliderBox />
             <ShortCut/>
             <FFooter />

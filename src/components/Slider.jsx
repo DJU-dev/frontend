@@ -19,10 +19,10 @@ const animate1 = keyframes`
 
 const Container = styled.div`
   position: relative;
-  top: 40rem;  
+  margin-top: 90rem;  
   left: 15rem;
   width: 80vw;
-  margin-bottom: 50rem;
+  margin-bottom: 10rem;
   padding: 2rem 2.5rem;
   overflow: hidden;
   z-index: 3;

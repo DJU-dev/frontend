@@ -91,14 +91,7 @@ function Navibar() {
             <Link to="/frontend/">
               <LogoBox url={'img/icon/Logo-icon.jpg'}></LogoBox>            
               <NavLogo>Squid</NavLogo>
-            </Link>   
-              <NavTab>About</NavTab>            
-            <Link to="/frontend/fill-in">
-              <NavTab>Write</NavTab>
-            </Link>
-            <Link to="/frontend/map">
-            <NavTab>Map</NavTab>
-            </Link>
+            </Link>            
           </NavLi>
           <NavLi>                      
             <Profilebox 
