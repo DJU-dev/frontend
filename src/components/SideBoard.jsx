@@ -488,14 +488,14 @@ function SideBoard(){
             <ProfileContainer>
                 <img 
                 className="img-pf" 
-                src="../../../src/assets/img/icon/profile01.png" />
+                src="img/icon/profile01.png" />
 
                 <div className="nameNcity">
                     <a>Mike</a>
                     <div>
                         <img 
                         className="m-marker"
-                        src="../../../src/assets/img/icon/map-marker-icon.png" />
+                        src="img/icon/map-marker-icon.png" />
                         <p>Seoul, YongSan</p>
                     </div>
                 </div>
@@ -504,7 +504,7 @@ function SideBoard(){
                     <div>
                     <img 
                         className="view"
-                        src="../../../src/assets/img/icon/eye-icon.png" />
+                        src="img/icon/eye-icon.png" />
                     <p>2424</p>                        
                     </div>
                     <a>2023.01.18</a>
@@ -513,7 +513,7 @@ function SideBoard(){
                 <div className="bookC">
                 <img 
                     className="bookmark"
-                    src="../../../src/assets/img/icon/bookmark-icon.png" />
+                    src="img/icon/bookmark-icon.png" />
                 </div>
             </ProfileContainer>
 
@@ -529,7 +529,7 @@ function SideBoard(){
             <ImgContainer>
                 <img 
                 className="imgbox"
-                src="../../../src/assets/img/sample05.jpg"/>
+                src="img/sample05.jpg"/>
                 <TagContainer>
                     <a className="tagbox">#view</a>
                     <a className="tagbox">#Apart</a>
@@ -541,19 +541,19 @@ function SideBoard(){
                 <div>
                     <img 
                     className="icon" 
-                    src="../../../src/assets/img/icon/star-icon.png"/>
+                    src="img/icon/star-icon.png"/>
                     <p className="num">34</p>
                 </div>
                 <div>
                     <img 
                     className="icon"
-                    src="../../../src/assets/img/icon/heart-icon.png" />
+                    src="img/icon/heart-icon.png" />
                     <p className="num">135</p>
                 </div>
                 <div>
                     <img 
                     className="icon"
-                    src="../../../src/assets/img/icon/share-icon.png" />
+                    src="img/icon/share-icon.png" />
                     <p className="num">23</p>
                 </div>
             </EtcContainer> 
@@ -569,14 +569,14 @@ function SideBoard(){
                 <input 
                 type="text" 
                 placeholder="Search"/>
-                <img src="../../../src/assets/img/icon/search-icon.png" />
+                <img src="img/icon/search-icon.png" />
             </SearchContainer>
             <ListContainer>
             {/** 실제 동작할 때 바꾸도록 합시다 */}
                 <List>                        
                     <img 
                     className="imgCard"
-                    src="../../../src/assets/img/sample01.jpg" />                        
+                    src="img/sample01.jpg" />                        
                     <div className="info">
                         <a>
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy ...
@@ -588,31 +588,31 @@ function SideBoard(){
                         </div>
                         <div className="date-view">
                             <a>2023.01.18</a>
-                            <img src="../../../src/assets/img/icon/eye-icon.png"/>
+                            <img src="img/icon/eye-icon.png"/>
                             <p>2424</p>
                         </div>
                         <div className="mk-city-etc">
                             <div className="mk-city">
-                                <img src="../../../src/assets/img/icon/map-marker-icon.png"/>
+                                <img src="img/icon/map-marker-icon.png"/>
                                 <a>Seoul, YongSan</a>
                             </div>
                             <div className="etc">
                                 <div>
                                     <img 
                                     className="icon"
-                                    src="../../../src/assets/img/icon/star-icon.png"/>
+                                    src="img/icon/star-icon.png"/>
                                     <a className="num">34</a>
                                 </div>
                                 <div>
                                     <img 
                                     className="icon"
-                                    src="../../../src/assets/img/icon/heart-icon.png"/>
+                                    src="img/icon/heart-icon.png"/>
                                     <a className="num">135</a>
                                 </div>
                                 <div>
                                     <img 
                                     className="icon"
-                                    src="../../../src/assets/img/icon/share-icon.png"/>
+                                    src="img/icon/share-icon.png"/>
                                     <a className="num">23</a>
                                 </div>
                             </div>
@@ -622,7 +622,7 @@ function SideBoard(){
                 <List>                        
                     <img 
                     className="imgCard"
-                    src="../../../src/assets/img/sample01.jpg" />                        
+                    src="img/sample01.jpg" />                        
                     <div className="info">
                         <a>
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy ...
@@ -634,31 +634,31 @@ function SideBoard(){
                         </div>
                         <div className="date-view">
                             <a>2023.01.18</a>
-                            <img src="../../../src/assets/img/icon/eye-icon.png"/>
+                            <img src="img/icon/eye-icon.png"/>
                             <p>2424</p>
                         </div>
                         <div className="mk-city-etc">
                             <div className="mk-city">
-                                <img src="../../../src/assets/img/icon/map-marker-icon.png"/>
+                                <img src="img/icon/map-marker-icon.png"/>
                                 <a>Seoul, YongSan</a>
                             </div>
                             <div className="etc">
                                 <div>
                                     <img 
                                     className="icon"
-                                    src="../../../src/assets/img/icon/star-icon.png"/>
+                                    src="img/icon/star-icon.png"/>
                                     <a className="num">34</a>
                                 </div>
                                 <div>
                                     <img 
                                     className="icon"
-                                    src="../../../src/assets/img/icon/heart-icon.png"/>
+                                    src="img/icon/heart-icon.png"/>
                                     <a className="num">135</a>
                                 </div>
                                 <div>
                                     <img 
                                     className="icon"
-                                    src="../../../src/assets/img/icon/share-icon.png"/>
+                                    src="img/icon/share-icon.png"/>
                                     <a className="num">23</a>
                                 </div>
                             </div>
@@ -668,7 +668,7 @@ function SideBoard(){
                 <List>                        
                     <img 
                     className="imgCard"
-                    src="../../../src/assets/img/sample01.jpg" />                        
+                    src="img/sample01.jpg" />                        
                     <div className="info">
                         <a>
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy ...
@@ -680,31 +680,31 @@ function SideBoard(){
                         </div>
                         <div className="date-view">
                             <a>2023.01.18</a>
-                            <img src="../../../src/assets/img/icon/eye-icon.png"/>
+                            <img src="img/icon/eye-icon.png"/>
                             <p>2424</p>
                         </div>
                         <div className="mk-city-etc">
                             <div className="mk-city">
-                                <img src="../../../src/assets/img/icon/map-marker-icon.png"/>
+                                <img src="img/icon/map-marker-icon.png"/>
                                 <a>Seoul, YongSan</a>
                             </div>
                             <div className="etc">
                                 <div>
                                     <img 
                                     className="icon"
-                                    src="../../../src/assets/img/icon/star-icon.png"/>
+                                    src="img/icon/star-icon.png"/>
                                     <a className="num">34</a>
                                 </div>
                                 <div>
                                     <img 
                                     className="icon"
-                                    src="../../../src/assets/img/icon/heart-icon.png"/>
+                                    src="img/icon/heart-icon.png"/>
                                     <a className="num">135</a>
                                 </div>
                                 <div>
                                     <img 
                                     className="icon"
-                                    src="../../../src/assets/img/icon/share-icon.png"/>
+                                    src="img/icon/share-icon.png"/>
                                     <a className="num">23</a>
                                 </div>
                             </div>
@@ -716,7 +716,7 @@ function SideBoard(){
                 <div>
                     <img 
                     className="prev"
-                    src="../../../src/assets/img/icon/next-icon.png" />
+                    src="img/icon/next-icon.png" />
                     <div>
                         <a>1</a>
                         <a>2</a>
@@ -726,7 +726,7 @@ function SideBoard(){
                     </div>
                     <img 
                     className="next"
-                    src="../../../src/assets/img/icon/next-icon.png" />
+                    src="img/icon/next-icon.png" />
                 </div>
             </IndexContainer>
         </Board> 
@@ -747,11 +747,11 @@ function SideBoard(){
         <Container>            
             <Tab isBoard={board}>
                 <img 
-                src="../../../src/assets/img/icon/chevron-icon.png" 
+                src="img/icon/chevron-icon.png" 
                 className="back" 
                 onClick={boardChange} />                        
                 <img 
-                src="../../../src/assets/img/icon/point3-icon.png" 
+                src="img/icon/point3-icon.png" 
                 className="menu"/>                    
             </Tab>            
             {isList ? PostList(): Post()}            

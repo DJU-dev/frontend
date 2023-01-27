@@ -227,7 +227,7 @@ function Mprofile(){
                     <Profile>                                        
                         <img 
                         className="pf-img"
-                        src="../../../src/assets/img/icon/profile01.png" />
+                        src="img/icon/profile01.png" />
                         <div className="pf-info">
                             <div className="btn-c">
                                 <button>Edit</button>
