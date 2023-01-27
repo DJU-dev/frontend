@@ -85,7 +85,7 @@ function Navibar() {
         <NavUi>
           <NavLi>            
             <Link to="/frontend/">
-              <LogoBox url={'/frontend/src/assets/img/icon/Logo-icon.jpg'}></LogoBox>            
+              <LogoBox url={'/public/img/icon/Logo-icon.jpg'}></LogoBox>            
               <NavLogo>Squid</NavLogo>
             </Link>   
               <NavTab>About</NavTab>            
@@ -98,7 +98,7 @@ function Navibar() {
           </NavLi>
           <NavLi>                      
             <Profilebox 
-              url={'/frontend/src/assets/img/icon/profile01.png'}
+              url={'/public/img/icon/profile01.png'}
               onClick={toggleIsModal}
             />
               <NavTab>Mike</NavTab>

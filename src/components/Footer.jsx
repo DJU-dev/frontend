@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { AiFillTwitterCircle, AiFillYoutube, AiFillInstagram, AiFillFacebook } from "react-icons/ai";
+import { FaDiscord } from "react-icons/fa";
 
 const Container = styled.div`    
     position: relative;
@@ -118,6 +120,43 @@ const P = styled.p`
     }
 `;
 
+const TwitterIcon =styled(AiFillTwitterCircle)`
+    margin-left: 1.5rem;    
+    width: 2.2rem;
+    height: 2.2rem;    
+    color: white; 
+`
+
+const YoutubeIcon =styled(AiFillYoutube)`
+    margin-left: 1.5rem;    
+    width: 2.2rem;
+    height: 2.2rem;    
+    color: white; 
+`
+
+const InstarIcon =styled(AiFillInstagram)`
+    margin-left: 1.5rem;    
+    width: 2.2rem;
+    height: 2.2rem;    
+    color: white; 
+`
+
+const FacebookIcon =styled(AiFillFacebook)`
+    margin-left: 1.5rem;    
+    width: 2.2rem;
+    height: 2.2rem;    
+    color: white; 
+`
+
+const DiscordIcon = styled(FaDiscord)`
+    margin-left: 1.5rem;    
+    width: 2.2rem;
+    height: 2.2rem;    
+    color: white;
+`
+
+
+
 function Footer(){
     return (        
         <Container>            
@@ -166,11 +205,11 @@ function FFooter(){
             <F_Footer>
                 <P>Copyright © 2023 daejeon_u Technology Pty Limited (ACN 442 359 655)</P>
                 <ArrIcon>
-                <Icon url={'/frontend/src/assets/img/icon/twitter-icon.png'} />
-                <Icon url={'/frontend/src/assets/img/icon/youtube-icon.png'} />
-                <Icon url={'/frontend/src/assets/img/icon/instargram-icon.png'} />
-                <Icon url={'/frontend/src/assets/img/icon/facebook-icon.png'} />
-                <Icon url={'/frontend/src/assets/img/icon/discord-icon.png'} />
+                <TwitterIcon />
+                <YoutubeIcon />
+                <InstarIcon />
+                <FacebookIcon />
+                <DiscordIcon />
                 </ArrIcon>
             </F_Footer>
         </div>

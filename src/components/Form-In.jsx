@@ -245,7 +245,7 @@ const MapIn = styled.div`
 
 function Form_In(){
     {/* 이미지 바꾸는 역할 할거임. DOM쓸줄 몰라서,,,  */}
-    const [imgfile, setImgfile] = useState("../../src/assets/img/icon/gallery.png");
+    const [imgfile, setImgfile] = useState("/public/img/icon/gallery.png");
 
     const imgChange = () => {
         
@@ -301,11 +301,11 @@ function Form_In(){
 
     return ( 
          <div>
-            <BackImg url={'/frontend/src/assets/img/background/background02.jpg'} />
+            <BackImg url={'/public/img/background/background02.jpg'} />
 
             <Container method="post" enctype="multipart/form-data">
                 {/* 이미지 입력 */}
-                <ImgInputLabel url={"/frontend/src/assets/img/icon/gallery.png"} htmlFor="addImg">
+                <ImgInputLabel htmlFor="addImg">
                 <div className='imgbox'><img src={imgfile}/></div>
                 </ImgInputLabel>
                 <ImgInput id="addImg" type="file" accept="image/*" onChange={imgChange}/>
