@@ -25,6 +25,7 @@ export default function Login() {
         try {
             const response = await Axios.post("http://127.0.0.1:8000/accounts/login/", inputs);
             const {data: {access_token, user}} = response;
+            console.log(access_token)
             setJwtToken(access_token);
             navigate('/');
             alert.success(`${user.username} 님 환영합니다.`);

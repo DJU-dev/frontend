@@ -17,10 +17,6 @@ const KakaoMap = () => {
     return (
         <>
             <Navibar />
-            {posts.map(post => (
-                    <div>{post.longitude} {post.caption}</div>
-                )
-            )}
             <SideBar />
             <SideBoard />         
             <Map
@@ -38,7 +34,6 @@ const KakaoMap = () => {
                     )
 
                 })}
-                {/*<Fill_In />*/}
             </Map>
         </>
     );
