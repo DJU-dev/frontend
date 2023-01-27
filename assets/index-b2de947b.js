@@ -902,15 +902,16 @@ and limitations under the License.
     position: absolute;
     display: flex;
     justify-content: center;
-    background-color: none;    
+    align-items: center;
+    background-color: none; 
     width: 100%;
-    height: 40rem;
+    height: 50rem;
     z-index: 40;
     pointer-events: none;
 `,RE=j.div`
 position: absolute;
 width: 70rem;
-height: 50rem;
+height: 60rem;
 top: -8rem;
 background: radial-gradient(50% 50% at 50% 50%, #222228 5%, rgba(34, 34, 40, 0) 100%);
 
