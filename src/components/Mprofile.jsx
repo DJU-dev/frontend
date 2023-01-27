@@ -216,8 +216,9 @@ const View = styled.div`
     }
 `
 
-function Mprofile(){    
+function Mprofile({user}){
     const { isModal,toggleIsModal} = useStore();
+
     return(
         <div>
             {isModal ? null:
@@ -235,8 +236,8 @@ function Mprofile(){
                             </div>
                             <div className="info-c">
                                 <div className="name-E">
-                                    <a>Linus Torvalds</a>
-                                    <p>LinusTttt@linux.co.kr</p>
+                                    <a>{user.username}</a>
+                                    <p>{user.email}</p>
                                 </div>
                                 <button className="like">♥Like</button>
                                 <div className="num">
@@ -244,25 +245,17 @@ function Mprofile(){
                                     <p>♥123</p>
                                 </div>
                             </div>
-                            <div className="num-c">
-                                <div className="card">
-                                    <a>45</a>
-                                    <p>Reviewed</p>
-                                </div>
-                                <div className="card">
-                                    <a>137</a>
-                                    <p>Reviewed</p>
-                                </div>
-                                <div className="card">
-                                    <a>24</a>
-                                    <p>Bookmark</p>
-                                </div>
-                            </div>
+                            {/*<div className="num-c">*/}
+                            {/*    <div className="card">*/}
+                            {/*        <a>45</a>*/}
+                            {/*        <p>내가 올린 포스트</p>*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
                         </div>
                     </Profile>
                     <View>
                         <div className="view">
-                            <a>View</a>
+                            <a>전체보기</a>
                         </div>
                      
                         <div className="pictures">
