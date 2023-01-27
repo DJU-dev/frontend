@@ -1,6 +1,10 @@
 import styled, {keyframes} from 'styled-components';
 import React, {useState, useEffect, useRef} from "react"
 import {MapMarker, Map} from "react-kakao-maps-sdk";
+import Axios from "axios";
+import {useLocalStorage} from "@/utils/customHooks.jsx";
+import {useNavigate} from "react-router-dom";
+import {useAlert} from "react-alert";
 
 const animate = keyframes`    
     0%{
@@ -245,10 +249,22 @@ const MapIn = styled.div`
 
 function Form_In(){
     {/* 이미지 바꾸는 역할 할거임. DOM쓸줄 몰라서,,,  */}
+<<<<<<< HEAD
     const [imgfile, setImgfile] = useState("img/icon/gallery.png");
 
     const imgChange = () => {
         
+=======
+    const [imgfile, setImgfile] = useState("../../src/assets/img/icon/gallery.png");
+    const navigate = useNavigate();
+    const [form, setForm] = useState(new FormData());
+    const textRef = useRef(null);
+    const [jwtToken, setJwtToken] = useLocalStorage("jwtToken", "");
+    const alert = useAlert();
+    const imgChange = (e) => {
+        e.preventDefault();
+        form.append('photo', e.target.files[0]);
+>>>>>>> dev
     };
     
     useEffect(() => {}, [imgfile]);
@@ -298,12 +314,26 @@ function Form_In(){
         if(e.key === "Enter") tagCreate();
     }
 
-
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        const headers = {Authorization: `Bearer ${jwtToken}`}
+        form.append('caption', textRef.current.value)
+        form.append('latitude', position.lat)
+        form.append('longitude ', position.lng)
+        try {
+            await Axios.post('http://127.0.0.1:8000/dslr/post/', form, {headers});
+        }
+        catch (error) {
+            console.log(error);
+        }
+        navigate('/');
+        alert.success(`성공적으로 작성했습니다!`);
+    }
     return ( 
          <div>
             <BackImg url={'img/background/background02.jpg'} />
 
-            <Container method="post" enctype="multipart/form-data">
+            <Container method="post" enctype="multipart/form-data" onSubmit={onSubmit}>
                 {/* 이미지 입력 */}
                 <ImgInputLabel htmlFor="addImg">
                 <div className='imgbox'><img src={imgfile}/></div>
@@ -326,10 +356,15 @@ function Form_In(){
                 </TagContainer>
                 {/* 피드 입력 및 맵 지정 */}
                 <ContentContainer>
+<<<<<<< HEAD
                     <SubbitButton onClick={() => window.location.href="/frontend/"}>공유</SubbitButton>
+=======
+                    <input type="submit" value="공유" />
+>>>>>>> dev
                     <FeedInput 
                     type="text" 
-                    placeholder="말을 남겨보세요."/>
+                    placeholder="말을 남겨보세요."
+                    ref={textRef}/>
                     <MapIn>
                         <Map
                             center={{ lat: 37.38914, lng: 126.9544 }}

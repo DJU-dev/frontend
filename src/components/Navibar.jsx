@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 import useStore from "@/utils/store";
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
+import {useLocalStorage} from "@/utils/customHooks.jsx";
 
 const Container = styled.nav`
   position: relative;
   width:100%;
-  height: 2.5rem;
+  height: 5vh;
   padding: 0.5rem 0;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #D3D3D3;
   background: #020002;
   z-index: 1000;
   
@@ -82,8 +83,14 @@ const Profilebox = styled.button`
 `;
 
 
-function Navibar() {  
+function Navibar({isLoggedIn, username}) {
   const { toggleIsModal } = useStore();
+  const navigate = useNavigate();
+  const [jwtToken, setJwtToken] = useLocalStorage("jwtToken", "");
+  const onLogout = () => {
+      setJwtToken("");
+      navigate('login/')
+  }
   return (
       <Container>                    
         <NavUi>
@@ -91,18 +98,20 @@ function Navibar() {
             <Link to="/frontend/">
               <LogoBox url={'img/icon/Logo-icon.jpg'}></LogoBox>            
               <NavLogo>Squid</NavLogo>
-            </Link>            
+
+            </Link>
           </NavLi>
-          <NavLi>                      
-            <Profilebox 
-              url={'img/icon/profile01.png'}
-              onClick={toggleIsModal}
-            />
-              <NavTab>Mike</NavTab>
+          <NavLi>
+            {isLoggedIn && <Profilebox
+                url={'../../src/assets/img/icon/profile01.png'}
+                onClick={toggleIsModal}
+            />}
+              <NavTab>
+                {isLoggedIn ? username : "회원가입"}
+              </NavTab>
               <NavLoginBox>
-                <Link to="/frontend/login">
-                  <NavTab>Login</NavTab>
-                </Link>
+                {isLoggedIn ? <NavTab onClick={onLogout} href="/" >Logout</NavTab> : <NavTab href='login/'>Login</NavTab>}
+
               </NavLoginBox>
                  
           </NavLi>
