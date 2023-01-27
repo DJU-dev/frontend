@@ -1,5 +1,5 @@
 import styled from "styled-components";
-// import { AiFillTwitterCircle, AiFillYoutube, AiFillInstagram, AiFillFacebook } from "react-icons/ai";
+import { AiFillTwitterCircle, AiFillYoutube, AiFillInstagram, AiFillFacebook } from "react-icons/ai";
 import { FaDiscord } from "react-icons/fa";
 
 const Container = styled.div`    
@@ -104,40 +104,40 @@ const P = styled.p`
     }
 `;
 
-// const TwitterIcon =styled(AiFillTwitterCircle)`
-//     margin-left: 1.5rem;    
-//     width: 2.2rem;
-//     height: 2.2rem;    
-//     color: white; 
-// `
+const TwitterIcon =styled(AiFillTwitterCircle)`
+    margin-left: 1.5rem;    
+    width: 2.2rem;
+    height: 2.2rem;    
+    color: white; 
+`
 
-// const YoutubeIcon =styled(AiFillYoutube)`
-//     margin-left: 1.5rem;    
-//     width: 2.2rem;
-//     height: 2.2rem;    
-//     color: white; 
-// `
+const YoutubeIcon =styled(AiFillYoutube)`
+    margin-left: 1.5rem;    
+    width: 2.2rem;
+    height: 2.2rem;    
+    color: white; 
+`
 
-// const InstarIcon =styled(AiFillInstagram)`
-//     margin-left: 1.5rem;    
-//     width: 2.2rem;
-//     height: 2.2rem;    
-//     color: white; 
-// `
+const InstarIcon =styled(AiFillInstagram)`
+    margin-left: 1.5rem;    
+    width: 2.2rem;
+    height: 2.2rem;    
+    color: white; 
+`
 
-// const FacebookIcon =styled(AiFillFacebook)`
-//     margin-left: 1.5rem;    
-//     width: 2.2rem;
-//     height: 2.2rem;    
-//     color: white; 
-// `
+const FacebookIcon =styled(AiFillFacebook)`
+    margin-left: 1.5rem;    
+    width: 2.2rem;
+    height: 2.2rem;    
+    color: white; 
+`
 
-// const DiscordIcon = styled(FaDiscord)`
-//     margin-left: 1.5rem;    
-//     width: 2.2rem;
-//     height: 2.2rem;    
-//     color: white;
-// `
+const DiscordIcon = styled(FaDiscord)`
+    margin-left: 1.5rem;    
+    width: 2.2rem;
+    height: 2.2rem;    
+    color: white;
+`
 
 
 
@@ -189,11 +189,11 @@ function FFooter(){
             <F_Footer>
                 <P>Copyright © 2023 daejeon_u Technology Pty Limited (ACN 442 359 655)</P>
                 <ArrIcon>
-                    {/* <TwitterIcon />
+                    <TwitterIcon />
                     <YoutubeIcon />
                     <InstarIcon />
                     <FacebookIcon />
-                    <DiscordIcon /> */}
+                    <DiscordIcon />
                 </ArrIcon>
             </F_Footer>
         </div>

@@ -107,7 +107,7 @@ function SideBar() {
             <MenuToggle 
             toggle={isSide} 
             onClick={toggleIsSide} 
-            url={'/frontend/public/img/icon/triangular-arrowhead-icon.png'}>
+            url={'img/icon/triangular-arrowhead-icon.png'}>
             <div></div>
             </MenuToggle>
 
@@ -115,22 +115,22 @@ function SideBar() {
                 <MenuList toggle={isSide}>
                     <MenuEvent
                     onClick={() => window.location.href="/frontend/map"}
-                    url={'/frontend/public/img/icon/earth-icon.png'}>
+                    url={'img/icon/earth-icon.png'}>
                         <div className="icon"/>
                         <div className="menuItem"/>                                        
                     </MenuEvent>
                     <MenuEvent 
                     onClick={() => window.location.href="/frontend/fill-in"}
-                    url={'/frontend/public/img/icon/writing-icon.png'}>
+                    url={'img/icon/writing-icon.png'}>
                         <div className="icon"/>
                         <div className="menuItem"/>                                        
                     </MenuEvent>
 
-                    <MenuEvent url={'/frontend/public/img/icon/Simpsons-icon.png'}>
+                    <MenuEvent url={'img/icon/Simpsons-icon.png'}>
                         <div className="icon"/>  
                         <div className="menuItem"/>                                        
                     </MenuEvent>
-                    <MenuEvent url={'/frontend/public/img/icon/phone-icon.png'}>
+                    <MenuEvent url={'img/icon/phone-icon.png'}>
                         <div className="icon"/>
                         <div className="menuItem"/>                                        
                     </MenuEvent>
